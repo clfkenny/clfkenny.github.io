@@ -6,5 +6,5 @@ title: Projects | Kenny Lov
 ### Here are some of my projects I've been working on
 
 <p>
-  <li><a href= "/projects/pokemon_classifier">Pokemon</a></li>
+  <li><a href= "/projects/pokemon_classifier">Pokemon Type Classifier</a></li>
 </p>
