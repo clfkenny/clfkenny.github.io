@@ -8,6 +8,6 @@ date: 4/26/18
 ---
 ![Me](linkedin pic.jpg){:height="10%" width="10%"}
 
-<img style="float: right;width:60px;height:90px;" src="linkedin pic.jpg">
+<img style="float: right;width:20px;height:30px;" src="linkedin pic.jpg">
 
 Hi this is about me 
