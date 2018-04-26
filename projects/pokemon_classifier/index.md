@@ -14,6 +14,12 @@ import requests
 from bs4 import BeautifulSoup
 </code></pre>
 
+```python
+import requests
+from bs4 import BeautifulSoup
+</code></pre>
+```
+
 
 ```python
 main_page = requests.get('https://pokemondb.net/pokedex/all')
