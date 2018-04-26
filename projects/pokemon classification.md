@@ -1,4 +1,7 @@
 
+# Pokemon Type Classifier 
+The goal will be to see if we can classify a pokemon's type based on their base stats.
+
 ```python
 import requests
 from bs4 import BeautifulSoup
