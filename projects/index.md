@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Projects
+title: Projects | Kenny Lov
 ---
 <p> Here are some of my projects I've been working on: </p>
 <p>
