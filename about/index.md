@@ -6,7 +6,6 @@ date: 4/26/18
 
 ## About Me
 ---
-![Me](linkedin pic.jpg){:height="10%" width="10%"}
 
 <img style="float: right;width:20px;height:30px;" src="linkedin pic.jpg">
 
