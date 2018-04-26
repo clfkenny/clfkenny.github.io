@@ -188,6 +188,7 @@ for pokemon in poke_list:
     poke_col_list.append(main_color)
     
 ```
+![png](output_0_1.png)
 
 
 ```python
