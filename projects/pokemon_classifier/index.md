@@ -3,7 +3,6 @@ title: Pokemon Type Classifier
 author: Kenny Lov
 date: 4/26/2018
 ---
-<div class='blurb'>
 
 # Pokemon Type Classifier 
 The goal will be to see if we can classify a pokemon's type based on their base stats.
@@ -397,4 +396,3 @@ clf.best_estimator_
                weights='uniform')
 
 
-</div>
