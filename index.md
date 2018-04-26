@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Kenny Lov</title>
+		<title>Hank Quinlan, Horrible Cop</title>
+		<!-- link to main stylesheet -->
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
 	</head>
 	<body>
 		<nav>
@@ -14,14 +16,14 @@
 		</nav>
 		<div class="container">
     		<div class="blurb">
-        		<h1>Hi there,</h1>
-				<p></p>
+        		<h1>Hi there, I'm Hank Quinlan!</h1>
+				<p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't trust me. <a href="/about">Read more about my life...</a></p>
     		</div><!-- /.blurb -->
 		</div><!-- /.container -->
 		<footer>
     		<ul>
-        		<li><a href="lov.kenny1996@gmail.com">email</a></li>
-        		<li><a href="https://github.com/clfkenny">github.com/clfkenny</a></li>
+        		<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
+        		<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
 			</ul>
 		</footer>
 	</body>
