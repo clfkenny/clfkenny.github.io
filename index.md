@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Kenny Lov
 ---
 <div class='blurb'>
