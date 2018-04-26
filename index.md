@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<title>Kenny Lov</title>
-
 	</head>
 	<body>
 		<nav>
