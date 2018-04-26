@@ -1,46 +1,4 @@
 
-
-```python
-import requests
-import PIL
-import io
-import numpy as np
-import cv2
-
-colors = []
-
-page = requests.get('https://pokemondb.net/pokedex/charmander')
-soup= BeautifulSoup(page.content, 'html.parser')
-img_link = soup.select('div.col.desk-span-4.lap-span-6.figure img')[0]['src']
-print(img_link)
-
-
-img = requests.get(img_link, stream=True)
-img.raw.decode_content = True
-image = PIL.Image.open(img.raw)
-
-
-img = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
-Z = img.reshape((-1,3))
-# convert to np.float32
-Z = np.float32(Z)
-# define criteria, number of clusters(K) and apply kmeans()
-criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
-K = 2
-ret,label,center=cv2.kmeans(Z,K,None,criteria,10,cv2.KMEANS_RANDOM_CENTERS)
-# Now convert back into uint8, and make original image
-center = np.uint8(center)
-res = center[label.flatten()]
-res2 = res.reshape((img.shape))
-
-#cv2.imshow('res2',res2)
-#cv2.waitKey(0)
-#cv2.destroyAllWindows()
-
-
-```
-
-
 ```python
 import requests
 from bs4 import BeautifulSoup
