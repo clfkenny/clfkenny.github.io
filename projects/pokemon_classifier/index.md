@@ -3,10 +3,6 @@ layout: default
 title: Kenny Lov
 ---
 <div class='blurb'>
----
-layout: default
-title: Pokemon Type Classifier
----
 
 # Pokemon Type Classifier 
 The goal will be to see if we can classify a pokemon's type based on their base stats.
