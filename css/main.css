@@ -1,6 +1,7 @@
 body {
     margin: 60px auto;
     width: 70%;
+    background-color: #D5D5D5
 }
 nav {
     border-bottom: 1px solid #d5d5d5;
@@ -46,8 +47,4 @@ ul.posts li {
     list-style: none;
 }
 
-pre,
-code {
-    ...
-    background-color: #d5d5d5;
-}
+
