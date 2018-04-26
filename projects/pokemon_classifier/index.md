@@ -5,6 +5,8 @@ date: 4/26/2018
 ---
 
 # Pokemon Type Classifier 
+*4/26/2018*
+
 The goal will be to see if we can classify a pokemon's type based on their base stats.
 
 ```python
