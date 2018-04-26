@@ -2,8 +2,7 @@
 <html>
 	<head>
 		<title>Kenny Lov</title>
-		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
+
 	</head>
 	<body>
 		<nav>
