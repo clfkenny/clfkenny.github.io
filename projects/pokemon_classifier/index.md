@@ -381,10 +381,10 @@ Now trying with stats and color
 # split up the datasets
 dataf2 = dataf.copy().drop('pokemon', axis=1).as_matrix()
 train = dataf2[0:721]
-trainX = train[:,[0,1,2,8,9,10]]
+trainX = train[:,[0,1,2,3,4,5,8,9,10]]
 trainy = train[:,6]
 test = dataf2[721:len(dataf), ]
-testX = test[:,[0,1,2,8,9,10]]
+testX = test[:,[0,1,2,3,4,5,8,9,10]]
 testy = test[:,6]
 testy2 = test[:,7]
 ```
@@ -393,10 +393,15 @@ testy2 = test[:,7]
 ```python
 from sklearn import neighbors
 knn_clf = neighbors.KNeighborsClassifier()
-clf = GridSearchCV(estimator = knn_clf, param_grid=dict(n_neighbors = [1,2,3,4,5,6,7,8,9,10]))
+clf = GridSearchCV(estimator = knn_clf, param_grid=dict(n_neighbors = list(range(1,25))))
 clf.fit(trainX, trainy)
-clf.best_estimator_
-#print('knn classification rate:', str(sum(knn_clf.predict(testX) == testy)/len(testy)))
+print(clf.best_estimator_) # best n_neighbors = 10
+
+knn = neighbors.KNeighborsClassifier(n_neighbors = 10)
+knn.fit(trainX, trainy)
+
+print('knn classification rate:', str(sum(knn.predict(testX) == testy)/len(testy)))
+
 
 ```
 
