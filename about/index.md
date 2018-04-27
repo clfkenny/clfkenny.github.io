@@ -12,8 +12,3 @@ date: 4/26/18
 
 
 Hi this is about me
-\
-\
-\
-\
-\
