@@ -35,6 +35,10 @@ h1 {
     font-weight: normal;
     text-align: center;
 }
+h2 {
+    font-size: 1em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-weight: normal;
 h3 {
     font-size: 1em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
