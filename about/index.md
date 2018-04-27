@@ -8,4 +8,4 @@ date: 4/26/18
 
 <img style="float: right; width:80px;height:115px; border-radius: 8px;" src="linkedin pic.jpg">
 
-Hi this is about me 
+<p> Hi this is about me </p>
