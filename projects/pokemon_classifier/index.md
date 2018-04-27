@@ -5,7 +5,7 @@ author: Kenny Lov
 date: 4/26/2018
 ---
 
-<center> <h1> Pokemon Type Classifier </h1></center>
+# Pokemon Type Classifier
 *Kenny Lov*
 
 *4/26/2018*
