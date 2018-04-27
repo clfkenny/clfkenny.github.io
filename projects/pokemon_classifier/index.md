@@ -193,9 +193,9 @@ for pokemon in poke_list:
 ```
 <table style="width:100%">
   <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
+    <th>Bulbasaur</th>
+    <th>Charmander</th> 
+    <th>Squirtle</th>
   </tr> 
     <th><img src = "output_0_1.png"></th>
     <th><img src = "charmander.png"></th> 
