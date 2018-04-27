@@ -10,11 +10,10 @@ date: 4/26/18
 </p>
 # About Me
 
+
 Hi this is about me
-
-
-
-
-
-
-
+\
+\
+\
+\
+\
