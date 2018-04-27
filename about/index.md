@@ -10,4 +10,4 @@ date: 4/26/18
 </p>
 # About Me
 
-<p> Hi this is about me </p>
+Hi this is about me
