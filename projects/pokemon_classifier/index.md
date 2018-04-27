@@ -12,7 +12,7 @@ date: 4/26/2018
 
 ## Introduction
 
-The goal will be to see if we can classify a pokemon's type based on their base stats.
+Playing pokemon as a kid, I've noticed that certain types would have The goal will be to see if we can classify a pokemon's type based on their base stats.
 
 ```python
 import requests
