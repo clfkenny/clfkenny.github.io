@@ -2,6 +2,9 @@
 layout: default
 title: Projects | Kenny Lov
 ---
+nav ul li{
+  text-decoration: underline;
+}
 # Projects
 ### Here are some of my projects I've been working on:
 
