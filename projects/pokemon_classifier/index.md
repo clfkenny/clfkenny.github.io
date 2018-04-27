@@ -18,7 +18,7 @@ date: 4/26/2018
 }
 </style>
 
-<p>
+<p style = "text-align: center">
 <img id = "pokemon-logo" src="pokemon.png">
 </p>
 
