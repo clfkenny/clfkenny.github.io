@@ -2,9 +2,8 @@
 layout: default
 title: Projects | Kenny Lov
 ---
-<style> body { background:red }
-
-nav ul li {
+<style> 
+nav ul li:nth-child(3) {
   text-decoration: underline;
 }
 
