@@ -61,8 +61,7 @@ ul.posts li {
     list-style: none;
 }
 
-h1, h3, p, a{
-    width: 80%;
+div.container{
+    width:80%;
     margin:auto;
-    horizontal-align: center;
 }
