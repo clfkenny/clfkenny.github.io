@@ -7,7 +7,7 @@ date: 4/26/18
   img {
   float: right; 
   width:200px;
-  height:380x; 
+  height:280x; 
   border-radius: 12px;
   position: relative;
   right: 20px;
