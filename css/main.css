@@ -1,16 +1,15 @@
 body {
     margin: 100px auto;
-    width: 65%;
+    width: 100%;
 }
 nav {
-    background-color:#d5d5d5;
-    color: white;
+    background-color:#f4f4f4;
+    border-bottom: .8px solid #d5d5d5;
     font-size: 1.5em;  
     text-align: center;
     overflow: hidden;
     position: fixed;
     top: 0;
-    width: 65%;
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
