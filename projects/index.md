@@ -2,7 +2,7 @@
 layout: default
 title: Projects | Kenny Lov
 ---
-li{
+li {
   text-decoration: underline;
 }
 # Projects
