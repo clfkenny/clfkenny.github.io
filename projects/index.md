@@ -12,6 +12,7 @@ nav ul li:nth-child(3) {
 # Projects
 ### Here are some of my projects I've been working on:
 
+</br>
 <p>
   <li><a href= "/projects/pokemon_classifier">Pokemon Type Classifier</a></li>
 </p>
