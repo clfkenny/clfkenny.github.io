@@ -24,9 +24,9 @@ nav ul li, footer ul li {
     display: inline;
     margin-right: 25px;
 }
-
+div.container a{
+    font-size: 1.1em;    
 a {
-    font-size: 1.1em;
     text-decoration: none;
     color: #999;
 }
