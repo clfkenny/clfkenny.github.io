@@ -405,14 +405,5 @@ print('knn classification rate:', str(sum(knn.predict(testX) == testy)/len(testy
 
 ```
 
-    svm class rate: 0.13953488372093023
-
-
-
-
-
-    KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
-               metric_params=None, n_jobs=1, n_neighbors=9, p=2,
-               weights='uniform')
-
+    knn classification rate: 0.1744186046511628
 
