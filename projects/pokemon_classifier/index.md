@@ -7,9 +7,10 @@ date: 4/26/2018
 
 # Pokemon Type Classifier
 *Kenny Lov*
-
 *4/26/2018*
 
+
+## Introduction
 The goal will be to see if we can classify a pokemon's type based on their base stats.
 
 ```python
