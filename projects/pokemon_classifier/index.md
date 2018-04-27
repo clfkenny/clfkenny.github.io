@@ -197,9 +197,9 @@ for pokemon in poke_list:
     <th>Lastname</th> 
     <th>Age</th>
   </tr> 
-    <th>![png](output_0_1.png)</th>
-    <th>![png](charmander.png)</th> 
-    <th>![png](squirtle.png)</th>
+    <th><img src = "output_0_1.png"></th>
+    <th><img src = "charmander.png"></th> 
+    <th><img src = "squirtle.png"></th>
     </table>
 
 
