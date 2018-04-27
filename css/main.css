@@ -10,7 +10,7 @@ nav {
     overflow: hidden;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 65%;
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
