@@ -191,9 +191,16 @@ for pokemon in poke_list:
     poke_col_list.append(main_color)
     
 ```
-Bulbasuar | Charmander | Squirtle
-----------|:-----------|:------------
-![png](output_0_1.png) |![png](charmander.png) | ![png](squirtle.png)
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+  </tr> 
+    <th>![png](output_0_1.png)</th>
+    <th>![png](charmander.png)</th> 
+    <th>![png](squirtle.png)</th>
+    </table>
 
 
 ```python
