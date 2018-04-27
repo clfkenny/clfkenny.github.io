@@ -14,7 +14,8 @@ date: 4/26/2018
 
 <style> nav ul li:nth-child(3) { text-decoration: underline; }
   img#pokemon-logo {
-  float: center; 
+  position: relative;
+  bottom: 20px;
 }
 </style>
 
