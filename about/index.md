@@ -6,8 +6,8 @@ date: 4/26/18
 <style> nav ul li:nth-child(2) { text-decoration: underline;} 
   img {
   float: right; 
-  width:150px;
-  height:220x; 
+  width:200px;
+  height:380x; 
   border-radius: 12px;
   position: relative;
   right: 20px;
