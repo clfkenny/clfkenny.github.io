@@ -65,3 +65,9 @@ div.container{
     width:65%;
     margin:auto;
 }
+i.material-icons{
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 4px;
+
+}
