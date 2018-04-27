@@ -13,8 +13,11 @@ date: 4/26/2018
 
 <h2> Introduction </h2>
 ### h3
+
 #### h4
+
 ##### h5
+
 The goal will be to see if we can classify a pokemon's type based on their base stats.
 
 ```python
