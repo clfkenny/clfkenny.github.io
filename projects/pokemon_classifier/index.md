@@ -12,6 +12,20 @@ date: 4/26/2018
 
 ## Introduction
 
+<style> img#pokemon-logo { text-decoration: underline;} 
+  img {
+  float: center; 
+  border-radius: 12px;
+  position: relative;
+  right: 20px;
+  top: 40px;
+}
+</style>
+
+<p>
+<img id = "pokemon-logo" src="pokemon.png">
+</p>
+
 Playing pokemon as a kid, I've noticed that certain types would have The goal will be to see if we can classify a pokemon's type based on their base stats.
 
 ```python
