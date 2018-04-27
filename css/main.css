@@ -10,6 +10,7 @@ nav {
     overflow: hidden;
     position: fixed;
     top: 0;
+    width: 100%;
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
@@ -60,4 +61,8 @@ ul.posts li {
     list-style: none;
 }
 
-
+h1, h3, p, a{
+    width: 80%;
+    margin:auto;
+    horizontal-align: center;
+}
