@@ -9,6 +9,9 @@ date: 4/26/18
   width:150px;
   height:220x; 
   border-radius: 12px;
+  position: relative;
+  right: 20px;
+  top: 40px;
 }
 </style>
 
