@@ -192,7 +192,7 @@ for pokemon in poke_list:
     
 ```
 Bulbasuar | Charmander | Squirtle
----------------------------------
+----------|:-----------|:------------
 ![png](output_0_1.png) |![png](charmander.png) | ![png](squirtle.png)
 
 
