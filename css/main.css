@@ -4,7 +4,8 @@ body {
 }
 nav {
     border-bottom: 1px solid #d5d5d5;
-    font-size: 1.5em;    
+    font-size: 1.5em;  
+    text-align: center;
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
