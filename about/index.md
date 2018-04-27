@@ -7,8 +7,8 @@ date: 4/26/18
 
 img{
   float: right; 
-  width:130px;
-  height:190x; 
+  width:150px;
+  height:220x; 
   border-radius: 12px;
 }
 
