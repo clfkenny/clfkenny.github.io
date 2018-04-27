@@ -67,6 +67,10 @@ div.container{
     margin:auto;
 }
 
-p:nth-child(-n+2){
+p:nth-child(2)
+{
+    text-align:center;
+}
+p:nth-child(3){
     text-align:center;
 }
