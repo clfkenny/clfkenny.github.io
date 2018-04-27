@@ -12,13 +12,9 @@ date: 4/26/2018
 
 ## Introduction
 
-<style> img#pokemon-logo { text-decoration: underline;} 
-  img {
+<style> nav ul li:nth-child(3) { text-decoration: underline; }
+  img#pokemon-logo {
   float: center; 
-  border-radius: 12px;
-  position: relative;
-  right: 20px;
-  top: 40px;
 }
 </style>
 
