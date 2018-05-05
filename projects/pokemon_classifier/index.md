@@ -420,3 +420,5 @@ print('knn classification rate:', str(sum(knn.predict(testX) == testy)/len(testy
 
     knn classification rate: 0.1744186046511628
 
+## Conclusion
+It appears that there isn't much of a relationship between pokemon stats and color with their types.
