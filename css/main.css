@@ -92,7 +92,7 @@ i.material-icons{
   top: 4px;
 }
 
-
+<!-- animate header by moving it from the left -->
 h1 {
   animation: move 1s;
   -webkit-animation: move 1s;
