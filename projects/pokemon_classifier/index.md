@@ -25,6 +25,14 @@ date: 4/26/2018
 </style>
 
 <p class = "w3-container w3-center w3-animate-top" style = "text-align: center">
+<script>
+$(document).ready(function(){
+    $("img").click(function(){
+        $("img").animate({left: '250px'});
+    });
+});
+</script>
+
 <img class = "w3-animate-zoom" id = "pokemon-logo" src="pokemon.png">
 </p>
 
