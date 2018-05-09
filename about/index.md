@@ -3,7 +3,13 @@ layout: default
 title: About Me | Kenny Lov
 date: 4/26/18
 ---
-<style> nav ul li:nth-child(2) { text-decoration: underline;} 
+<style> 
+nav ul li:nth-child(2) a{
+ color: #45a29e; 
+ text-decoration:underline;
+ text-decoration-color:#45a29e;
+}
+  
   img {
   float: right; 
   padding: 30px;
