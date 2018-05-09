@@ -25,6 +25,8 @@ date: 4/26/2018
 </style>
 
 <p style = "text-align: center">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
     $("img").click(function(){
