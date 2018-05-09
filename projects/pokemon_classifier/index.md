@@ -24,8 +24,8 @@ date: 4/26/2018
 }
 </style>
 
-<p style = "text-align: center">
-<img id = "pokemon-logo" src="pokemon.png">
+<p class = "w3-container w3-center w3-animate-top" style = "text-align: center">
+<img class = "w3-animate-zoom" id = "pokemon-logo" src="pokemon.png">
 </p>
 
 Playing pokemon as a kid, I've noticed that certain types would have The goal will be to see if we can classify a pokemon's type based on their base stats.
