@@ -50,7 +50,7 @@ img {
 
 </style>
 
-<!-- <div class="w3-content w3-section" id = "poke_logo" style = "text-align: center"> -->
+<div id = "poke_logo" style = "text-align: center"> 
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <!--<script src="//code.jquery.com/jquery-1.12.4.js"></script> -->
@@ -62,10 +62,9 @@ img {
 <!--    }); -->
 <!--}); -->
  
-</script>
+<!-- </script> -->
 
-
-<img class="w3-animate-left" id = "pokemon-logo" src="pokemon.png">
+<img id = "pokemon-logo" src="pokemon.png">
 </div>
 
 Playing pokemon as a kid, I've noticed that certain types would have The goal will be to see if we can classify a pokemon's type based on their base stats.
