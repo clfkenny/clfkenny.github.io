@@ -31,7 +31,7 @@ date: 4/26/2018
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 $(document).ready(function(){
-    $("img#poke-logo").mouseenter(function(){
+    $("p#poke-logo").mouseenter(function(){
         $("img").effect( effect = "shake", queue = false, duration = 400 );
     });
 });
