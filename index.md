@@ -6,7 +6,35 @@ title: Kenny Lov
  color: #45a29e; 
  text-decoration:underline;
  text-decoration-color:#45a29e;
-} </style>
+} 
+
+h1, h2 {
+  animation: move 3s;
+  -webkit-animation: move 3s;
+}
+@keyframes move {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}            
+@-webkit-keyframes move {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+</style>
+
 
 # *Home*
 
