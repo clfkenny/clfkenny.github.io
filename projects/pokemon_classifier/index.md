@@ -32,7 +32,7 @@ date: 4/26/2018
 <script>
 $(document).ready(function(){
     $("img").mouseenter(function(){
-        $("img").effect( effect = "shake", queue = false, duration = 1000 );
+        $("img").effect( effect = "shake", queue = false, duration = 200 );
     });
 });
 </script>
