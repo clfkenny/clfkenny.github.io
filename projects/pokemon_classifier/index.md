@@ -24,7 +24,7 @@ date: 4/26/2018
 }
 </style>
 
-<p class="w3-content w3-section" id = "poke_logo" style = "text-align: center">
+<div class="w3-content w3-section" id = "poke_logo" style = "text-align: center">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
@@ -38,7 +38,7 @@ $(document).ready(function(){
 </script>
 
 <img class="w3-animate-bottom" id = "pokemon-logo" src="pokemon.png">
-</p>
+</div>
 
 Playing pokemon as a kid, I've noticed that certain types would have The goal will be to see if we can classify a pokemon's type based on their base stats.
 
