@@ -36,7 +36,11 @@ $(document).ready(function(){
     });
 });
 </script>
-
+  <script>
+  $( function() {
+    $( "img" ).draggable();
+  } );
+  </script>
 <img id = "pokemon-logo" src="pokemon.png">
 </p>
 
