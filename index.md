@@ -8,27 +8,27 @@ title: Kenny Lov
  text-decoration-color:#45a29e;
 } 
 
-h1, h2 {
-  animation: move 3s;
-  -webkit-animation: move 3s;
+h1 {
+  animation: move 2s;
+  -webkit-animation: move 2s;
 }
 @keyframes move {
   from {
-    margin-left: 100%;
+    margin-right: 100%;
     width: 300%; 
   }
   to {
-    margin-left: 0%;
+    margin-right: 0%;
     width: 100%;
   }
 }            
 @-webkit-keyframes move {
   from {
-    margin-left: 100%;
+    margin-right: 100%;
     width: 300%; 
   }
   to {
-    margin-left: 0%;
+    margin-right: 0%;
     width: 100%;
   }
 }
