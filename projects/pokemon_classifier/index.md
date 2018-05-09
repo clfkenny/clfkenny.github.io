@@ -24,24 +24,20 @@ date: 4/26/2018
 }
 </style>
 
-<p id = "poke_logo" style = "text-align: center">
+<p class="w3-content w3-section" id = "poke_logo" style = "text-align: center">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 $(document).ready(function(){
-    $("p#poke-logo").mouseenter(function(){
+    $("img").mouseenter(function(){
         $("img").effect( effect = "shake", queue = false, duration = 400 );
     });
 });
 </script>
-  <script>
-  $( function() {
-    $( "img" ).draggable();
-  } );
-  </script>
-<img id = "pokemon-logo" src="pokemon.png">
+
+<img class="w3-animate-bottom" id = "pokemon-logo" src="pokemon.png">
 </p>
 
 Playing pokemon as a kid, I've noticed that certain types would have The goal will be to see if we can classify a pokemon's type based on their base stats.
