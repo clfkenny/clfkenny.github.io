@@ -22,6 +22,32 @@ date: 4/26/2018
   position: relative;
   bottom: 20px;
 }
+
+img {
+  animation: move 1s;
+  -webkit-animation: move 1s;
+}
+@keyframes move {
+  from {
+    margin-top: 100%;
+    width: 100%; 
+  }
+  to {
+    margin-left: 0%;
+    width: 45%;
+  }
+}      
+@-webkit-keyframes move {
+  from {
+    margin-top: 100%;
+    width: 100%; 
+  }
+  to {
+    margin-left: 0%;
+    width: 45%;
+  }
+}
+
 </style>
 
 <div class="w3-content w3-section" id = "poke_logo" style = "text-align: center">
