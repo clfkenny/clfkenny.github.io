@@ -3,8 +3,10 @@ layout: default
 title: Projects | Kenny Lov
 ---
 <style> 
-nav ul li:nth-child(3) {
-  text-decoration: underline;
+nav ul li:nth-child(3) a{
+ color: #45a29e; 
+ text-decoration:underline;
+ text-decoration-color:#45a29e;
 }
 
 </style>
