@@ -12,7 +12,12 @@ date: 4/26/2018
 
 ## Introduction
 
-<style> nav ul li:nth-child(3) { text-decoration: underline; }
+<style> nav ul li:nth-child(3)  {
+  color: #45a29e; 
+  text-decoration:underline;
+  text-decoration-color:#45a29e;
+  }
+  
   img#pokemon-logo {
   position: relative;
   bottom: 20px;
