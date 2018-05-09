@@ -37,7 +37,7 @@ $(document).ready(function(){
 });
 </script>
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <img class="w3-animate-left" id = "pokemon-logo" src="pokemon.png">
 </div>
 
