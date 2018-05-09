@@ -15,7 +15,7 @@ nav {
     top: 0;
     width: 100%;
     z-index:1000;
-    background: linear-gradient(#45a29e, #1f2833);     
+    background: linear-gradient(#488084, #1f2833);  
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
