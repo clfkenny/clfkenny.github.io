@@ -9,7 +9,7 @@ nav ul li:nth-child(3) {
 
 </style>
 
-# Projects
+# *Projects*
 ### Here are some of my projects I've been working on:
 
 <p>
