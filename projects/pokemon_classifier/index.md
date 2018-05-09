@@ -274,7 +274,8 @@ layout = go.Layout(
         xaxis = dict(title = 'Red'),
         yaxis = dict(title = 'Blue'),
         zaxis = dict(title = 'Green')
-    )
+    ),
+    paper_bgcolor='rgba(0,0,0,0)'
 )
 fig = go.Figure(data=data, layout=layout)
 py.iplot(fig, filename='simple-3d-scatter')
@@ -345,7 +346,8 @@ layout = go.Layout(
         xaxis = dict(title = 'Red'),
         yaxis = dict(title = 'Blue'),
         zaxis = dict(title = 'Green')
-    )
+    ),
+    paper_bgcolor='rgba(0,0,0,0)'
 )
 fig = go.Figure(data=data2, layout=layout)
 py.iplot(fig, filename='simple-3d-scatter')
