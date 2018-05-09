@@ -31,7 +31,9 @@ a {
     color: #999;
 }
 a:hover {
+    color: #45a29e;
     text-decoration: underline;
+    text-decoration-color:#45a29e;
 }
 h1 {
     font-size: 2.7em;
