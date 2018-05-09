@@ -34,6 +34,10 @@ div.container a{
     font-size: 1.1em; 
 }
 a {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    border-bottom: 1px solid transparent;    
     text-decoration: none;
     color:#45a29e;
 }
