@@ -38,7 +38,7 @@ $(document).ready(function(){
 </script>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<img class="w3-animate-bottom" id = "pokemon-logo" src="pokemon.png">
+<img class="w3-animate-left" id = "pokemon-logo" src="pokemon.png">
 </div>
 
 Playing pokemon as a kid, I've noticed that certain types would have The goal will be to see if we can classify a pokemon's type based on their base stats.
