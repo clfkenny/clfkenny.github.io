@@ -2,10 +2,12 @@ body {
     margin: 100px auto;
     width: 100%;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    color: #c5c6c7;
+    background-color:#1f2833;    
 }
 nav {
-    background-color:#fcfcfc;
-    border-bottom: .8px solid #d5d5d5;
+    background-color:#1f2833;
+    border-bottom: .8px solid #45a29e;
     font-size: 1.5em;  
     text-align: center;
     overflow: hidden;
@@ -52,7 +54,7 @@ p {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 footer {
-    border-top: .8px solid #d5d5d5;
+    border-top: .8px solid #45a29e;
     font-size: .9em;
     text-align: center;
 }
