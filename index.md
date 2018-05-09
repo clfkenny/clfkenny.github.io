@@ -18,7 +18,7 @@ h1 {
     width: 300%; 
   }
   to {
-    margin-right: 0%;
+    margin-left: 0%;
     width: 100%;
   }
 }            
@@ -28,7 +28,7 @@ h1 {
     width: 300%; 
   }
   to {
-    margin-right: 0%;
+    margin-left: 0%;
     width: 100%;
   }
 }
