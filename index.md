@@ -9,24 +9,28 @@ title: Kenny Lov
 } 
 
 h1 {
-  animation: move 2s;
-  -webkit-animation: move 2s;
+  animation: move 1s;
+  -webkit-animation: move 1s;
 }
+
 @keyframes move {
   from {
-    margin-right: 100%;
+    margin-left: -50%;
     width: 300%; 
   }
+
   to {
     margin-left: 0%;
     width: 100%;
   }
-}            
+}
+            
 @-webkit-keyframes move {
   from {
-    margin-right: 100%;
+    margin-left: -50%;
     width: 300%; 
   }
+
   to {
     margin-left: 0%;
     width: 100%;
