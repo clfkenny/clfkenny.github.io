@@ -23,7 +23,7 @@ date: 4/26/2018
   bottom: 20px;
 }
 
-img {
+img#pokemon-logo {
   animation: move 1.5s;
   -webkit-animation: move 1.5s;
 }
