@@ -39,7 +39,6 @@ img#pokemon-logo {
     to   { opacity: 1; }
 }
 
-
 </style>
 
 <div id = "poke_logo" style = "text-align: center"> 
@@ -49,12 +48,12 @@ img#pokemon-logo {
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script> 
 $(document).ready(function(){ 
-    $("img").mouseenter(function(){
-        $("img").effect( effect = "shake", queue = false, duration = 400 ); 
+    $("img#pokemon-logo").mouseenter(function(){
+        $("img#pokemon-logo").effect(effect = "shake", queue = false, duration = 400); 
     }); 
 }); 
- 
-<!-- </script> -->
+</script> 
+
 
 <img id = "pokemon-logo" src="pokemon.png">
 </div>
