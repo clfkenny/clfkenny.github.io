@@ -246,9 +246,9 @@ for pokemon in poke_list:
     <th>Charmander</th> 
     <th>Squirtle</th>
   </tr> 
-    <th><img style = "width: 150px; height: 150px;" src = "bulbasaur_orig.png"></th>
-    <th><img style = "width: 150px; height: 150px;" src = "charmander_orig.png"></th> 
-    <th><img style = "width: 150px; height: 150px;" src = "squirtle_orig.png"></th>
+    <th><img style = "width: 150px; height: 150px;" src = "bulbasaur_orig.jpg"></th>
+    <th><img style = "width: 150px; height: 150px;" src = "charmander_orig.jpg"></th> 
+    <th><img style = "width: 150px; height: 150px;" src = "squirtle_orig.jpg"></th>
     </table>
 
 
