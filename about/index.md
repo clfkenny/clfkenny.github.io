@@ -10,15 +10,15 @@ nav ul li:nth-child(2) a{
  text-decoration-color:#45a29e;
 }
   
-  img#me{
+img#me{
   float: right; 
-  padding: 30px;
-  width:200px;
-  height:280x; 
-  border-radius: 12px;
+  margin:20px;
+  width:160px;
+  height:260x; 
+  border-radius: 20px;
   position: relative;
   right: 20px;
-  top: 40px;
+  top: -30px;
 }
 </style>
 
