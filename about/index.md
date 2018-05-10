@@ -10,7 +10,7 @@ nav ul li:nth-child(2) a{
  text-decoration-color:#45a29e;
 }
   
-  img id = "me"{
+  img#me{
   float: right; 
   padding: 30px;
   width:200px;
@@ -25,7 +25,7 @@ nav ul li:nth-child(2) a{
 
 
 <p>
-<img src="linkedin pic.jpg">
+<img id = "me" src="linkedin pic.jpg">
 </p>
 # *About Me*
 
