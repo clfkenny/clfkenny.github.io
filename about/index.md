@@ -10,7 +10,7 @@ nav ul li:nth-child(2) a{
  text-decoration-color:#45a29e;
 }
   
-  img {
+  img id = "me"{
   float: right; 
   padding: 30px;
   width:200px;
