@@ -40,13 +40,16 @@ nav ul li, footer ul li {
     display: inline;
     margin-right: 25px;
 }
+
+nav a{color: #c5c6c7;}
+
 a {
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
     border-bottom: 1px solid transparent;
     text-decoration: none;
-    color: #c5c6c7;
+    color: #45a29e;
 }
 nav a:hover {
     color: #45a29e;
