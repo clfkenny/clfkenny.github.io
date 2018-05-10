@@ -16,9 +16,9 @@ img#me{
   width:160px;
   height:260x; 
   border-radius: 20px;
-  position: relative;
-  right: 20px;
-  top: -30px;
+  position: fixed;
+  right: 150px;
+  top: 80px;
 }
 </style>
 
