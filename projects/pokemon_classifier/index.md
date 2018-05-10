@@ -24,12 +24,12 @@ date: 4/26/2018
 }
 
 img {
-  animation: move 1s;
-  -webkit-animation: move 1s;
+  animation: move 1.5s;
+  -webkit-animation: move 1.5s;
 }
 @keyframes move {
   from {
-    margin-top: 100%;
+    margin-top: -100%;
     width: 100%; 
   }
   to {
@@ -39,7 +39,7 @@ img {
 }      
 @-webkit-keyframes move {
   from {
-    margin-top: 100%;
+    margin-top: -100%;
     width: 100%; 
   }
   to {
@@ -47,6 +47,7 @@ img {
     width: 44%;
   }
 }
+
 
 </style>
 
