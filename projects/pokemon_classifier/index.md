@@ -58,7 +58,10 @@ $(document).ready(function(){
 <img id = "pokemon-logo" src="pokemon.png">
 </div>
 
-Playing pokemon as a kid, I've noticed that certain types would have The goal will be to see if we can classify a pokemon's type based on their base stats.
+Looking back to my childhood, I have very fond memories of Pokemon, whether it be from waiting for new episodes to air or from the many hours I had played the games. I noticed, while playing the games, that certain types of Pokemon had better base stats than others. For example, I noticed that rock and steel types had especially high defense, fighting and steel types had especially high attack, and dragon types had high values over all base stats. I think it would be interesting to see if there's any correlation between base stats and types, and if so, would it be possible to predict a pokemon's type given their base stats? 
+
+
+*The goal will be to see if we can classify a pokemon's type based on their base stats.*
 
 ```python
 import requests
