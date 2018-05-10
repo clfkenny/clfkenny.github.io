@@ -34,7 +34,7 @@ img {
   }
   to {
     margin-left: 0%;
-    width: 45%;
+    width: 44%;
   }
 }      
 @-webkit-keyframes move {
@@ -44,7 +44,7 @@ img {
   }
   to {
     margin-left: 0%;
-    width: 45%;
+    width: 44%;
   }
 }
 
