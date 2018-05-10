@@ -239,6 +239,20 @@ for pokemon in poke_list:
     poke_col_list.append(main_color)
     
 ```
+
+<table style="width:100%">
+  <tr>
+    <th>Bulbasaur</th>
+    <th>Charmander</th> 
+    <th>Squirtle</th>
+  </tr> 
+    <th><img style = "width: 150px; height: 150px;" src = "bulbasaur_orig.png"></th>
+    <th><img style = "width: 150px; height: 150px;" src = "charmander_orig.png"></th> 
+    <th><img style = "width: 150px; height: 150px;" src = "squirtle_orig.png"></th>
+    </table>
+
+
+
 <table style="width:100%">
   <tr>
     <th>Bulbasaur</th>
