@@ -262,9 +262,9 @@ for pokemon in poke_list:
     <th>Charmander</th> 
     <th>Squirtle</th>
   </tr> 
-    <th><img style="width: 165px; height: 165px;" src = "output_0_1.png"></th>
-    <th><img style="width: 165px; height: 165px;" src = "charmander.png"></th> 
-    <th><img style="width: 165px; height: 165px;" src = "squirtle.png"></th>
+    <th><img style="width: 200px; height: 200px;" src = "output_0_1.png"></th>
+    <th><img style="width: 200px; height: 200px;" src = "charmander.png"></th> 
+    <th><img style="width: 200px; height: 200px;" src = "squirtle.png"></th>
     </table>
 
 
