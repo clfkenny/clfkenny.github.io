@@ -174,7 +174,6 @@ print('knn classification rate:', str(sum(knn_clf.predict(testX) == testy)/len(t
 
 ```
 
-    svm class rate: 0.13953488372093023
     knn classification rate: 0.12790697674418605
 
 
@@ -438,7 +437,6 @@ print('knn classification rate:', str(sum(knn_clf.predict(testX) == testy)/len(t
 
 ```
 
-    svm class rate: 0.13953488372093023
     knn classification rate: 0.09302325581395349
 
 
