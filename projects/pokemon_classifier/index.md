@@ -24,28 +24,19 @@ date: 4/26/2018
 }
 
 img#pokemon-logo {
-  animation: move 1.5s;
-  -webkit-animation: move 1.5s;
+    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 3s; /* Firefox < 16 */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera < 12.1 */
+            animation: fadein 3s;
 }
-@keyframes move {
-  from {
-    margin-top: -100%;
-    width: 100%; 
-  }
-  to {
-    margin-left: 0%;
-    width: 44%;
-  }
-}      
-@-webkit-keyframes move {
-  from {
-    margin-top: -100%;
-    width: 100%; 
-  }
-  to {
-    margin-left: 0%;
-    width: 44%;
-  }
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 
