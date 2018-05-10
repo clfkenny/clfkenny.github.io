@@ -16,7 +16,7 @@ nav ul li:nth-child(3) a{
 
 <p>
   <li><a href= "/projects/pokemon_classifier">Pokemon Type Classifier</a>
-   <ul>Predicting a Pokemon's type based on its base stats and its dominant color using K-nearest neighbors algorithm</ul>
+   <ul>Predicting a Pokemon's type based on its base stats and its dominant color using the K-nearest neighbors algorithm</ul>
  </li>
  
  
