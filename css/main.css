@@ -55,10 +55,15 @@ a {
     text-decoration: none;
     color:#45a29e;
 }
-a:hover {
+nav a:hover {
     color: #45a29e;
     text-decoration: underline;
     text-decoration-color:#45a29e;
+}
+footer a:hover {
+    color: #c5c6c7;
+    text-decoration: underline;
+    text-decoration-color:#c5c6c7;
 }
 h1 {
     color: #45a29e;
