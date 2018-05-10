@@ -3,10 +3,10 @@ body {
     width: 100%;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     color: #c5c6c7;
-    background-color:#1f2833;
+    background-color:#1a1a1d;
 }
 nav {
-    background-color:#1f2833;
+    background-color:#1a1a1d;
     border-bottom: .8px solid #45a29e;
     font-size: 1.5em;  
     text-align: center;
@@ -15,7 +15,7 @@ nav {
     top: 0;
     width: 100%;
     z-index:1000;  
-    background: linear-gradient(#488084, #1f2833); 
+    background: linear-gradient(#488084, #1a1a1d); 
 }
 
 img#logo {
