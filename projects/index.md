@@ -16,6 +16,8 @@ nav ul li:nth-child(3) a{
 
 <p>
   <li><a href= "/projects/pokemon_classifier">Pokemon Type Classifier</a>
- <li> Hello </li>
+   <ul>Classifying Pokemon type based on base stats and dominant color</ul>
  </li>
+ 
+ 
 </p>
