@@ -27,10 +27,11 @@ img#me{
 <p>
 <img id = "me" src="linkedin pic.jpg">
 </p>
-# *About Me*
+# *A little about me*
 
 <h3 style = "margin-right: 0px; width: 80%;">
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+Hi! My name is Kenny and I'm currently an undergraduate senior at University of California, Los Angeles. I will be graduating with a B.S. in Neuroscience with a minor in Statistics. 
+
 
 <br><br><br>
   </h3>
