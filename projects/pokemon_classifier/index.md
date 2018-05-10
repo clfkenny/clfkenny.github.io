@@ -243,7 +243,7 @@ for pokemon in poke_list:
     poke_col_list.append(main_color)
     
 ```
-## Original Pictures:
+### Original Pictures:
 <table style="width:100%">
   <tr>
     <th>Bulbasaur</th>
@@ -256,7 +256,7 @@ for pokemon in poke_list:
     </table>
 
 
-## Pictures after converting to its two dominant colors:
+### Pictures after converting to its two dominant colors:
 <table style="width:100%">
   <tr>
     <th>Bulbasaur</th>
