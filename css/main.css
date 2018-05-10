@@ -21,12 +21,12 @@ nav {
 img#logo {
   float: left; 
   padding: 35px;
-  width:100px;
-  height:100px; 
+  width:120px;
+  height:65px; 
   border-radius: 12px; 
   position: fixed;
   left: 250px;
-  top: -30px;
+  top: -35px;
 }
 
 
