@@ -17,6 +17,19 @@ nav {
     z-index:1000;
     background: linear-gradient(#488084, #1f2833);  
 }
+
+img#logo {
+  float: left; 
+  padding: 35px;
+  width:70px;
+  height:70x; 
+  border-radius: 12px; 
+  position: fixed;
+  left: 250px;
+  top: -30px;
+}
+
+
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
