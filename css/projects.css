@@ -110,7 +110,7 @@ p:nth-child(3){
     text-align:center;
 }
 div.language-python.highlighter-rouge{
-    background-color: #2F4F4F;
+    background-color: #c5c6c7
 }
 pre.highlight{
     padding: 10px;
