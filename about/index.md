@@ -5,9 +5,9 @@ date: 4/26/18
 ---
 <style> 
 nav ul li:nth-child(2) a{
- color: #45a29e; 
+ color: #64c2ec; 
  text-decoration:underline;
- text-decoration-color:#45a29e;
+ text-decoration-color:#64c2ec;
 }
   
 img#me{
