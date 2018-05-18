@@ -2,12 +2,12 @@ body {
     margin: 100px auto;
     width: 100%;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    color: #c5c6c7;
-    background-color:#1a1a1d;
+    color: black;
+    background-color:whitesmoke;
 }
 nav {
     background-color:#1a1a1d;
-    border-bottom: .8px solid #45a29e;
+    border-bottom: .8px solid #64c2ec;
     font-size: 1.5em;  
     text-align: center;
     overflow: hidden;
@@ -15,7 +15,7 @@ nav {
     top: 0;
     width: 100%;
     z-index:1000;  
-    background: linear-gradient(#488084, #1a1a1d); 
+    background: linear-gradient(#488084, whitesmoke); 
 }
 
 img#logo {
@@ -53,18 +53,18 @@ a {
     transition: all 0.5s;
     border-bottom: 1px solid transparent;    
     text-decoration: none;
-    color:#45a29e;
+    color:#64c2ec;
 }
 nav a:hover {
-    color: #45a29e;
+    color: #64c2ec;
     text-decoration: underline;
-    text-decoration-color:#45a29e;
+    text-decoration-color:#64c2ec;
 }
 footer a:hover {
-    color: #c5c6c7;
+    color: black;
 }
 h1 {
-    color: #45a29e;
+    color: #64c2ec;
     font-size: 2em;
     font-weight: normal;
 }
@@ -84,7 +84,7 @@ p {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 footer {
-    border-top: .8px solid #45a29e;
+    border-top: .8px solid #64c2ec;
     font-size: .9em;
     text-align: center;
 }
