@@ -2,6 +2,7 @@
     --main-bg-color: whitesmoke; 
     --main-txt-color: black;
     --main-accent-color: #64c2ec;
+    --code-block-color: #c5c6c7;
 }
 
 body {
@@ -119,7 +120,7 @@ p:nth-child(3){
     text-align:center;
 }
 div.language-python.highlighter-rouge{
-    background-color: #c5c6c7
+    background-color: var(--code-block-color);
 }
 pre.highlight{
     padding: 10px;
