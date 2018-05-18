@@ -1,21 +1,27 @@
+:root {
+    --main-bg-color: whitesmoke; 
+    --main-txt-color: black;
+    --main-accent-color: #64c2ec;
+}
+
 body {
     margin: 100px auto;
     width: 100%;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    color: black;
-    background-color:whitesmoke;    
+    color: var(--main-txt-color);
+    background-color:var(--main-bg-color);
 }
 nav {
-    background-color: whitesmoke;
-    border-bottom: .8px solid #64c2ec;
+    background-color:#1a1a1d;
+    border-bottom: .8px solid var(--main-accent-color);
     font-size: 1.5em;  
     text-align: center;
     overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index:1000;
-    background: linear-gradient(#64c2ec, whitesmoke);  
+    z-index:1000;  
+    background: linear-gradient(var(--main-accent-color), var(--main-bg-color)); 
 }
 
 img#logo {
@@ -30,6 +36,7 @@ img#logo {
 }
 
 
+
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
@@ -41,31 +48,33 @@ nav ul li, footer ul li {
     margin-right: 25px;
 }
 
-nav a{color: black;}
+nav a{color: var(--main-txt-color);}
 
+div.container a{
+    font-size: 1.1em; 
+}
 a {
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid transparent;    
     text-decoration: none;
-    color: #64c2ec;
+    color:var(--main-accent-color);
 }
 nav a:hover {
-    color: #64c2ec;
+    color: var(--main-accent-color);
     text-decoration: underline;
-    text-decoration-color:#64c2ec;
+    text-decoration-color:var(--main-accent-color);
 }
-
-footer a:hover{
-    color: black;
+footer a:hover {
+    color: var(--main-txt-color);
 }
 
 h1 {
     font-size: 2.7em;
     font-weight: normal;
     text-align: center;
-    color: #64c2ec;
+    color: var(--main-accent-color);
 }
 h2 {
     font-size: 2em;
@@ -78,12 +87,12 @@ h3 {
 p {
     font-size: 1.1em;
     line-height: 1.5em;
-    color: black;
+    color: var(--main-txt-color);
     font-weight: normal;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 footer {
-    border-top: .8px solid #64c2ec;
+    border-top: .8px solid var(--main-accent-color);
     font-size: .9em;
     text-align: center;
 }
