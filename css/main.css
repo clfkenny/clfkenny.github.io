@@ -1,13 +1,19 @@
+:root {
+    --main-bg-color: whitesmoke; 
+    --main-txt-color: black;
+    --main-accent-color: #64c2ec;
+}
+
 body {
     margin: 100px auto;
     width: 100%;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    color: black;
-    background-color:whitesmoke;
+    color: var(--main-txt-color);
+    background-color:var(--main-bg-color);
 }
 nav {
     background-color:#1a1a1d;
-    border-bottom: .8px solid #64c2ec;
+    border-bottom: .8px solid var(--main-accent-color);
     font-size: 1.5em;  
     text-align: center;
     overflow: hidden;
@@ -15,7 +21,7 @@ nav {
     top: 0;
     width: 100%;
     z-index:1000;  
-    background: linear-gradient(#64c2ec, whitesmoke); 
+    background: linear-gradient(var(--main-accent-color), var(--main-bg-color)); 
 }
 
 img#logo {
@@ -42,7 +48,7 @@ nav ul li, footer ul li {
     margin-right: 25px;
 }
 
-nav a{color: black;}
+nav a{color: var(--main-txt-color);}
 
 div.container a{
     font-size: 1.1em; 
@@ -53,18 +59,18 @@ a {
     transition: all 0.5s;
     border-bottom: 1px solid transparent;    
     text-decoration: none;
-    color:#64c2ec;
+    color:var(--main-accent-color);
 }
 nav a:hover {
-    color: #64c2ec;
+    color: var(--main-accent-color);
     text-decoration: underline;
-    text-decoration-color:#64c2ec;
+    text-decoration-color:var(--main-accent-color);
 }
 footer a:hover {
-    color: black;
+    color: var(--main-txt-color);
 }
 h1 {
-    color: #64c2ec;
+    color: var(--main-accent-color);
     font-size: 2em;
     font-weight: normal;
 }
@@ -79,12 +85,12 @@ h3 {
 p {
     font-size: 1.1em;
     line-height: 1.5em;
-    color: black;
+    color: var(--main-txt-color);
     font-weight: normal;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 footer {
-    border-top: .8px solid #64c2ec;
+    border-top: .8px solid var(--main-accent-color);
     font-size: .9em;
     text-align: center;
 }
