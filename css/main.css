@@ -15,7 +15,7 @@ nav {
     top: 0;
     width: 100%;
     z-index:1000;  
-    background: linear-gradient(#488084, whitesmoke); 
+    background: linear-gradient(#64c2ec, whitesmoke); 
 }
 
 img#logo {
@@ -42,7 +42,7 @@ nav ul li, footer ul li {
     margin-right: 25px;
 }
 
-nav a{color: #c5c6c7;}
+nav a{color: black;}
 
 div.container a{
     font-size: 1.1em; 
