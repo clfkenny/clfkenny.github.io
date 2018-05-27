@@ -1,5 +1,6 @@
 :root {
     --main-bg-color: whitesmoke; 
+    --main-nav-txt-color: grey;
     --main-txt-color: black;
     --main-accent-color: #64c2ec;
 }
@@ -48,7 +49,7 @@ nav ul li, footer ul li {
     margin-right: 25px;
 }
 
-nav a{color: var(--main-txt-color);}
+nav a{color: var(--main-nav-txt-color);}
 
 div.container a{
     font-size: 1.1em; 
