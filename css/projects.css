@@ -65,7 +65,7 @@ a {
 nav a:hover {
     color: var(--main-accent-color);
     text-decoration: underline;
-    text-decoration-color:var(--main-accent-color);
+    text-decoration-color:var(--main-txt-color);
 }
 footer a:hover {
     color: var(--main-txt-color);
