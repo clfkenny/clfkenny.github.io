@@ -11,7 +11,7 @@ nav ul li:nth-child(3) a{
 
 </style>
 
-# *Mini Projects*
+# *Blog*
 ### Here are some of my mini projects I've been working on:
 
 <p>
