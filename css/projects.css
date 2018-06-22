@@ -2,7 +2,7 @@
     --main-bg-color: whitesmoke; 
     --main-nav-txt-color: black;
     --main-txt-color: black;
-    --main-accent-color: #64c2ec;
+    --main-accent-color: #4285f4;
     --code-block-color: #c5c6c7;
 }
 
@@ -14,7 +14,7 @@ body {
     background-color:var(--main-bg-color);
 }
 nav {
-    background-color:#1a1a1d;
+    background-color: var(--main-accent-color);
     border-bottom: .8px solid var(--main-accent-color);
     font-size: 1.5em;  
     text-align: center;
@@ -23,7 +23,6 @@ nav {
     top: 0;
     width: 100%;
     z-index:1000;  
-    background: linear-gradient(var(--main-accent-color), var(--main-bg-color)); 
 }
 
 img#logo {
