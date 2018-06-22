@@ -6,7 +6,7 @@ title: Projects | Kenny Lov
 nav ul li:nth-child(3) a{
  color: #64c2ec; 
  text-decoration:underline;
- text-decoration-color:#64c2ec;
+ text-decoration-color:black;
 }
 
 </style>
