@@ -13,9 +13,9 @@ date: 4/26/2018
 ## Introduction
 
 <style> nav ul li:nth-child(3) a {
-  color: #64c2ec; 
+  color: black; 
   text-decoration:underline;
-  text-decoration-color:#64c2ec;
+  text-decoration-color:black;
   }
   
   img#pokemon-logo {
