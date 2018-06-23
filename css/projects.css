@@ -14,7 +14,7 @@ body {
     background-color:var(--main-bg-color);
 }
 nav {
-    background-color: var(--main-bg-color);
+    background-color: var(--main-accent-color);
     border-bottom: .8px solid var(--main-accent-color);
     font-size: 1.5em;  
     text-align: center;
