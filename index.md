@@ -3,7 +3,7 @@ layout: default
 title: Kenny Lov
 ---
 <style> nav ul li:nth-child(1) a{
- color: #64c2ec; 
+ color: black; 
  text-decoration:underline;
  text-decoration-color:black;
 } 
