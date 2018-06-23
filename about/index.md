@@ -5,7 +5,7 @@ date: 4/26/18
 ---
 <style> 
 nav ul li:nth-child(2) a{
- color: #64c2ec; 
+ color: black; 
  text-decoration:underline;
  text-decoration-color:black;
 }
