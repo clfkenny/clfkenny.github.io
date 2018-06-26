@@ -243,11 +243,11 @@ for pokemon in poke_list:
     
 ```
 ### Original Pictures:
-<img style = "width:500px; height:600px;" src = "collage_original.jpg">
+<img style = "width:850px; height:1000px;" src = "collage_original.jpg">
 
 
 ### Pictures after converting to its two dominant colors:
-<img style = "width:500px; height:600px;" src = "collage_new.jpg">
+<img style = "width:850px; height:1000px;" src = "collage_new.jpg">
 
 
 ```python
