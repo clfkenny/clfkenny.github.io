@@ -15,7 +15,8 @@ nav ul li:nth-child(3) a{
 ### Here are some geeky stuff I like to think about:
 
 <p>
-  <li><a href= "/projects/pokemon_classifier">Pokemon Type Classifier</a>
+<!--   <li><a href= "/projects/pokemon_classifier">Pokemon Type Classifier</a> -->
+ <li><a href= "/projects/poke.html">Pokemon Type Classifier</a>
   <ul><i>Predicting a Pokemon's type given its base stats and its dominant color using the K-nearest neighbors algorithm</i></ul>
  </li>
  
