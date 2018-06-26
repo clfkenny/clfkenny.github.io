@@ -243,29 +243,11 @@ for pokemon in poke_list:
     
 ```
 ### Original Pictures:
-<table style="width:100%">
-  <tr>
-    <th>Bulbasaur</th>
-    <th>Charmander</th> 
-    <th>Squirtle</th>
-  </tr> 
-    <th><img style = "width: 150px; height: 150px;" src = "bulbasaur_orig.jpg"></th>
-    <th><img style = "width: 150px; height: 150px;" src = "charmander_orig.jpg"></th> 
-    <th><img style = "width: 150px; height: 150px;" src = "squirtle_orig.jpg"></th>
-    </table>
+<img src = "collage_original.jpg">
 
 
 ### Pictures after converting to its two dominant colors:
-<table style="width:100%">
-  <tr>
-    <th>Bulbasaur</th>
-    <th>Charmander</th> 
-    <th>Squirtle</th>
-  </tr> 
-    <th><img style="width: 200px; height: 200px;" src = "output_0_1.png"></th>
-    <th><img style="width: 200px; height: 200px;" src = "charmander.png"></th> 
-    <th><img style="width: 200px; height: 200px;" src = "squirtle.png"></th>
-    </table>
+<img src = "collage_new.jpg">
 
 
 ```python
