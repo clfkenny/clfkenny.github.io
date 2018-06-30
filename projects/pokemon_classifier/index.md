@@ -1,4 +1,3 @@
-
 ---
 layout: projects
 title: Pokemon Type Classifier
