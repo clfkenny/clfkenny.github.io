@@ -1,4 +1,12 @@
 
+---
+layout: projects
+title: Pokemon Type Classifier
+author: Kenny Lov
+date: 4/26/2018
+---
+
+
 # Obtaining the Data
 
 
