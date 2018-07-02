@@ -5,12 +5,13 @@ author: Kenny Lov
 date: 4/26/2018
 ---
 
-# Pokemon Type Classifier
+# __Pokemon Type Classifier__
 *Kenny Lov*
 
 *4/26/2018*
 
-## Introduction
+
+# Introduction
 
 <style> nav ul li:nth-child(3) a {
   color: black; 
