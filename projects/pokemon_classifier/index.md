@@ -11,7 +11,7 @@ date: 4/26/2018
 *4/26/2018*
 
 
-# Introduction
+## Introduction
 
 <style> nav ul li:nth-child(3) a {
   color: black; 
@@ -65,7 +65,7 @@ Looking back to my childhood, I have very fond memories of Pokemon, whether it b
 <br>
 *The goal will be to see if we can correctly predict a pokemon's type based on their base stats.*
 
-# Obtaining the Data
+## Obtaining the Data
 
 
 ```python
@@ -166,7 +166,7 @@ From scraping this website, we get an organized and informative dataframe that l
 dataf.head(10)
 ```
 
-# Exploratory Data Analysis
+## Exploratory Data Analysis
 
 
 ```python
@@ -336,7 +336,7 @@ print('knn classification rate:', str(sum(knn_clf.predict(testX) == testy)/len(t
 
 ```
 
-# Obtaining the Main Color of each Pokemon
+## Obtaining the Main Color of each Pokemon
 
 
 ```python
@@ -726,7 +726,7 @@ py.iplot(fig2, filename='simple-3d-scatter2')
 
 The pokemon are in the same space as the previous graph. The difference here is that the color of the points changed to represent the pokemon's type. Since there are so many different types in such a small plot, it's difficult to see clear clusters. However, there are distinct clusters; for example, you can see that fire types and water types are on opposite ends. Just out of curiousity I'll try different machine learning methods to see how useful of a feature color is.
 
-# Building a Predictive Model
+## Building a Predictive Model
 
 Just a reminder, we'll be trying to predict a pokemon's type by using their base stats, evolution stage, and color.
 The first thing that should be done is to establish a benchmark to beat. This benchmark will be the accuracy of a "dumb" model that predicts only the most frequent type. Since the most frequent type is water, this "dumb" model will have an accuracy of about 116/807 $\approx$ 14%
@@ -1017,4 +1017,4 @@ accuracy_score(np.asarray(y_test_cat).argmax(axis=1),pred)
 
 
 
-# Conclusion
+## Conclusion
