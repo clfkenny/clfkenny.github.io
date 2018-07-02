@@ -5,6 +5,64 @@ author: Kenny Lov
 date: 4/26/2018
 ---
 
+# Pokemon Type Classifier
+*Kenny Lov*
+
+*4/26/2018*
+
+## Introduction
+
+<style> nav ul li:nth-child(3) a {
+  color: black; 
+  text-decoration:underline;
+  text-decoration-color:black;
+  }
+  
+  img#pokemon-logo {
+  position: relative;
+  bottom: 20px;
+}
+
+img#pokemon-logo {
+    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 3s; /* Firefox < 16 */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera < 12.1 */
+            animation: fadein 3s;
+}
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+</style>
+
+<div id = "poke_logo" style = "text-align: center"> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script src="//code.jquery.com/jquery-1.12.4.js"></script> 
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script> 
+$(document).ready(function(){ 
+    $("img#pokemon-logo").mouseenter(function(){
+        $("img#pokemon-logo").effect(effect = "shake", queue = false, duration = 400); 
+    }); 
+}); 
+</script> 
+
+
+<img id = "pokemon-logo" src="pokemon.png">
+</div>
+
+Looking back to my childhood, I have very fond memories of Pokemon, whether it be from waiting for new episodes to air or from the many hours I had played the games. I noticed, while playing the games, that certain types of Pokemon had better base stats than others. For example, I noticed that rock and steel types had especially high defense, fighting and steel types had especially high attack, and dragon types had high values over all base stats. I think it would be interesting to see if there's any correlation between base stats and types, and if so, would it be possible to predict a pokemon's type given their base stats? 
+
+<br>
+<br>
+*The goal will be to see if we can correctly predict a pokemon's type based on their base stats.*
 
 # Obtaining the Data
 
