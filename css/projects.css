@@ -119,9 +119,16 @@ p:nth-child(2)
 p:nth-child(3){
     text-align:center;
 }
-div.language-python.highlighter-rouge{
-    border-radius: 10px;
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	max-height: 400px;
+	overflow:auto;
+	border-radius: 0.3em;
 }
+
 pre.highlight{
     padding: 10px;
 }
