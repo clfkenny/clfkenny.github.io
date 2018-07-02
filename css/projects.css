@@ -120,7 +120,6 @@ p:nth-child(3){
     text-align:center;
 }
 div.language-python.highlighter-rouge{
-    background-color: var(--code-block-color);
     border-radius: 10px;
 }
 pre.highlight{
