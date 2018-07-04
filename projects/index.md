@@ -11,6 +11,8 @@ nav ul li:nth-child(3) a{
 
 </style>
 
+<link rel="stylesheet" type="text/css" href="/css/projects_index.css">
+
 # *Blog*
 ### Here are some geeky stuff I like to think about:
 
