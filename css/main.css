@@ -1,5 +1,6 @@
 :root {
     --main-bg-color: whitesmoke; 
+    --main-bg-color2: #c1c1c1;
     --main-nav-txt-color: whitesmoke;
     --main-txt-color: black;
     --main-accent-color: #4285f4;
@@ -159,5 +160,17 @@ img#logo, a {
 @-webkit-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+
+/* body color gradient */
+body:nth-child(2) {
+    min-height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: linear-gradient(var(--main-bg-color), var(--main-bg-color2) fixed;
+    background-repeat:no-repeat;
 }
 
