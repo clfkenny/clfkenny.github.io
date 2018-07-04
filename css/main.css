@@ -94,10 +94,7 @@ footer {
     border-top: .8px solid var(--main-accent-color);
     font-size: .9em;
     text-align: center;
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
+
 }
 
 
