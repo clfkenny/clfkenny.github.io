@@ -14,14 +14,21 @@ div.item-card{
   text-align:center;
   transition: all 0.3s ease-in-out;
   overflow:hidden;
+  border-radius:8px;
 }
 
 div.item-card:hover{
   height: 95px;
   box-shadow:2px 2px 5px var(--main-accent-color);
+
 }
 
 div.item-card b{
+  color: black;
+  transition: all .3s ease-in-out;
+
+}
+div.item-card:hover b{
   color: var(--main-accent-color);
 }
 
