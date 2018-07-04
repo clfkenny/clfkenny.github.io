@@ -17,6 +17,7 @@ nav ul li:nth-child(3) a{
 ### Here are some geeky stuff I like to think about:
 
 
+<body>
 <a href = "/projects/pokemon_classifier"> 
  
  <div class = "item-card"> 
@@ -40,4 +41,5 @@ nav ul li:nth-child(3) a{
  </a>
 <br>
 
+</body>
 
