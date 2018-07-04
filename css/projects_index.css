@@ -1,1 +1,30 @@
+:root {
+    --main-bg-color: whitesmoke; 
+    --main-nav-txt-color: black;
+    --main-txt-color: black;
+    --main-accent-color: #4285f4;
+}
 
+
+div.item-card{
+  background:white;
+  height:30px;
+  padding:20px 20px;
+  box-shadow:2px 2px 5px grey;
+  text-align:center;
+  transition: all 0.3s ease-in-out;
+  overflow:hidden;
+}
+
+div.item-card:hover{
+  height: 95px;
+  box-shadow:2px 2px 5px var(--main-accent-color);
+}
+
+div.item-card b{
+  color: var(--main-accent-color);
+}
+
+div.item-card p{
+  color:black;
+}
