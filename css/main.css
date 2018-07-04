@@ -170,7 +170,7 @@ body:nth-child(2) {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background: linear-gradient(var(--main-bg-color), var(--main-bg-color2) fixed;
+    background: linear-gradient(var(--main-bg-color), var(--main-bg-color2)) fixed;
     background-repeat:no-repeat;
 }
 
