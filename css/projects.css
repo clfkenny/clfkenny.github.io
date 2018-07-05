@@ -96,6 +96,13 @@ p {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 
+footer {
+    border-top: .8px solid var(--main-accent-color);
+    font-size: .9em;
+    text-align: center;
+
+}
+
 footer a i{
   color: var(--main-accent-color);
   transition: all 0.5s ease-in-out;
