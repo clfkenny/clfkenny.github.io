@@ -71,9 +71,7 @@ nav a:hover {
     text-decoration: underline;
     text-decoration-color:var(--main-txt-color);
 }
-footer a:hover {
-    color: var(--main-txt-color);
-}
+
 
 h1 {
     font-size: 2.7em;
@@ -98,12 +96,21 @@ p {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 
-footer {
-    border-top: .8px solid var(--main-accent-color);
-    font-size: .9em;
-    text-align: center;
-
+footer a i{
+  color: var(--main-accent-color);
+  transition: all 0.5s ease-in-out;
 }
+
+footer a:hover i{
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition:all 0.5s 
+  border-bottom: 1px solid transparent;    
+  text-decoration: none;
+  color:green;
+  font-size:40px !important;
+}
+
 
 
 ul.posts { 
