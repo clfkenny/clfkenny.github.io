@@ -19,7 +19,7 @@ div.item-card{
 
 div.item-card:hover{
   height: 95px;
-  box-shadow:2px 2px 5px var(--main-accent-color);
+  box-shadow:2px 2px 20px var(--main-accent-color);
 
 }
 
