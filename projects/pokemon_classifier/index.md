@@ -13,12 +13,7 @@ date: 4/26/2018
 
 ## Introduction
 
-<style> nav ul li:nth-child(3) a {
-  color: black; 
-  text-decoration:underline;
-  text-decoration-color:black;
-  }
-  
+<style> 
   img#pokemon-logo {
   position: relative;
   bottom: 20px;
