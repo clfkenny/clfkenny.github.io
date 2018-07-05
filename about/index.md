@@ -30,7 +30,7 @@ img#me{
 # *A little about me*
 
 <p style = "margin-right: 0px; width: 80%;">
-Hi! My name is Kenny and I studied at University of California, Los Angeles. I will graduated June 2018 with a B.S. in Neuroscience with a minor in Statistics. <br><br>
+Hi! My name is Kenny and I studied at University of California, Los Angeles. I graduated June 2018 with a B.S. in Neuroscience with a minor in Statistics. <br><br>
 
 
 
