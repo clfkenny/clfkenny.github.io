@@ -20,7 +20,7 @@ nav ul li:nth-child(3) a{
 <div>
 <a href = "/projects/pokemon_classifier"> 
  
- <div class = "item-card"> 
+ <div class = "item-card" id = "pokemon"> 
   <b>Pokemon Type Classifier</b>
   <p><i>Predicting a Pokemon's type given its base stats and its dominant color using the K-nearest neighbors algorithm</i>
   </p>
