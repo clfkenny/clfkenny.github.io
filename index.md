@@ -14,4 +14,4 @@ title: Kenny Lov
 
 ## Welcome to my webpage!
 
-Here is a link to some web apps I built using Flask framework and deployed using Heroku. The link can be found <a href = "https://clfkenny.herokuapp.com">here</a> (may take a few seconds to load).
+Here is a link to some web apps I built using Flask framework and deployed using Heroku. The link can be found <a href = "https://clfkenny.herokuapp.com">here</a> (may take up to a minute for Heroku to boot up).
