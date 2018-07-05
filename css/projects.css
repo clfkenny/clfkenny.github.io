@@ -72,6 +72,7 @@ nav a:hover {
     color: var(--main-txt-color);
     text-decoration: underline;
     text-decoration-color:var(--main-txt-color);
+    font-size:30px;
 }
 
 
