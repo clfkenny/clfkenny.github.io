@@ -6,9 +6,7 @@ date: 4/26/18
 <style> 
 nav ul li:nth-child(2) a{
  color: black; 
- text-decoration:underline;
- text-decoration-color:black;
- font-size:30px;
+ font-size:1.15em;
 }
   
 img#me{
