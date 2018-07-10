@@ -10,9 +10,10 @@
 body {
     margin: 100px auto;
     width: 100%;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    ffont-family:'Helvetica', 'Arial', 'Sans-Serif';
     color: var(--main-txt-color);
     background-color:var(--main-bg-color);
+    font-family:'lucida console';
 }
 nav {
     background-color: var(--main-nav-color);
@@ -81,16 +82,15 @@ h2 {
     font-weight: normal;
 }
 h3 {
-    font-size: 1.25em;
+    font-size: 1.1em;
     font-weight: normal;
 }
 p {
-    font-size: 1.em;
+    font-size: 1.1em;
     line-height: 1.5em;
     color: var(--main-txt-color);
     font-weight: normal;
     ffont-family:'Helvetica', 'Arial', 'Sans-Serif';
-    font-family:'lucida console';
 }
 
 footer {
