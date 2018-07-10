@@ -7,9 +7,12 @@ date: 4/26/2018
 <link rel="stylesheet" type="text/css" href="/projects/pokemon_classifier/poke.css">
 
 # __Pokemon Type Classifier__
-*Kenny Lov*
 
-*4/26/2018*
+<p style = 'text-align:center;'>
+<em>Kenny Lov</em><br>
+
+<em>4/26/2018</em>
+</p>
 
 
 ## Introduction
