@@ -85,11 +85,12 @@ h3 {
     font-weight: normal;
 }
 p {
-    font-size: 1.1em;
+    font-size: 1.em;
     line-height: 1.5em;
     color: var(--main-txt-color);
     font-weight: normal;
     ffont-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family:'lucida console';
 }
 
 footer {
