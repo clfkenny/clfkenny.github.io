@@ -23,9 +23,10 @@ img#me{
 
 
 
-<p>
+<div class = 'image-cropper'>
 <img id = "me" src="linkedin pic.jpg">
-</p>
+</div>
+
 # *A little about me*
 
 <p style = "margin-right: 0px; width: 80%;">
