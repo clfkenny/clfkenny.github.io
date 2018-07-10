@@ -13,7 +13,7 @@ body {
     ffont-family:'Helvetica', 'Arial', 'Sans-Serif';
     color: var(--main-txt-color);
     background-color:var(--main-bg-color);
-    font-family:'lucida console', 'sans-serif';
+    font-family:'lucida console', 'courier','sans-serif';
 }
 nav {
     background-color: var(--main-nav-color);
@@ -43,7 +43,7 @@ img#logo {
 
 nav ul, footer ul {
     ffont-family:'Helvetica', 'Arial', 'Sans-Serif';
-    font-family:'lucida sans typewriter', 'sans-serif';
+    font-family:'lucida sans typewriter','courier', 'sans-serif';
     padding: 0px;
     list-style: none;
 
@@ -75,7 +75,7 @@ h1 {
     color: var(--main-accent-color);
     font-size: 2em;
     font-weight: normal;
-    font-family:'lucida sans typewriter', 'sans-serif';
+    font-family:'lucida sans typewriter','courier', 'sans-serif';
 }
 h2 {
     font-size: 1.5em;
