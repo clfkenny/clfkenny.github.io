@@ -1,9 +1,10 @@
 :root {
     --main-bg-color: whitesmoke; 
     --main-bg-color2: whitesmoke;
-    --main-nav-txt-color: whitesmoke;
+    --main-nav-txt-color: black;
     --main-txt-color: black;
     --main-accent-color: #4285f4;
+    --main-nav-color:whitesmoke;
 }
 
 body {
@@ -14,8 +15,8 @@ body {
     background-color:var(--main-bg-color);
 }
 nav {
-    background-color: var(--main-accent-color);
-    border-bottom: .8px solid var(--main-accent-color);
+    background-color: var(--main-nav-color);
+    border-bottom: .8px solid var(--main-nav-color);
     font-size: 22px;  
     text-align: center;
     overflow: hidden;
@@ -23,7 +24,6 @@ nav {
     top: 0;
     width: 100%;
     z-index:1000;  
-    box-shadow:2px 2px 10px grey;
 
 }
 
