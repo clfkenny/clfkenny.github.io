@@ -9,7 +9,7 @@ date: 4/26/2018
 # __Pokemon Type Classifier__
 
 <p style = 'text-align:center;'>
-<em>Kenny Lov</em><br>
+<em>Kenny Lov</em><br><br>
 
 <em>4/26/2018</em>
 </p>
