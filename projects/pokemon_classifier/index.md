@@ -4,6 +4,7 @@ title: Pokemon Type Classifier
 author: Kenny Lov
 date: 4/26/2018
 ---
+<link rel="stylesheet" type="text/css" href="/css/poke.css">
 
 # __Pokemon Type Classifier__
 *Kenny Lov*
