@@ -1,1 +1,13 @@
 
+
+body:nth-child(2){
+	background-image:url("http://www.dan-dare.org/FreeFun/Images/CartoonsMoviesTV/PokemonWallpaper41024.jpg");
+	background-size:cover;%
+}
+div.container{
+	    background: whitesmoke;
+	    padding:40px;
+	    top:-50px;
+	    position:relative;
+	    box-shadow:5px 5px 10px grey;
+}
