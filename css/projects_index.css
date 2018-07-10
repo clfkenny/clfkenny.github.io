@@ -1,10 +1,3 @@
-:root {
-    --main-bg-color: whitesmoke; 
-    --main-nav-txt-color: whitesmoke;
-    --main-txt-color: black;
-    --main-accent-color: #4285f4;
-}
-
 
 div.item-card{
   height:20px;
