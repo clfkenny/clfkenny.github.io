@@ -1,23 +1,21 @@
+---
+layout: projects
+title: Pokemon Type Classifier
+author: Kenny Lov
+date: 4/26/2018
+---
+<link rel="stylesheet" type="text/css" href="/projects/pokemon_classifier/poke.css">
+
+# __Pokemon Type Classifier__
+
+<p style = 'text-align:center;'>
+<em>Kenny Lov</em><br><br>
+
+<em>4/26/2018</em>
+</p>
 
 
-```python
-from IPython.core.display import HTML
-HTML("""
-<style>
-    table.dataframe thead th:first-child {
-        display: none;
-    }
-    table.dataframe tbody th {
-        display: none;
-    }
-</style>
-""")
-```
-
-
-
-
-    <IPython.core.display.HTML object>
+## Introduction
 
 
 
@@ -42,10 +40,7 @@ poke_html_list = soup.select('a.ent-name')
 poke_list = []
 for poke in poke_html_list:
     if poke['href'] not in poke_list: poke_list.append(poke['href'])
-```
 
-
-```python
 pokemon_list = []
 base_stats = []
 type_ = []
@@ -76,10 +71,7 @@ for pokemon in tqdm(poke_list):
         evo_stage_list.append(evo_stage[0] + 1)
     except:
         evo_stage_list.append(1)
-```
 
-
-```python
 hp = []
 att = []
 defs = []
@@ -526,28 +518,6 @@ sns.boxplot(x='stats', y='value', data = dataf_long_stats)
 plt.title('Boxplot of Stats')
 ```
 
-
-
-
-    <Figure size 576x432 with 0 Axes>
-
-
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fe2bfb39ac8>
-
-
-
-
-
-
-    Text(0.5,1,'Boxplot of Stats')
-
-
-
-
 ![png](output_17_3.png)
 
 
@@ -573,26 +543,6 @@ plt.title('Swarmplot of Stats with Evolution')
 
 
 
-
-    <Figure size 720x720 with 0 Axes>
-
-
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fe2c53be518>
-
-
-
-
-
-
-    Text(0.5,1,'Swarmplot of Stats with Evolution')
-
-
-
-
 ![png](output_19_3.png)
 
 
@@ -604,26 +554,6 @@ plt.figure(figsize=(15,13))
 sns.swarmplot(x='stats', y = 'value', hue = 'type', data = dataf_long_stats)
 plt.legend(loc = 2, bbox_to_anchor=(1,1))
 ```
-
-
-
-
-    <Figure size 1080x936 with 0 Axes>
-
-
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fe2e5b059b0>
-
-
-
-
-
-
-    <matplotlib.legend.Legend at 0x7fe2e5688e10>
-
 
 
 
@@ -850,9 +780,6 @@ sns.heatmap(df_agg)
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fe2c41b10f0>
-
-
 
 
 ![png](output_23_2.png)
@@ -964,10 +891,7 @@ for poke_img in tqdm(poke_img_files):
 
     main_color = [sorted(two_colors)[0]] # each array is (BGR) instead of (RGB)
     poke_col_list.append(main_color)
-```
 
-
-```python
 poke_col_list_flat = []
 for i in poke_col_list:
     for j in i:
@@ -1215,10 +1139,7 @@ for i in range(0,len(dataf)):
     color_type.append(col)
     
 dataf['color_type'] = color_type
-```
 
-
-```python
 trace2 = []
 
 for col_type in np.unique(color_type):
@@ -1553,15 +1474,7 @@ accuracy_score(np.asarray(y_test_cat).argmax(axis=1),pred)
 
 
 
-
-    <keras.callbacks.History at 0x7f07a5b31940>
-
-
-
-
-
-
-    0.345679012345679
+ 0.345679012345679
 
 
 
