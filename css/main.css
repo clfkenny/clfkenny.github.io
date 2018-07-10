@@ -91,7 +91,6 @@ p {
 }
 
 footer {
-    border-top: .8px solid var(--main-accent-color);
     font-size: .9em;
     text-align: center;
 
