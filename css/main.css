@@ -41,10 +41,11 @@ img#logo {
 
 
 nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    ffont-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family:'lucida sans typewriter';
     padding: 0px;
     list-style: none;
-    font-weight: bold;
+
 }
 nav ul li, footer ul li {
     display: inline;
@@ -73,6 +74,7 @@ h1 {
     color: var(--main-accent-color);
     font-size: 2em;
     font-weight: normal;
+    font-family:'lucida sans typewriter';
 }
 h2 {
     font-size: 1.5em;
@@ -87,7 +89,7 @@ p {
     line-height: 1.5em;
     color: var(--main-txt-color);
     font-weight: normal;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    ffont-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 
 footer {
