@@ -12,8 +12,8 @@ nav ul li:nth-child(2) a{
 .image-cropper{
   display:inline-block;
   position:fixed;
-  width:200px;
-  height:200px;
+  width:180px;
+  height:180px;
   overflow:hidden;
   border-radius:50%;
   float:right;
@@ -21,10 +21,11 @@ nav ul li:nth-child(2) a{
 }
 
 img#me{ 
-  width:200px;
+  width:180px;
   margin-left:0px;
-  margin-top:-40px;
+  margin-top:-30px;
 }
+
 </style>
 
 
