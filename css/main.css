@@ -95,8 +95,11 @@ p {
 
 footer {
     font-size: .9em;
-    text-align: center;
-
+    text-align:center;
+    width:100%;
+    position:fixed;
+    top:85%;
+    left:35%;
 }
 
 footer a i{
