@@ -188,5 +188,9 @@ body:nth-child(2) {
 }
 
 hr{
-    width:90%;
-
+  position:relative;
+  right:12%;
+  width:125%;
+  color:black;
+  height:1px;
+}
