@@ -1,10 +1,10 @@
 :root {
     --main-bg-color: white; 
     --main-bg-color2: white;
-    --main-nav-txt-color: black;
+    --main-nav-txt-color: white;
     --main-txt-color: black;
     --main-accent-color: #4285f4;
-    --main-nav-color:white;
+    --main-nav-color:#4285f4;
 }
 
 body {
