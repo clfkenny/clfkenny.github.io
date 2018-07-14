@@ -111,6 +111,7 @@ p {
     color: var(--main-txt-color);
     font-weight: normal;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
+	font-family:'lucida sans typewriter','courier', 'sans-serif';
 }
 
 footer {
