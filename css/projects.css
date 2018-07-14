@@ -96,11 +96,11 @@ h1 {
     color: var(--main-accent-color);
 
 }
-h2 {
-    font-size: 2.5em;
-    font-weight: normal;
-    color: var(--main-accent-color);
+h2{
+    font-size:1.65em;
+    color:#960018;
 }
+
 h3 {
     font-size: 1.25em;
     font-weight: normal;
