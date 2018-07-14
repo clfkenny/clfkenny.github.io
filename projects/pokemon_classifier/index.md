@@ -51,7 +51,7 @@ Looking back to my childhood, I have very fond memories of Pokemon, whether it b
 4. [Building a Predictive Model](#building-a-predictive-model)
 5. [Conclusion](#Conclusion)
 
-# Obtaining the Data
+## Obtaining the Data
 
 Before we can analyze data, we first need to obtain something to analyze. There are a lot of great websites that have the information we need, but for this example we'll be going with [Pokemon Database](https://www.pokemondb.net/pokedex/all). Instead of manually iterating through every single page writing down information about their battle stats, a much more efficient way would be to program a webscraper to automate the data collection. We'll be using Python's `resquest` module to send requests to the website and `BeautifulSoup` to parse the data. Let's begin. 
 
@@ -355,7 +355,7 @@ dataf.head(10)
 
 The data is formatted such that the columns represent the different stats, types, and evolution stage while each row represents a different pokemon. This convenient `DataFrame` structure will allow us easily perform our analyses. Now that the computer has done all the hard work of collecting the data, let's dive in!
 
-# Exploratory Data Analysis
+## Exploratory Data Analysis
 
 
 ```python
@@ -863,7 +863,7 @@ g = sns.factorplot(x='stats', y = 'value', data = dataf_long_stats,
 
 A similar visual, except using points rather than bar. This allows us to much more easily see the distribution of stats per type. Perhaps we can build a model that can learn these differences...
 
-# Obtaining the Main Color of each Pokemon
+## Obtaining the Main Color of each Pokemon
 
 
 ```python
@@ -1113,7 +1113,7 @@ py.iplot(fig2, filename='simple-3d-scatter2')
 
 The pokemon are in the same space as the previous graph. The difference here is that the color of the points changed to represent the pokemon's type. Since there are so many different types in such a small plot, it's difficult to see clear clusters. However, there are distinct clusters; for example, you can see that fire types and water types are on opposite ends. Just out of curiousity I'll try different machine learning methods to see how useful of a feature color is.
 
-# Building a Predictive Model
+## Building a Predictive Model
 
 Just a reminder, we'll be trying to predict a pokemon's type by using their base stats, evolution stage, and color.
 The first thing that should be done is to establish a benchmark to beat. This benchmark will be the accuracy of a "dumb" model that predicts only the most frequent type. Since the most frequent type is water, this "dumb" model will have an accuracy of about 116/807 $\approx$ 14%. 
