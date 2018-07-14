@@ -142,6 +142,216 @@ This program iterates through all of the individual pokemon's unique page and co
 ```python
 dataf.head(10)
 ```
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pokemon</th>
+      <th>hp</th>
+      <th>att</th>
+      <th>defs</th>
+      <th>spatt</th>
+      <th>spdef</th>
+      <th>spe</th>
+      <th>type</th>
+      <th>types</th>
+      <th>evo_stage</th>
+      <th>r</th>
+      <th>g</th>
+      <th>b</th>
+      <th>color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>bulbasaur</td>
+      <td>45</td>
+      <td>49</td>
+      <td>49</td>
+      <td>65</td>
+      <td>65</td>
+      <td>45</td>
+      <td>Grass</td>
+      <td>['Grass', 'Poison']</td>
+      <td>1</td>
+      <td>98</td>
+      <td>153</td>
+      <td>119</td>
+      <td>rgb(98, 153, 119)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ivysaur</td>
+      <td>60</td>
+      <td>62</td>
+      <td>63</td>
+      <td>80</td>
+      <td>80</td>
+      <td>60</td>
+      <td>Grass</td>
+      <td>['Grass', 'Poison']</td>
+      <td>2</td>
+      <td>95</td>
+      <td>133</td>
+      <td>133</td>
+      <td>rgb(95, 133, 133)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>venusaur</td>
+      <td>80</td>
+      <td>82</td>
+      <td>83</td>
+      <td>100</td>
+      <td>100</td>
+      <td>80</td>
+      <td>Grass</td>
+      <td>['Grass', 'Poison']</td>
+      <td>3</td>
+      <td>98</td>
+      <td>113</td>
+      <td>107</td>
+      <td>rgb(98, 113, 107)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>charmander</td>
+      <td>39</td>
+      <td>52</td>
+      <td>43</td>
+      <td>60</td>
+      <td>50</td>
+      <td>65</td>
+      <td>Fire</td>
+      <td>['Fire']</td>
+      <td>1</td>
+      <td>188</td>
+      <td>138</td>
+      <td>97</td>
+      <td>rgb(188, 138, 97)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>charmeleon</td>
+      <td>58</td>
+      <td>64</td>
+      <td>58</td>
+      <td>80</td>
+      <td>65</td>
+      <td>80</td>
+      <td>Fire</td>
+      <td>['Fire']</td>
+      <td>2</td>
+      <td>191</td>
+      <td>102</td>
+      <td>84</td>
+      <td>rgb(191, 102, 84)</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>charizard</td>
+      <td>78</td>
+      <td>84</td>
+      <td>78</td>
+      <td>109</td>
+      <td>85</td>
+      <td>100</td>
+      <td>Fire</td>
+      <td>['Fire', 'Flying', 'Dragon']</td>
+      <td>3</td>
+      <td>146</td>
+      <td>130</td>
+      <td>96</td>
+      <td>rgb(146, 130, 96)</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>squirtle</td>
+      <td>44</td>
+      <td>48</td>
+      <td>65</td>
+      <td>50</td>
+      <td>64</td>
+      <td>43</td>
+      <td>Water</td>
+      <td>['Water']</td>
+      <td>1</td>
+      <td>110</td>
+      <td>151</td>
+      <td>164</td>
+      <td>rgb(110, 151, 164)</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>wartortle</td>
+      <td>59</td>
+      <td>63</td>
+      <td>80</td>
+      <td>65</td>
+      <td>80</td>
+      <td>58</td>
+      <td>Water</td>
+      <td>['Water']</td>
+      <td>2</td>
+      <td>85</td>
+      <td>106</td>
+      <td>138</td>
+      <td>rgb(85, 106, 138)</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>blastoise</td>
+      <td>79</td>
+      <td>83</td>
+      <td>100</td>
+      <td>85</td>
+      <td>105</td>
+      <td>78</td>
+      <td>Water</td>
+      <td>['Water']</td>
+      <td>3</td>
+      <td>110</td>
+      <td>109</td>
+      <td>115</td>
+      <td>rgb(110, 109, 115)</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>caterpie</td>
+      <td>45</td>
+      <td>30</td>
+      <td>35</td>
+      <td>20</td>
+      <td>20</td>
+      <td>45</td>
+      <td>Bug</td>
+      <td>['Bug']</td>
+      <td>1</td>
+      <td>141</td>
+      <td>152</td>
+      <td>90</td>
+      <td>rgb(141, 152, 90)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 The data is formatted such that the columns represent the different stats, types, and evolution stage while each row represents a different pokemon. This convenient `DataFrame` structure will allow us easily perform our analyses. Now that the computer has done all the hard work of collecting the data, let's dive in!
 
@@ -688,11 +898,11 @@ for counter, pokemon in enumerate(poke_list):
 
 I will be defining the "main color" of the pokemon as the average of it's color. Each image contains the pokemon and a white background. If I take just the average of the entire image, it will be too white because of the white background. To avoid this problem, I used a k-means function to compute 2 clusters. One cluster center will correspond to the average of the white background while the other cluster center will correspond to the average of the pokemon color. Here are some sample pictures with the original and transformed images:
 
-### Original Pictures:
+## Original Pictures:
 <img style = "width:800px; height:1000px;" src = "collage_original.jpg">
 
 
-### Pictures after converting to its two dominant colors:
+## Pictures after converting to its two dominant colors:
 <img style = "width:800px; height:1000px;" src = "collage_new.jpg">
 
 
