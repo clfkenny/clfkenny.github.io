@@ -4,8 +4,18 @@ title: Blog | Kenny Lov
 ---
 <style> 
 nav ul li:nth-child(3) a{
- color: black; 
+  position:relative;
+
+background:var(--main-bg-color);
+color:var(--main-accent-color);
+border-radius:5px;
  font-size:1.15em;
+padding-top:5px;
+padding-bottom:5px;
+padding-left:5px;
+padding-right:5px;
+}
+
 }
 
 </style>
