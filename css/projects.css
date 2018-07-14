@@ -1,7 +1,7 @@
 :root {
-    --main-bg-color: whitesmoke; 
-	--main-bg-color2: whitesmoke;
-    --main-nav-txt-color: whitesmoke;
+    --main-bg-color: white; 
+	--main-bg-color2: white;
+    --main-nav-txt-color: white;
     --main-txt-color: black;
     --main-accent-color: #4285f4;
     --code-block-color: #c5c6c7;
@@ -10,9 +10,10 @@
 body {
     margin: 100px auto;
     width: 100%;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    ffont-family:'Helvetica', 'Arial', 'Sans-Serif';
     color: var(--main-txt-color);
     background-color:var(--main-bg-color);
+    font-family:'lucida console', 'courier','sans-serif';
 }
 nav {
     background-color: var(--main-accent-color);
@@ -24,8 +25,6 @@ nav {
     top: 0;
     width: 100%;
     z-index:1000;
-    box-shadow:2px 2px 10px grey;
-
 }
 
 img#logo {
@@ -39,11 +38,18 @@ img#logo {
   top: -35px;
 }
 
-nav ul li:nth-child(3) a{
- color: black; 
- text-decoration:none;
- text-decoration-color:transparent;
+ 
+ nav ul li:nth-child(3) a{
+  position:relative;
+
+background:var(--main-bg-color);
+color:var(--main-accent-color);
+border-radius:5px;
  font-size:1.15em;
+padding-top:5px;
+padding-bottom:5px;
+padding-left:5px;
+padding-right:5px;
 }
 
 
@@ -51,6 +57,7 @@ nav ul li:nth-child(3) a{
 
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
+	font-family:'lucida sans typewriter','courier', 'sans-serif';
     padding: 0px;
     list-style: none;
     font-weight: bold;
@@ -87,6 +94,7 @@ h1 {
     font-weight: normal;
     text-align: center;
     color: var(--main-accent-color);
+
 }
 h2 {
     font-size: 2.5em;
