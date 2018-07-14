@@ -1,3 +1,47 @@
+---
+layout: projects
+title: Pokemon Type Classifier
+author: Kenny Lov
+date: 4/26/2018
+---
+<link rel="stylesheet" type="text/css" href="/projects/pokemon_classifier/poke.css">
+
+# __Pokemon Type Classifier__
+
+<p style = 'text-align:center;'>
+<em>Kenny Lov</em><br><br>
+
+<em>4/26/2018</em>
+</p>
+
+
+## Introduction
+
+<style> 
+  img#pokemon-logo {
+  position: relative;
+  bottom: 20px;
+}
+
+</style>
+
+<div id = "poke_logo" style = "text-align: center"> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script src="//code.jquery.com/jquery-1.12.4.js"></script> 
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+<img id = "pokemon-logo" src="pokemon.png">
+</div>
+
+Looking back to my childhood, I have very fond memories of Pokemon, whether it be from waiting for new episodes to air or from the many hours I had played the games. I noticed, while playing the games, that certain types of Pokemon had better base stats than others. For example, I noticed that rock and steel types had especially high defense, fighting and steel types had especially high attack, and dragon types had high values over all base stats. I think it would be interesting to see if there's any correlation between base stats and types, and if so, would it be possible to predict a pokemon's type given their base stats? 
+
+<br>
+<br>
+*The goal will be to see if we can correctly predict a pokemon's type based on their base stats.*
+
 
 ## Table of Contents
 
@@ -17,10 +61,7 @@ Before we can analyze data, we first need to obtain something to analyze. There 
 import requests
 from bs4 import BeautifulSoup
 from tqdm import tqdm # add a progress bar for loops
-```
 
-
-```python
 main_page = requests.get('https://pokemondb.net/pokedex/all')
 soup = BeautifulSoup(main_page.content, 'html.parser')
 
@@ -28,10 +69,7 @@ poke_html_list = soup.select('a.ent-name')
 poke_list = []
 for poke in poke_html_list:
     if poke['href'] not in poke_list: poke_list.append(poke['href'])
-```
 
-
-```python
 pokemon_list = []
 base_stats = []
 type_ = []
@@ -62,10 +100,7 @@ for pokemon in tqdm(poke_list):
         evo_stage_list.append(evo_stage[0] + 1)
     except:
         evo_stage_list.append(1)
-```
 
-
-```python
 hp = []
 att = []
 defs = []
@@ -343,27 +378,6 @@ plt.title('Boxplot of Stats')
 ```
 
 
-
-
-    <Figure size 576x432 with 0 Axes>
-
-
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fd02cd5f710>
-
-
-
-
-
-
-    Text(0.5,1,'Boxplot of Stats')
-
-
-
-
 ![png](output_17_3.png)
 
 
@@ -386,28 +400,6 @@ sns.swarmplot(x='stats', y= 'value', hue = 'evo_stage',
               data = dataf_long_stats.iloc[indexes], palette = 'muted' )
 plt.title('Swarmplot of Stats with Evolution')
 ```
-
-
-
-
-    <Figure size 720x720 with 0 Axes>
-
-
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fd02ac7fc88>
-
-
-
-
-
-
-    Text(0.5,1,'Swarmplot of Stats with Evolution')
-
-
-
 
 ![png](output_19_3.png)
 
@@ -630,15 +622,6 @@ sns.heatmap(df_agg)
 </div>
 
 
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fd02ab131d0>
-
-
-
-
 ![png](output_22_2.png)
 
 
@@ -748,10 +731,7 @@ for poke_img in tqdm(poke_img_files):
 
     main_color = [sorted(two_colors)[0]] # each array is (BGR) instead of (RGB)
     poke_col_list.append(main_color)
-```
 
-
-```python
 poke_col_list_flat = []
 for i in poke_col_list:
     for j in i:
@@ -863,10 +843,7 @@ for i in range(0,len(dataf)):
     color_type.append(col)
     
 dataf['color_type'] = color_type
-```
 
-
-```python
 trace2 = []
 
 for col_type in np.unique(color_type):
@@ -913,11 +890,7 @@ fig2 = go.Figure(data=trace2, layout=layout)
 py.iplot(fig2, filename='simple-3d-scatter2')
 ```
 
-
-
-
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~kennylov/63.embed" height="525px" width="100%"></iframe>
-
 
 
 The pokemon are in the same space as the previous graph. The difference here is that the color of the points changed to represent the pokemon's type. Since there are so many different types in such a small plot, it's difficult to see clear clusters. However, there are distinct clusters; for example, you can see that fire types and water types are on opposite ends. Just out of curiousity I'll try different machine learning methods to see how useful of a feature color is.
@@ -957,10 +930,7 @@ dataf = pd.read_csv('data_w_color.csv')
 dataf_clean = dataf.drop(['types', 'color', 'pokemon'], axis=1)
 X = dataf_clean.drop('type', axis=1) # feature matrix
 y = dataf_clean.type # target vector
-```
 
-
-```python
 # splitting the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state = 123, stratify = y)
 print('The shape of X_train is ', X_train.shape)
@@ -1200,218 +1170,6 @@ pred = nnet.predict(X_test)
 #pred
 accuracy_score(np.asarray(y_test_cat).argmax(axis=1),pred)
 ```
-
-    Train on 516 samples, validate on 129 samples
-    Epoch 1/100
-    516/516 [==============================] - 0s 511us/step - loss: 13.7788 - acc: 0.0891 - val_loss: 13.3860 - val_acc: 0.1008
-    Epoch 2/100
-    516/516 [==============================] - 0s 63us/step - loss: 13.2896 - acc: 0.1240 - val_loss: 14.3508 - val_acc: 0.1085
-    Epoch 3/100
-    516/516 [==============================] - 0s 48us/step - loss: 13.7236 - acc: 0.1395 - val_loss: 14.3688 - val_acc: 0.1085
-    Epoch 4/100
-    516/516 [==============================] - 0s 57us/step - loss: 12.9963 - acc: 0.1609 - val_loss: 13.2170 - val_acc: 0.1473
-    Epoch 5/100
-    516/516 [==============================] - 0s 53us/step - loss: 13.5943 - acc: 0.1260 - val_loss: 13.1866 - val_acc: 0.1628
-    Epoch 6/100
-    516/516 [==============================] - 0s 56us/step - loss: 13.5122 - acc: 0.1376 - val_loss: 13.4828 - val_acc: 0.1395
-    Epoch 7/100
-    516/516 [==============================] - 0s 49us/step - loss: 13.2481 - acc: 0.1589 - val_loss: 13.2589 - val_acc: 0.1550
-    Epoch 8/100
-    516/516 [==============================] - 0s 36us/step - loss: 13.6526 - acc: 0.1395 - val_loss: 13.9917 - val_acc: 0.1318
-    Epoch 9/100
-    516/516 [==============================] - 0s 50us/step - loss: 13.5456 - acc: 0.1492 - val_loss: 13.5678 - val_acc: 0.1550
-    Epoch 10/100
-    516/516 [==============================] - 0s 42us/step - loss: 13.2826 - acc: 0.1609 - val_loss: 13.2928 - val_acc: 0.1628
-    Epoch 11/100
-    516/516 [==============================] - 0s 55us/step - loss: 13.4582 - acc: 0.1531 - val_loss: 13.7104 - val_acc: 0.1163
-    Epoch 12/100
-    516/516 [==============================] - 0s 36us/step - loss: 13.3496 - acc: 0.1609 - val_loss: 13.3531 - val_acc: 0.1550
-    Epoch 13/100
-    516/516 [==============================] - 0s 55us/step - loss: 13.3031 - acc: 0.1628 - val_loss: 13.2916 - val_acc: 0.1628
-    Epoch 14/100
-    516/516 [==============================] - 0s 46us/step - loss: 13.4970 - acc: 0.1531 - val_loss: 13.6056 - val_acc: 0.1318
-    Epoch 15/100
-    516/516 [==============================] - 0s 44us/step - loss: 13.3428 - acc: 0.1550 - val_loss: 13.1918 - val_acc: 0.1783
-    Epoch 16/100
-    516/516 [==============================] - 0s 63us/step - loss: 13.3160 - acc: 0.1647 - val_loss: 13.5650 - val_acc: 0.1473
-    Epoch 17/100
-    516/516 [==============================] - 0s 45us/step - loss: 13.2048 - acc: 0.1744 - val_loss: 13.3103 - val_acc: 0.1550
-    Epoch 18/100
-    516/516 [==============================] - 0s 45us/step - loss: 13.2929 - acc: 0.1628 - val_loss: 13.2591 - val_acc: 0.1550
-    Epoch 19/100
-    516/516 [==============================] - 0s 43us/step - loss: 13.3950 - acc: 0.1570 - val_loss: 13.6054 - val_acc: 0.1473
-    Epoch 20/100
-    516/516 [==============================] - 0s 52us/step - loss: 13.3247 - acc: 0.1609 - val_loss: 13.7293 - val_acc: 0.1395
-    Epoch 21/100
-    516/516 [==============================] - 0s 51us/step - loss: 13.3274 - acc: 0.1628 - val_loss: 13.3051 - val_acc: 0.1628
-    Epoch 22/100
-    516/516 [==============================] - 0s 53us/step - loss: 13.2103 - acc: 0.1628 - val_loss: 13.3252 - val_acc: 0.1550
-    Epoch 23/100
-    516/516 [==============================] - 0s 44us/step - loss: 13.3787 - acc: 0.1589 - val_loss: 13.3589 - val_acc: 0.1550
-    Epoch 24/100
-    516/516 [==============================] - 0s 48us/step - loss: 13.2508 - acc: 0.1705 - val_loss: 13.5455 - val_acc: 0.1473
-    Epoch 25/100
-    516/516 [==============================] - 0s 64us/step - loss: 13.2267 - acc: 0.1686 - val_loss: 13.0437 - val_acc: 0.1783
-    Epoch 26/100
-    516/516 [==============================] - 0s 41us/step - loss: 13.3481 - acc: 0.1609 - val_loss: 13.0437 - val_acc: 0.1783
-    Epoch 27/100
-    516/516 [==============================] - 0s 54us/step - loss: 13.2497 - acc: 0.1686 - val_loss: 13.5505 - val_acc: 0.1550
-    Epoch 28/100
-    516/516 [==============================] - 0s 45us/step - loss: 13.5157 - acc: 0.1531 - val_loss: 13.9940 - val_acc: 0.1318
-    Epoch 29/100
-    516/516 [==============================] - 0s 57us/step - loss: 13.4740 - acc: 0.1550 - val_loss: 13.1425 - val_acc: 0.1705
-    Epoch 30/100
-    516/516 [==============================] - 0s 46us/step - loss: 13.3608 - acc: 0.1628 - val_loss: 14.0275 - val_acc: 0.1240
-    Epoch 31/100
-    516/516 [==============================] - 0s 48us/step - loss: 13.7159 - acc: 0.1376 - val_loss: 13.9175 - val_acc: 0.1318
-    Epoch 32/100
-    516/516 [==============================] - 0s 47us/step - loss: 13.2729 - acc: 0.1589 - val_loss: 13.0739 - val_acc: 0.1705
-    Epoch 33/100
-    516/516 [==============================] - 0s 62us/step - loss: 12.5079 - acc: 0.1899 - val_loss: 14.1284 - val_acc: 0.1163
-    Epoch 34/100
-    516/516 [==============================] - 0s 46us/step - loss: 12.5269 - acc: 0.1996 - val_loss: 12.5212 - val_acc: 0.1783
-    Epoch 35/100
-    516/516 [==============================] - 0s 75us/step - loss: 12.5740 - acc: 0.1977 - val_loss: 11.8703 - val_acc: 0.2326
-    Epoch 36/100
-    516/516 [==============================] - 0s 37us/step - loss: 12.3452 - acc: 0.2054 - val_loss: 13.6100 - val_acc: 0.1395
-    Epoch 37/100
-    516/516 [==============================] - 0s 37us/step - loss: 12.5038 - acc: 0.2074 - val_loss: 12.1861 - val_acc: 0.2326
-    Epoch 38/100
-    516/516 [==============================] - 0s 41us/step - loss: 12.2124 - acc: 0.2151 - val_loss: 12.6450 - val_acc: 0.1783
-    Epoch 39/100
-    516/516 [==============================] - 0s 48us/step - loss: 12.3200 - acc: 0.2112 - val_loss: 11.8271 - val_acc: 0.2403
-    Epoch 40/100
-    516/516 [==============================] - 0s 45us/step - loss: 12.1141 - acc: 0.2093 - val_loss: 12.3372 - val_acc: 0.2171
-    Epoch 41/100
-    516/516 [==============================] - 0s 46us/step - loss: 12.5845 - acc: 0.2016 - val_loss: 13.0358 - val_acc: 0.1783
-    Epoch 42/100
-    516/516 [==============================] - 0s 68us/step - loss: 12.4286 - acc: 0.2151 - val_loss: 12.5184 - val_acc: 0.2171
-    Epoch 43/100
-    516/516 [==============================] - 0s 56us/step - loss: 12.4418 - acc: 0.2016 - val_loss: 12.8457 - val_acc: 0.1938
-    Epoch 44/100
-    516/516 [==============================] - 0s 45us/step - loss: 12.5496 - acc: 0.2035 - val_loss: 13.1120 - val_acc: 0.1783
-    Epoch 45/100
-    516/516 [==============================] - 0s 51us/step - loss: 12.3971 - acc: 0.2112 - val_loss: 11.9858 - val_acc: 0.2326
-    Epoch 46/100
-    516/516 [==============================] - 0s 57us/step - loss: 12.2584 - acc: 0.2209 - val_loss: 12.4260 - val_acc: 0.2016
-    Epoch 47/100
-    516/516 [==============================] - 0s 43us/step - loss: 11.8000 - acc: 0.2345 - val_loss: 11.6147 - val_acc: 0.2093
-    Epoch 48/100
-    516/516 [==============================] - 0s 60us/step - loss: 11.6209 - acc: 0.2287 - val_loss: 12.1742 - val_acc: 0.2171
-    Epoch 49/100
-    516/516 [==============================] - 0s 60us/step - loss: 11.8306 - acc: 0.2267 - val_loss: 11.6862 - val_acc: 0.2248
-    Epoch 50/100
-    516/516 [==============================] - 0s 42us/step - loss: 11.9488 - acc: 0.2248 - val_loss: 11.3431 - val_acc: 0.2326
-    Epoch 51/100
-    516/516 [==============================] - 0s 64us/step - loss: 11.7500 - acc: 0.2267 - val_loss: 10.3841 - val_acc: 0.2791
-    Epoch 52/100
-    516/516 [==============================] - 0s 54us/step - loss: 11.2017 - acc: 0.2287 - val_loss: 11.1441 - val_acc: 0.2171
-    Epoch 53/100
-    516/516 [==============================] - 0s 38us/step - loss: 12.1586 - acc: 0.1783 - val_loss: 10.3632 - val_acc: 0.2481
-    Epoch 54/100
-    516/516 [==============================] - 0s 55us/step - loss: 10.9653 - acc: 0.2442 - val_loss: 10.0784 - val_acc: 0.2636
-    Epoch 55/100
-    516/516 [==============================] - 0s 54us/step - loss: 11.3304 - acc: 0.2287 - val_loss: 10.7180 - val_acc: 0.2558
-    Epoch 56/100
-    516/516 [==============================] - 0s 52us/step - loss: 11.1120 - acc: 0.2345 - val_loss: 10.2268 - val_acc: 0.2403
-    Epoch 57/100
-    516/516 [==============================] - 0s 57us/step - loss: 10.8027 - acc: 0.2345 - val_loss: 10.0570 - val_acc: 0.2713
-    Epoch 58/100
-    516/516 [==============================] - 0s 62us/step - loss: 10.2866 - acc: 0.2616 - val_loss: 8.5595 - val_acc: 0.2636
-    Epoch 59/100
-    516/516 [==============================] - 0s 44us/step - loss: 9.7844 - acc: 0.2461 - val_loss: 7.5000 - val_acc: 0.2868
-    Epoch 60/100
-    516/516 [==============================] - 0s 55us/step - loss: 8.9532 - acc: 0.2364 - val_loss: 5.9934 - val_acc: 0.2558
-    Epoch 61/100
-    516/516 [==============================] - 0s 58us/step - loss: 7.3434 - acc: 0.2112 - val_loss: 4.3930 - val_acc: 0.2481
-    Epoch 62/100
-    516/516 [==============================] - 0s 40us/step - loss: 6.1514 - acc: 0.1609 - val_loss: 3.1188 - val_acc: 0.2403
-    Epoch 63/100
-    516/516 [==============================] - 0s 44us/step - loss: 4.3359 - acc: 0.2074 - val_loss: 2.5938 - val_acc: 0.2946
-    Epoch 64/100
-    516/516 [==============================] - 0s 45us/step - loss: 3.4070 - acc: 0.2481 - val_loss: 2.4392 - val_acc: 0.3101
-    Epoch 65/100
-    516/516 [==============================] - 0s 49us/step - loss: 3.0074 - acc: 0.2364 - val_loss: 2.4216 - val_acc: 0.3101
-    Epoch 66/100
-    516/516 [==============================] - 0s 52us/step - loss: 2.7628 - acc: 0.2287 - val_loss: 2.3957 - val_acc: 0.3256
-    Epoch 67/100
-    516/516 [==============================] - 0s 31us/step - loss: 2.6622 - acc: 0.2539 - val_loss: 2.3785 - val_acc: 0.3333
-    Epoch 68/100
-    516/516 [==============================] - 0s 33us/step - loss: 2.4993 - acc: 0.2829 - val_loss: 2.3324 - val_acc: 0.3178
-    Epoch 69/100
-    516/516 [==============================] - 0s 39us/step - loss: 2.4353 - acc: 0.3023 - val_loss: 2.2905 - val_acc: 0.3411
-    Epoch 70/100
-    516/516 [==============================] - 0s 35us/step - loss: 2.4459 - acc: 0.2829 - val_loss: 2.2826 - val_acc: 0.3256
-    Epoch 71/100
-    516/516 [==============================] - 0s 60us/step - loss: 2.4100 - acc: 0.2946 - val_loss: 2.3168 - val_acc: 0.3101
-    Epoch 72/100
-    516/516 [==============================] - 0s 47us/step - loss: 2.3816 - acc: 0.2907 - val_loss: 2.2977 - val_acc: 0.3178
-    Epoch 73/100
-    516/516 [==============================] - 0s 36us/step - loss: 2.3511 - acc: 0.3101 - val_loss: 2.3207 - val_acc: 0.3721
-    Epoch 74/100
-    516/516 [==============================] - 0s 38us/step - loss: 2.2593 - acc: 0.3256 - val_loss: 2.2824 - val_acc: 0.3488
-    Epoch 75/100
-    516/516 [==============================] - 0s 37us/step - loss: 2.3244 - acc: 0.3178 - val_loss: 2.2627 - val_acc: 0.3411
-    Epoch 76/100
-    516/516 [==============================] - 0s 44us/step - loss: 2.2409 - acc: 0.3140 - val_loss: 2.2587 - val_acc: 0.3411
-    Epoch 77/100
-    516/516 [==============================] - 0s 41us/step - loss: 2.2123 - acc: 0.3198 - val_loss: 2.2001 - val_acc: 0.3721
-    Epoch 78/100
-    516/516 [==============================] - 0s 39us/step - loss: 2.2075 - acc: 0.3062 - val_loss: 2.1789 - val_acc: 0.3566
-    Epoch 79/100
-    516/516 [==============================] - 0s 38us/step - loss: 2.2029 - acc: 0.3450 - val_loss: 2.2236 - val_acc: 0.3798
-    Epoch 80/100
-    516/516 [==============================] - 0s 43us/step - loss: 2.1674 - acc: 0.3178 - val_loss: 2.2822 - val_acc: 0.3953
-    Epoch 81/100
-    516/516 [==============================] - 0s 34us/step - loss: 2.1413 - acc: 0.3236 - val_loss: 2.2732 - val_acc: 0.4031
-    Epoch 82/100
-    516/516 [==============================] - 0s 33us/step - loss: 2.1398 - acc: 0.3411 - val_loss: 2.2515 - val_acc: 0.3876
-    Epoch 83/100
-    516/516 [==============================] - 0s 58us/step - loss: 2.0691 - acc: 0.3527 - val_loss: 2.2493 - val_acc: 0.3798
-    Epoch 84/100
-    516/516 [==============================] - 0s 47us/step - loss: 2.0179 - acc: 0.3372 - val_loss: 2.2402 - val_acc: 0.3566
-    Epoch 85/100
-    516/516 [==============================] - 0s 44us/step - loss: 2.0203 - acc: 0.3585 - val_loss: 2.2524 - val_acc: 0.3798
-    Epoch 86/100
-    516/516 [==============================] - 0s 48us/step - loss: 2.0425 - acc: 0.3605 - val_loss: 2.2723 - val_acc: 0.3643
-    Epoch 87/100
-    516/516 [==============================] - 0s 59us/step - loss: 2.0023 - acc: 0.3585 - val_loss: 2.2290 - val_acc: 0.3411
-    Epoch 88/100
-    516/516 [==============================] - 0s 33us/step - loss: 2.0118 - acc: 0.3798 - val_loss: 2.1902 - val_acc: 0.3411
-    Epoch 89/100
-    516/516 [==============================] - 0s 49us/step - loss: 2.0153 - acc: 0.3663 - val_loss: 2.2132 - val_acc: 0.3643
-    Epoch 90/100
-    516/516 [==============================] - 0s 41us/step - loss: 1.9754 - acc: 0.3876 - val_loss: 2.2372 - val_acc: 0.3643
-    Epoch 91/100
-    516/516 [==============================] - 0s 47us/step - loss: 2.0132 - acc: 0.3643 - val_loss: 2.2093 - val_acc: 0.3643
-    Epoch 92/100
-    516/516 [==============================] - 0s 42us/step - loss: 1.9766 - acc: 0.3643 - val_loss: 2.1890 - val_acc: 0.3721
-    Epoch 93/100
-    516/516 [==============================] - 0s 43us/step - loss: 1.9349 - acc: 0.3740 - val_loss: 2.1686 - val_acc: 0.3876
-    Epoch 94/100
-    516/516 [==============================] - 0s 47us/step - loss: 1.9494 - acc: 0.3895 - val_loss: 2.1857 - val_acc: 0.3953
-    Epoch 95/100
-    516/516 [==============================] - 0s 68us/step - loss: 1.9205 - acc: 0.3837 - val_loss: 2.1940 - val_acc: 0.3721
-    Epoch 96/100
-    516/516 [==============================] - 0s 58us/step - loss: 1.9373 - acc: 0.3953 - val_loss: 2.1727 - val_acc: 0.3876
-    Epoch 97/100
-    516/516 [==============================] - 0s 46us/step - loss: 1.8617 - acc: 0.4128 - val_loss: 2.1807 - val_acc: 0.3643
-    Epoch 98/100
-    516/516 [==============================] - 0s 49us/step - loss: 1.8325 - acc: 0.4302 - val_loss: 2.1890 - val_acc: 0.3643
-    Epoch 99/100
-    516/516 [==============================] - 0s 59us/step - loss: 1.8315 - acc: 0.4070 - val_loss: 2.1612 - val_acc: 0.3566
-    Epoch 100/100
-    516/516 [==============================] - 0s 75us/step - loss: 1.8302 - acc: 0.4186 - val_loss: 2.1932 - val_acc: 0.3178
-
-
-
-
-
-    <keras.callbacks.History at 0x7fae7008afd0>
-
-
-
-
 
 
     0.35185185185185186
