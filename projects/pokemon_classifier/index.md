@@ -899,11 +899,11 @@ for counter, pokemon in enumerate(poke_list):
 I will be defining the "main color" of the pokemon as the average of it's color. Each image contains the pokemon and a white background. If I take just the average of the entire image, it will be too white because of the white background. To avoid this problem, I used a k-means function to compute 2 clusters. One cluster center will correspond to the average of the white background while the other cluster center will correspond to the average of the pokemon color. Here are some sample pictures with the original and transformed images:
 
 ## Original Pictures:
-<img style = "width:65%; height:75%;" src = "collage_original.jpg">
+<img style = "width:95%" src = "collage_original.jpg">
 
 
 ## Pictures after converting to its two dominant colors:
-<img style = "width:800px; height:1000px;" src = "collage_new.jpg">
+<img style = "width:95%;" src = "collage_new.jpg">
 
 
 
