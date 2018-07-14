@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Projects | Kenny Lov
+title: Blog | Kenny Lov
 ---
 <style> 
 nav ul li:nth-child(3) a{
