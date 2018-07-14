@@ -17,7 +17,7 @@ padding-left:5px;
 padding-right:5px;
 }
 
-}
+
   
 
 .image-cropper{
