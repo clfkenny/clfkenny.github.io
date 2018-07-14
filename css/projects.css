@@ -197,6 +197,12 @@ pre.highlight{
     padding: 10px;
 }
 
+code.highlighter-rouge{
+	background-color:#d3d3d3ad;
+	font-size:1.1em;
+	border-radius:4px;
+}
+
 /* tables */
 table.dataframe {
     border-collapse: collapse;
