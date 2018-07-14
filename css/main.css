@@ -227,7 +227,7 @@ nav ul li a:after {
 nav ul li a:hover:after {
   opacity: 1;
   visibility: visible;
-  height: 120%;
+  height: 130%;
 }
 
 nav ul li a,
