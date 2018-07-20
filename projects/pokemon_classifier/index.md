@@ -1399,6 +1399,5 @@ accuracy_score(np.asarray(y_test_cat).argmax(axis=1),pred)
 Even though these models didn't yield world-class results, I still think it's quite an impressive improvement over the benchmark. It's highly likely that these variables aren't very good predictors for type. I did try running different models without the color features (not shown) and found that color improves the scores by about 5-10%, showing how important feature engineering is. There are a few things that likely could have improved the results. 
 1. We could have collected more data on each pokemon, such as their height and weight, since certain types, such as steel and rock, are more heavier than others, such as grass and bug. 
 2. We could have fine-tuned the algorithms' hyperparameters through methods such as random search or grid search.
-3. 
 
 Overall, from data collection to exploration to analysis, this was a challenging but fun little experiment for me to practice my data analysis and machine learning skills :).
