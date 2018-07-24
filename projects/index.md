@@ -31,7 +31,7 @@ padding-right:5px;
  
  <div class = "item-card" id = "pokemon"> 
   <b>Pokemon Type Classifier</b>
-  <p><i>Scraping Pokemon stats and colorfrom the web, exploring the data, and then attempting to predict the Pokemon's type using various machine learning algorithms!</i>
+  <p><i>Scraping Pokemon stats and color from the web, exploring the data, and then attempting to predict the Pokemon's type using various machine learning algorithms!</i>
   </p>
  </div> 
  
