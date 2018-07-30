@@ -43,10 +43,18 @@ p{
   font-size:15px;
 }
 
+
+
+:root{
+  --color-gradient:#005aa7, #fffde4;
+  --gradient-direction: to right;
+}
+
+
 div.item-card#pokemon{
   background-image:url("https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg"),
     url('/images/python_logo.png'),
-    linear-gradient(to bottom right,whitesmoke,whitesmoke);
+    linear-gradient(var(--gradient-direction), var(--color-gradient));
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-size:100px, 100px, 100%;
   background-position:10% 10px, 95% 8px, 0% 0%;
@@ -56,7 +64,7 @@ div.item-card#pokemon{
 div.item-card#kmeans{
   background-image:
     url('/images/rstudio_logo.png'),
-    linear-gradient(to bottom right,whitesmoke,whitesmoke);
+    linear-gradient(var(--gradient-direction),var(--color-gradient));
   background-repeat: no-repeat, no-repeat;
   background-size:100px, 100%;
   background-position:95% -5px, 0% 0%;
@@ -65,12 +73,9 @@ div.item-card#kmeans{
 div.item-card#pca{
   background-image:
     url('/images/rstudio_logo.png'),
-    linear-gradient(to bottom right,whitesmoke,whitesmoke);
+    linear-gradient(var(--gradient-direction),var(--color-gradient));
   background-repeat: no-repeat, no-repeat;
   background-size:100px, 100%;
   background-position:95% -5px, 0% 0%;
 }
-
-
-
 
