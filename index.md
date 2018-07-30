@@ -21,6 +21,13 @@ padding-right:5px;
 
 </style>
 
+
+<script type="text/javascript">
+window.location = "{{ .Site.BaseUrl }}/about"
+</script>
+
+
+
 # *Home*
 
 ## Welcome to my webpage!
