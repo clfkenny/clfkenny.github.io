@@ -8,6 +8,13 @@
     --main-font-family: 'lucida console', 'courier','sans-serif';
 }
 
+@font-face{
+    font:family: 'innconsola';
+    url('/fonts/Inconsolata-Regular.ttf') format('.ttf')
+    font-weight:normal;
+    font-style:normal;
+}
+
 body {
     margin: 100px auto;
     width: 100%;
