@@ -28,6 +28,12 @@ div.item-card p{
   color:black;
 }
 
+
+p{
+  margin-top:30px;
+  font-size:15px;
+}
+
 div.item-card#pokemon{
   background-image:url("https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg"),
     url('/images/python_logo.png'),
@@ -37,7 +43,25 @@ div.item-card#pokemon{
   background-position:10% 10px, 90% 8px, 0% 0%;
 }
 
-p{
-  margin-top:30px;
-  font-size:15px;
+
+div.item-card#kmeans{
+  background-image:
+    url('/images/rstudio_logo.png'),
+    linear-gradient(to bottom right,whitesmoke,whitesmoke);
+  background-repeat: no-repeat, no-repeat;
+  background-size:100px, 100%;
+  background-position:90% 8px, 0% 0%;
 }
+
+div.item-card#pca{
+  background-image:
+    url('/images/rstudio_logo.png'),
+    linear-gradient(to bottom right,whitesmoke,whitesmoke);
+  background-repeat: no-repeat, no-repeat;
+  background-size:100px, 100%;
+  background-position:90% 8px, 0% 0%;
+}
+
+
+
+
