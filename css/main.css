@@ -5,12 +5,12 @@
     --main-txt-color: black;
     --main-accent-color: #4285f4;
     --main-nav-color:#4285f4;
-    --main-font-family: 'lucida console', 'courier','sans-serif';
+    --main-font-family: 'inconsolata', 'lucida console', 'courier','sans-serif';
 }
 
 @font-face{
-    font:family: 'innconsola';
-    url('/fonts/Inconsolata-Regular.ttf') format('.ttf')
+    font-family: 'inconsolata';
+    url('/fonts/Inconsolata-Regular.ttf') format('.ttf');
     font-weight:normal;
     font-style:normal;
 }
