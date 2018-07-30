@@ -5,8 +5,30 @@
     --main-txt-color: black;
     --main-accent-color: #4285f4;
     --code-block-color: #c5c6c7;
-    --main-font-family: 'lucida console', 'courier','sans-serif';
+    --main-font-family: 'ubuntu', 'lucida console', 'courier','sans-serif';
 }
+
+@font-face{
+    font-family: 'ubuntu';
+    src: url('../fonts/Ubuntu-Regular.ttf');
+    font-weight:normal;
+    font-style:normal;
+}
+
+@font-face{
+    font-family: 'ubuntu';
+    src: url('../fonts/Ubuntu-Bold.ttf');
+    font-weight:bold;
+    font-style:normal;
+}
+
+@font-face{
+    font-family: 'ubuntu';
+    src: url('../fonts/Ubuntu-Italic.ttf');
+    font-weight:normal;
+    font-style:italic;
+}
+
 
 body {
     margin: 100px auto;
