@@ -44,7 +44,7 @@ p{
 }
 
 :root{
-  --color-gradient:#00c9ff, #92fe9d;
+  --color-gradient:var(--main-accent-color),#00c9ff;
   --gradient-direction: to right;
 }
 
