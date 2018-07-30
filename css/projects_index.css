@@ -15,7 +15,7 @@ div.item-card{
 
 div.item-card:hover{
   height: 95px;
-  box-shadow:2px 2px 20px var(--main-accent-color);
+  box-shadow:2px 2px 20px green;
 
 }
 
@@ -26,7 +26,7 @@ div.item-card b{
 
 }
 div.item-card:hover b{
-  color: var(--main-accent-color);
+  color: green;
 }
 
 div.item-card p{
