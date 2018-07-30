@@ -2,6 +2,11 @@
 layout: default
 title: Kenny Lov
 ---
+<script type="text/javascript">
+window.location = "{{ .Site.BaseUrl }}/about"
+</script>
+
+
 <style> 
  
  nav ul li:nth-child(1) a{
