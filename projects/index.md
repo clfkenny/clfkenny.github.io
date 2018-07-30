@@ -41,6 +41,8 @@ padding-right:5px;
 <br>
 <br>
 
+</div>
+
 # *Tutorials*
 
 <div>
