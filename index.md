@@ -1,11 +1,13 @@
----
-layout: default
-title: Kenny Lov
----
 <script type="text/javascript">
 window.location = "{{ .Site.BaseUrl }}/about"
 </script>
 
+
+
+---
+layout: default
+title: Kenny Lov
+---
 
 <style> 
  
