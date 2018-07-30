@@ -44,7 +44,7 @@ padding-right:5px;
 </div>
 
 # *Tutorials*
-
+### Some basic tutorials to help better my understanding of the topics:
 <div>
 <a href = "/projects/#"> 
  <div class = "item-card" id = 'kmeans'> 
