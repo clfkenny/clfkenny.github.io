@@ -5,19 +5,19 @@
     --main-txt-color: black;
     --main-accent-color: #4285f4;
     --main-nav-color:#4285f4;
-    --main-font-family: 'inconsolata', 'lucida console', 'courier','sans-serif';
+    --main-font-family: 'ubuntu, 'lucida console', 'courier','sans-serif';
 }
 
 @font-face{
-    font-family: 'inconsolata';
-    src: url('/fonts/Inconsolata-Regular.ttf');
+    font-family: 'ubuntu';
+    src: url('/fonts/Ubuntu-Regular.ttf');
     font-weight:normal;
     font-style:normal;
 }
 
 @font-face{
-    font-family: 'inconsolata';
-    src: url('/fonts/Inconsolata-Bold.ttf');
+    font-family: 'ubuntu';
+    src: url('/fonts/Ubuntu-Bold.ttf');
     font-weight:bold;
     font-style:normal;
 }
