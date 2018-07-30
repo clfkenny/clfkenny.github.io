@@ -10,7 +10,7 @@
 
 @font-face{
     font-family: 'inconsolata';
-    url('/fonts/Inconsolata-Regular.ttf') format('.ttf');
+    src: url('/fonts/Inconsolata-Regular.ttf') format('.ttf');
     font-weight:normal;
     font-style:normal;
 }
