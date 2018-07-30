@@ -10,21 +10,21 @@
 
 @font-face{
     font-family: 'ubuntu';
-    src: url('/fonts/Ubuntu-Medium.ttf');
+    src: url('../fonts/Ubuntu-Medium.ttf');
     font-weight:normal;
     font-style:normal;
 }
 
 @font-face{
     font-family: 'ubuntu';
-    src: url('/fonts/Ubuntu-Bold.ttf');
+    src: url('../fonts/Ubuntu-Bold.ttf');
     font-weight:bold;
     font-style:normal;
 }
 
 @font-face{
     font-family: 'ubuntu';
-    src: url('/fonts/Ubuntu-MediumItalic.ttf');
+    src: url('../fonts/Ubuntu-MediumItalic.ttf');
     font-weight:bold;
     font-style:normal;
 }
