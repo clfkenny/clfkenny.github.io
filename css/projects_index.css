@@ -50,7 +50,7 @@ div.item-card#kmeans{
     linear-gradient(to bottom right,whitesmoke,whitesmoke);
   background-repeat: no-repeat, no-repeat;
   background-size:100px, 100%;
-  background-position:95% 8px, 0% 0%;
+  background-position:95% -5px, 0% 0%;
 }
 
 div.item-card#pca{
@@ -59,7 +59,7 @@ div.item-card#pca{
     linear-gradient(to bottom right,whitesmoke,whitesmoke);
   background-repeat: no-repeat, no-repeat;
   background-size:100px, 100%;
-  background-position:95% 8px, 0% 0%;
+  background-position:95% -5px, 0% 0%;
 }
 
 
