@@ -9,7 +9,7 @@ div.item-card{
   box-shadow:2px 2px 5px grey;
   text-align:center;
   transition: all 0.3s ease-in-out;
-  overflow:auto;
+  overflow:hidden;
   border-radius:8px;
 }
 
