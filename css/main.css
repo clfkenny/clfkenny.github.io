@@ -10,8 +10,15 @@
 
 @font-face{
     font-family: 'inconsolata';
-    src: url('/fonts/Inconsolata-Regular.ttf') format('.ttf');
+    src: url('/fonts/Inconsolata-Regular.ttf');
     font-weight:normal;
+    font-style:normal;
+}
+
+@font-face{
+    font-family: 'inconsolata';
+    src: url('/fonts/Inconsolata-Bold.ttf');
+    font-weight:bold;
     font-style:normal;
 }
 
