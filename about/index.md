@@ -4,7 +4,7 @@ title: About Me | Kenny Lov
 date: 4/26/18
 ---
 <style> 
-nav ul li:nth-child(2) a{
+nav ul li:nth-child(1) a{
   position:relative;
 
 background:var(--main-bg-color);
