@@ -5,6 +5,7 @@
     --main-txt-color: black;
     --main-accent-color: #4285f4;
     --code-block-color: #c5c6c7;
+    --main-font-family: 'lucida console', 'courier','sans-serif';
 }
 
 body {
@@ -13,7 +14,7 @@ body {
     ffont-family:'Helvetica', 'Arial', 'Sans-Serif';
     color: var(--main-txt-color);
     background-color:var(--main-bg-color);
-    font-family:'lucida console', 'courier','sans-serif';
+    font-family: var(--main-font-family);
 }
 nav {
     background-color: var(--main-accent-color);
@@ -57,7 +58,7 @@ padding-right:5px;
 
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-	font-family:'lucida sans typewriter','courier', 'sans-serif';
+	font-family:var(--main-font-family);
     padding: 0px;
     list-style: none;
 }
@@ -105,7 +106,7 @@ p {
     color: var(--main-txt-color);
     font-weight: normal;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-	font-family:'lucida sans typewriter','courier', 'sans-serif';
+    font-family:var(--main-font-family);
 }
 
 footer {
