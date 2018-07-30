@@ -5,7 +5,7 @@
     --main-txt-color: black;
     --main-accent-color: #4285f4;
     --main-nav-color:#4285f4;
-    --main-font-family: 'ubuntu, 'lucida console', 'courier','sans-serif';
+    --main-font-family: 'ubuntu', 'lucida console', 'courier','sans-serif';
 }
 
 @font-face{
@@ -18,6 +18,13 @@
 @font-face{
     font-family: 'ubuntu';
     src: url('/fonts/Ubuntu-Bold.ttf');
+    font-weight:bold;
+    font-style:normal;
+}
+
+@font-face{
+    font-family: 'ubuntu';
+    src: url('/fonts/Ubuntu-Italic.ttf');
     font-weight:bold;
     font-style:normal;
 }
