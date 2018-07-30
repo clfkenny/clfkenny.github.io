@@ -1,3 +1,7 @@
+div.item-card::-webkit-scrollbar{
+  display:none;
+}
+
 
 div.item-card{
   height:20px;
@@ -5,7 +9,7 @@ div.item-card{
   box-shadow:2px 2px 5px grey;
   text-align:center;
   transition: all 0.3s ease-in-out;
-  overflow:hidden;
+  overflow:auto;
   border-radius:8px;
 }
 
