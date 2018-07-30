@@ -1,7 +1,7 @@
-div.item-card::-webkit-scrollbar{
+/* div.item-card::-webkit-scrollbar{
   display:none;
 }
-
+ */
 
 div.item-card{
   height:20px;
