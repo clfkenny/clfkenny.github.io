@@ -10,7 +10,7 @@
 
 @font-face{
     font-family: 'ubuntu';
-    src: url('/fonts/Ubuntu-Regular.ttf');
+    src: url('/fonts/Ubuntu-Medium.ttf');
     font-weight:normal;
     font-style:normal;
 }
@@ -24,7 +24,7 @@
 
 @font-face{
     font-family: 'ubuntu';
-    src: url('/fonts/Ubuntu-Italic.ttf');
+    src: url('/fonts/Ubuntu-MediumItalic.ttf');
     font-weight:bold;
     font-style:normal;
 }
