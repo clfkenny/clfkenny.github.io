@@ -3,7 +3,7 @@ layout: default
 title: Blog | Kenny Lov
 ---
 <style> 
-nav ul li:nth-child(3) a{
+nav ul li:nth-child(2) a{
   position:relative;
 
 background:var(--main-bg-color);
