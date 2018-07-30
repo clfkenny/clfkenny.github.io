@@ -38,7 +38,33 @@ padding-right:5px;
  </a>
 <br>
  
+<br>
+<br>
+
+# *Tutorials*
+
+<div>
+<a href = "/projects/#"> 
+ <div class = "item-card"> 
+  <b>Introduction to K-Means Clustering</b>
+  <p><i>text</i>
+  </p>
+ </div> 
  
+ </a>
+<br>
+ 
+
+<div>
+<a href = "/projects/#"> 
+ <div class = "item-card"> 
+  <b>Introduction to Principal Component Analysis (PCA)</b>
+  <p><i>text</i>
+  </p>
+ </div> 
+ 
+ </a>
+<br>
 
 <br>
 
