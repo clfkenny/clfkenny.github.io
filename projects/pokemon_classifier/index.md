@@ -968,7 +968,7 @@ dataf.head()
 dataf.to_csv('data_w_color.csv', index= False)
 ```
 
-Visualizing the the colors
+Let's visualize the the colors with interactive 3-D graph!
 
 
 ```python
