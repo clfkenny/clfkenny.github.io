@@ -1,5 +1,5 @@
-**Pokemon Type Classifier**
-===========================
+**Introduction to K-Means Clustering**
+======================================
 
 <p style="text-align:center;">
 <em>Kenny Lov</em><br><br>
