@@ -1,3 +1,7 @@
+---
+layout:projects
+---
+
 **Introduction to K-Means Clustering**
 ======================================
 
