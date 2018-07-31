@@ -1,14 +1,8 @@
----
-layout: projects
-
----
-
 **Introduction to K-Means Clustering**
 ======================================
 
 <p style="text-align:center;">
 <em>Kenny Lov</em><br><br>
-
 </p>
 First, let's used a contrived *toy* example to better understand this topic. k-means clustering works better if the clusters are spherical and normally distributed. For this example, we'll create a small, arbitrary dataset with 5 different clusters (5 populations with different means and variances).
 
@@ -36,14 +30,14 @@ Now that we've created this *toy* dataset, let's visualize it and confirm that w
 library(ggplot2)
 
 g <- ggplot(combined, aes(x= x, y = y)) +
-  geom_point(aes(color=label)) 
+  geom_point(aes(color=label)) +
+  labs(title = "Toy Example")
 # note that label needs to be converted into a factor since otherwise ggplot will interpret it as a continuous variable when it really isn't!
-
 g
 ```
 
 ![](images/unnamed-chunk-4-1.png)
 
-Yes, there are indeed distinct clusters!
+Yes, there are indeed distinct clusters! R already comes with a great built-in function `kmeans` that can compute clusters. However, for the sake of understanding, we'll hand-code a function that can determine *n* clusters.
 
 Now, since this is a *boring* example, let 's use a more interesting dataset!
