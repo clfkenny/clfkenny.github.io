@@ -1,7 +1,3 @@
-knit: (function(inputFile, encoding) { rmarkdown::render(inputFile,
-encoding = encoding, output\_file = file.path(dirname(inputFile),
-'myfile.pdf')) })
-
 **Pokemon Type Classifier**
 ===========================
 
@@ -42,7 +38,7 @@ confirm that we've indeed created distinct clusters.
 
     g
 
-![](/home/kenny/Dropbox/github/tutorials/index_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+![](images/unnamed-chunk-4-1.png)
 
 Yes, there are indeed distinct clusters!
 
