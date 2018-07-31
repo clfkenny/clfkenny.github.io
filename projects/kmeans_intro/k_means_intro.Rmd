@@ -1,7 +1,7 @@
 ---
+layout: projects
+title: Introduction to K-means Clustering
 author: Kenny Lov
-title: "k-means intro"
-output: html_document
 ---
 
 # aklgsd;gaksdg what lkdj;afk
