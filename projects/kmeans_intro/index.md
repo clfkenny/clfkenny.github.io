@@ -1,3 +1,9 @@
+---
+layout: projects
+title: Introduction to K-means Clustering
+author: Kenny Lov
+---
+
 **Introduction to K-Means Clustering**
 ======================================
 
