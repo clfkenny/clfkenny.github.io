@@ -111,7 +111,9 @@ a {
     color:var(--main-accent-color);
 }
 
-
+nav a:hover {
+    font-size:1.15em;
+}
 
 h1 {
     font-size: 2.7em;
