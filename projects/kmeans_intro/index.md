@@ -1,8 +1,3 @@
----
-layout: projects
-
----
-
 **Introduction to K-Means Clustering**
 ======================================
 
@@ -28,7 +23,7 @@ y3 <- rnorm(50, mean = 5, sd = 2)
 df3 <- data.frame(x = x3, y = y3, label = 3)
 
 combined <- rbind(df1, df2, df3)
-combined$label <- as.factor(combined$label)
+combined$label <- as.factor(combined$label) # label must be converted into a factor since it will be interpreted as a continuous variable, which it is not.
 ```
 
 Now that we've created this *toy* dataset, let's visualize it and confirm that we've indeed created distinct clusters.
@@ -37,15 +32,21 @@ Now that we've created this *toy* dataset, let's visualize it and confirm that w
 library(ggplot2)
 th <- theme_linedraw() # setting the theme for the plots
 
-g <- ggplot(combined, aes(x= x, y = y)) +
+
+tiff('./images/plot1.tiff', units="in", width=5, height=5, res=300)
+
+ggplot(combined, aes(x= x, y = y)) +
   geom_point(aes(color=label), size = 2) +
   labs(title = "Toy Example") + 
   th
-# note that label needs to be converted into a factor since otherwise ggplot will interpret it as a continuous variable when it really isn't!
-g
+
+dev.off()
 ```
 
-![](images/unnamed-chunk-4-1.png)
+    ## png 
+    ##   2
+
+![]('./images/plot1.tiff')
 
 Yes, there are indeed distinct clusters with various normal distributions! R already comes with a great built-in function `kmeans` that can compute clusters. However, for the sake of understanding, we'll hand-code a function that can compute the clusters as well as keep track of the data for each iteration to visualize the progress of the algorithm. If this sounds confusing now, it will make sense in a bit.
 
@@ -133,6 +134,9 @@ g <- ggplot(Z_hist, aes(x = x, y = y)) +
   th+
   transition_time(iteration)
 
+
+animation::ani.options(ani.width= 1000, ani.height=1000, ani.res = 2000)
+
 animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1)
 ```
 
@@ -154,19 +158,27 @@ g1 <- ggplot(combined, aes(x = x, y = y)) +
   geom_point(aes(color = predicted, shape = label), size = 2) +
   geom_point(data = data.frame(centers), aes(X1, X2), size = 3) +
   labs(title = 'My K-means Prediction') +
-  th+ theme(aspect.ratio = .75)
+  th
 
 g2 <- ggplot(combined, aes(x=x , y = y)) +
   geom_point(aes(color = kmeans_pred, shape = label), size = 2) +
   geom_point(data = data.frame(data.frame(kmeans$centers)), aes(x, y), size = 3) +
   labs(title = "R's K-means Prediction") +
-  th + theme(aspect.ratio = .75)
+  th 
 
 library(gridExtra) # import library to display graphs in a grid
+
+tiff('./images/plot2.tiff', units="in", width=10, height=5, res=300)
+
 grid.arrange(g1, g2, nrow=1, respect=TRUE)
+
+dev.off()
 ```
 
-![](images/unnamed-chunk-7-1.png)
+    ## png 
+    ##   2
+
+![]('./images/plot2.tiff)
 
 Even though some clusters are different colors, the points are actually clustered the same in both `my_kmeans` and R's `kmeans`.
 
@@ -182,14 +194,21 @@ real_centers$real <- 'real'
 
 both_centers <- rbind(predicted_centers, real_centers)
 
+tiff('./images/plot3.tiff', units="in", width=5, height=5, res=300)
+ 
 ggplot(combined, aes(x = x, y = y)) +
   geom_point(aes(color = label)) +
   geom_point(data = both_centers, aes(x= X1,y= X2, shape = real), size = 3) +
   labs(title = 'Comparing Real and Predicted Centers') +
   th
+
+dev.off()
 ```
 
-![](images/unnamed-chunk-8-1.png)
+    ## png 
+    ##   2
+
+![]('./images/plot3.tiff')
 
 Although the predicted cluster centers are not perfectly on top of the real centers (due to the random nature of the sampling), they are very close to each other, showing that the algorithm does work when there are distinct clusters!
 
