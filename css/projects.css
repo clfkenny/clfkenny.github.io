@@ -302,3 +302,8 @@ nav ul li a:before {
 nav ul li a:hover {
   color: var(--main-accent-color);
 }
+
+p img{
+	display:block;
+	margin-right: auto;
+	margin-left:auto;
