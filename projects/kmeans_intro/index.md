@@ -1,8 +1,3 @@
----
-layout: projects
-
----
-
 **Introduction to K-Means Clustering**
 ======================================
 
@@ -140,9 +135,10 @@ g <- ggplot(Z_hist, aes(x = x, y = y)) +
   transition_time(iteration)
 
 
-animation::ani.options(ani.width= 1000, ani.height=1000, ani.res = 2000)
+animation::ani.options(ani.width= 1500, ani.height=1500, ani.res = 2000)
 
-animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1)
+animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1,
+        width = 1000, height=800, res = 300)
 ```
 
 ![](images/unnamed-chunk-6-1.gif)
@@ -173,7 +169,7 @@ g2 <- ggplot(combined, aes(x=x , y = y)) +
 
 library(gridExtra) # import library to display graphs in a grid
 
-tiff('./images/plot2.tiff', units="in", width=10, height=5, res=300)
+tiff('./images/plot2.tiff', units="in", width=10, height=5, res=600)
 
 grid.arrange(g1, g2, nrow=1, respect=TRUE)
 
@@ -185,7 +181,7 @@ dev.off()
 
 ![](./images/plot2.png)
 
-Even though some clusters are different colors, the points are actually clustered the same in both `my_kmeans` and R's `kmeans`.
+Even though some clusters are different colors, the points are actually clustered the same in both `my_kmeans` and R's `kmeans`. So it work!
 
 Now let's compare the centers that the algorithm found to the actual centers that we created.
 
@@ -199,7 +195,7 @@ real_centers$real <- 'real'
 
 both_centers <- rbind(predicted_centers, real_centers)
 
-tiff('./images/plot3.tiff', units="in", width=5, height=5, res=300)
+tiff('./images/plot3.tiff', units="in", width=5, height=5, res=300,)
  
 ggplot(combined, aes(x = x, y = y)) +
   geom_point(aes(color = label)) +
