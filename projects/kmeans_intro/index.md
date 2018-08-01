@@ -1,8 +1,3 @@
----
-layout: projects
-
----
-
 **Introduction to K-Means Clustering**
 ======================================
 
@@ -124,10 +119,10 @@ Since this is an iterative approach, we can visualize the progress at every iter
 
 ``` r
 library(gganimate)
-prediction <- my_kmeans(no_labs, 4)
+prediction <- my_kmeans(no_labs, 3)
 ```
 
-    ## Took 8 iterations to converge!
+    ## Took 2 iterations to converge!
 
 ``` r
 Z_hist <- cbind(combined, prediction[[3]])
@@ -145,10 +140,8 @@ animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1)
 ![](images/unnamed-chunk-6-1.gif)
 
 ``` r
-anim_save('clustering1.gif')
+#anim_save('clustering1.gif')
 ```
-
-![Alt Text]('clustering1.gif')
 
 Final Result:
 
