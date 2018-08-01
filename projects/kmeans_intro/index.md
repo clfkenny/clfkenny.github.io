@@ -1,8 +1,3 @@
----
-layout: projects
-
----
-
 **Introduction to K-Means Clustering**
 ======================================
 
@@ -51,7 +46,7 @@ dev.off()
     ## png 
     ##   2
 
-![]('./images/plot1.tiff')
+![](./images/plot1.png)
 
 Yes, there are indeed distinct clusters with various normal distributions! R already comes with a great built-in function `kmeans` that can compute clusters. However, for the sake of understanding, we'll hand-code a function that can compute the clusters as well as keep track of the data for each iteration to visualize the progress of the algorithm. If this sounds confusing now, it will make sense in a bit.
 
@@ -183,7 +178,7 @@ dev.off()
     ## png 
     ##   2
 
-![]('./images/plot2.tiff)
+![](./images/plot2.png)
 
 Even though some clusters are different colors, the points are actually clustered the same in both `my_kmeans` and R's `kmeans`.
 
@@ -213,7 +208,7 @@ dev.off()
     ## png 
     ##   2
 
-![]('./images/plot3.tiff')
+![](./images/plot3.png)
 
 Although the predicted cluster centers are not perfectly on top of the real centers (due to the random nature of the sampling), they are very close to each other, showing that the algorithm does work when there are distinct clusters!
 
