@@ -1,8 +1,3 @@
----
-layout: projects
-
----
-
 **Introduction to K-Means Clustering**
 ======================================
 
@@ -38,12 +33,12 @@ library(ggplot2)
 th <- theme_linedraw() # setting the theme for the plots
 
 
-tiff('./images/plot1.tiff', units="in", width=5, height=5, res=300)
+tiff('./images/plot1.tiff', units="in", width=5, height=3, res=300)
 
 ggplot(combined, aes(x= x, y = y)) +
   geom_point(aes(color=label), size = 2) +
   labs(title = "Toy Example") + 
-  th
+  th + theme(aspect.ratio = 0.8)
 
 dev.off()
 ```
@@ -133,14 +128,12 @@ Z_hist <- cbind(combined, prediction[[3]])
 c_hist <- prediction[[4]]
 
 g <- ggplot(Z_hist, aes(x = x, y = y)) +
-  geom_point(aes(color = prediction, shape = label), size = 2) +
-  geom_point(data = c_hist, aes(x = X1, y = X2), size = 3) +
+  geom_point(aes(color = prediction, shape = label), size = 1) +
+  geom_point(data = c_hist, aes(x = X1, y = X2), size = 2) +
   labs(title = 'Iteration: {frame_time}') +
-  th+
-  transition_time(iteration)
+  th + theme(text = element_text(size = 5)) +
+  transition_time(iteration) 
 
-
-animation::ani.options(ani.width= 1500, ani.height=1500, ani.res = 2000)
 
 animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1,
         width = 1000, height=800, res = 300)
@@ -164,13 +157,13 @@ g1 <- ggplot(combined, aes(x = x, y = y)) +
   geom_point(aes(color = predicted, shape = label), size = 2) +
   geom_point(data = data.frame(centers), aes(X1, X2), size = 3) +
   labs(title = 'My K-means Prediction') +
-  th
+  th + theme(aspect.ratio = 0.9)
 
 g2 <- ggplot(combined, aes(x=x , y = y)) +
   geom_point(aes(color = kmeans_pred, shape = label), size = 2) +
   geom_point(data = data.frame(data.frame(kmeans$centers)), aes(x, y), size = 3) +
   labs(title = "R's K-means Prediction") +
-  th 
+  th + theme(aspect.ratio = 0.9)
 
 library(gridExtra) # import library to display graphs in a grid
 
@@ -200,13 +193,13 @@ real_centers$real <- 'real'
 
 both_centers <- rbind(predicted_centers, real_centers)
 
-tiff('./images/plot3.tiff', units="in", width=5, height=5, res=300,)
+tiff('./images/plot3.tiff', units="in", width=5, height=3, res=300,)
  
 ggplot(combined, aes(x = x, y = y)) +
   geom_point(aes(color = label)) +
   geom_point(data = both_centers, aes(x= X1,y= X2, shape = real), size = 3) +
   labs(title = 'Comparing Real and Predicted Centers') +
-  th
+  th + theme(aspect.ratio = 0.8)
 
 dev.off()
 ```
