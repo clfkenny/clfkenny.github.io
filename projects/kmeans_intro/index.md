@@ -46,7 +46,7 @@ dev.off()
     ## png 
     ##   2
 
-![](images/plot1.tiff)
+![](images/unnamed-chunk-4-1.png)
 
 ![](images/unnamed-chunk-6-1.gif)
 
