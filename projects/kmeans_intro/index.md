@@ -46,9 +46,7 @@ dev.off()
     ## png 
     ##   2
 
-![](images/unnamed-chunk-4-1.png)
-
-![](images/unnamed-chunk-6-1.gif)
+![]('./images/plot1.tiff')
 
 Yes, there are indeed distinct clusters with various normal distributions! R already comes with a great built-in function `kmeans` that can compute clusters. However, for the sake of understanding, we'll hand-code a function that can compute the clusters as well as keep track of the data for each iteration to visualize the progress of the algorithm. If this sounds confusing now, it will make sense in a bit.
 
