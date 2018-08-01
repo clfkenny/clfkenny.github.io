@@ -6,7 +6,7 @@ layout: projects
 **Introduction to K-Means Clustering**
 ======================================
 
-<link rel="stylesheet" type="text/css" href="/projects/pokemon_classifier/kmeans.css">
+<link rel="stylesheet" type="text/css" href="/projects/kmeans_intro/kmeans.css">
 
 <p style="text-align:center;">
 <em>Kenny Lov</em><br><br>
