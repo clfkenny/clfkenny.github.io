@@ -1,10 +1,5 @@
----
-layout: projects
-
----
-
-**Introduction to K-Means Clustering**
-======================================
+**Introduction to K-Means Clustering (IN PROGRESS)**
+====================================================
 
 <link rel="stylesheet" type="text/css" href="/projects/kmeans_intro/kmeans.css">
 
