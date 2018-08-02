@@ -46,7 +46,7 @@ padding-right:5px;
 # *Tutorials*
 ### Some basic tutorials to help better my understanding of the topics:
 <div>
-<a href = "/projects/#"> 
+<a href = "/projects/kmeans_intro"> 
  <div class = "item-card" id = 'kmeans'> 
   <b>Introduction to K-Means Clustering</b>
   <p><i>text</i>
