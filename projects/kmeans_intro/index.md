@@ -1,17 +1,14 @@
----
-layout: projects
-
----
-
 **Introduction to K-Means Clustering**
 ======================================
-
-<link rel="stylesheet" type="text/css" href="/projects/kmeans_intro/kmeans.css">
 
 <p style="text-align:center;">
 <em>Kenny Lov</em><br><br>
 </p>
-First, let's used a contrived *toy* example to better understand this topic. k-means clustering works better if the clusters are spherical and normally distributed. For this example, we'll create a small, arbitrary dataset with 5 different clusters (5 populations with different means and variances).
+First, let’s used a contrived *toy* example to better understand this
+topic. k-means clustering works better if the clusters are spherical and
+normally distributed. For this example, we’ll create a small, arbitrary
+dataset with 5 different clusters (5 populations with different means
+and variances).
 
 ``` r
 # first create individual clusters with different distribution parameters
@@ -33,7 +30,8 @@ combined <- rbind(df1, df2, df3)
 combined$label <- as.factor(combined$label) # label must be converted into a factor since it will be interpreted as a continuous variable, which it is not.
 ```
 
-Now that we've created this *toy* dataset, let's visualize it and confirm that we've indeed created distinct clusters.
+Now that we’ve created this *toy* dataset, let’s visualize it and
+confirm that we’ve indeed created distinct clusters.
 
 ``` r
 library(ggplot2)
@@ -50,12 +48,17 @@ ggplot(combined, aes(x= x, y = y)) +
 dev.off()
 ```
 
-    ## png 
-    ##   2
+    ## quartz_off_screen 
+    ##                 2
 
 ![](./images/plot1.png)
 
-Yes, there are indeed distinct clusters with various normal distributions! R already comes with a great built-in function `kmeans` that can compute clusters. However, for the sake of understanding, we'll hand-code a function that can compute the clusters as well as keep track of the data for each iteration to visualize the progress of the algorithm. If this sounds confusing now, it will make sense in a bit.
+Yes, there are indeed distinct clusters with various normal
+distributions! R already comes with a great built-in function `kmeans`
+that can compute clusters. However, for the sake of understanding, we’ll
+hand-code a function that can compute the clusters as well as keep track
+of the data for each iteration to visualize the progress of the
+algorithm. If this sounds confusing now, it will make sense in a bit.
 
 ``` r
 my_kmeans <- function(df, n_clusters){ # the function will take a dataframe and num clusters as input
@@ -116,14 +119,17 @@ my_kmeans <- function(df, n_clusters){ # the function will take a dataframe and 
   }
   # cat('Took', iteration - 1, 'iterations to converge!')
   Z_hist$prediction <- as.factor(Z_hist$Z)
+  Z_new <- as.factor(Z_new)
   output <- list(Z_new, centers, Z_hist, C_hist)
   return(output)
 }
 ```
 
-Might not be the most efficient code possible with all the for loops and what not... but let's see what it can do.
+Might not be the most efficient code possible with all the for loops and
+what not… but let’s see what it can do.
 
-Since this is an iterative approach, we can visualize the progress at every iteration using the history variables provided by my function!
+Since this is an iterative approach, we can visualize the progress at
+every iteration using the history variables provided by my function!
 
 ``` r
 library(gganimate)
@@ -148,9 +154,17 @@ animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1,
 
 ![](images/unnamed-chunk-6-1.gif)
 
-This animation essentially shows each step the algorithm takes to make its decision of which points are closest to each centroid. As you can see, the centroids (black dots) move around the grid and each color represents which centroid/cluster the individual samples are currently part of. The shape of each point represents the real group the point came from. We can see that the algorithm does a really good job in finding the centers for each group that we manually created, although there are some that are wrongly grouped.
+This animation essentially shows each step the algorithm takes to make
+its decision of which points are closest to each centroid. As you can
+see, the centroids (black dots) move around the grid and each color
+represents which centroid/cluster the individual samples are currently
+part of. The shape of each point represents the real group the point
+came from. We can see that the algorithm does a really good job in
+finding the centers for each group that we manually created, although
+there are some that are wrongly grouped.
 
-Final Result (as a sanity check, let's compare with R's built in `kmeans` function):
+Final Result (as a sanity check, let’s compare with R’s built in
+`kmeans` function):
 
 ``` r
 combined$predicted <- as.factor(prediction[[1]]) # remeber to convert the integer values to  factors
@@ -181,14 +195,18 @@ grid.arrange(g1, g2, nrow=1, respect=TRUE)
 dev.off()
 ```
 
-    ## png 
-    ##   2
+    ## quartz_off_screen 
+    ##                 2
 
 ![](./images/plot2.png)
 
-Even though some clusters are different colors, the points are actually clustered the same in both `my_kmeans` and R's `kmeans`. So it work!
+The difference in colors between the two graphs is simply an artifact of
+the random initialization of the centroids. Even though some clusters
+are different colors, the points are actually clustered the same in both
+`my_kmeans` and R’s `kmeans`. So it work!
 
-Now let's compare the centers that the algorithm found to the actual centers that we created.
+Now let’s compare the centers that the algorithm found to the actual
+centers that we created.
 
 ``` r
 predicted_centers <- tail(c_hist, 3)[,-3] # k-means predicted centers
@@ -200,7 +218,7 @@ real_centers$real <- 'real'
 
 both_centers <- rbind(predicted_centers, real_centers)
 
-tiff('./images/plot3.tiff', units="in", width=5, height=3, res=300,)
+tiff('./images/plot3.tiff', units="in", width=5, height=3, res=300)
  
 ggplot(combined, aes(x = x, y = y)) +
   geom_point(aes(color = label)) +
@@ -211,13 +229,117 @@ ggplot(combined, aes(x = x, y = y)) +
 dev.off()
 ```
 
-    ## png 
-    ##   2
+    ## quartz_off_screen 
+    ##                 2
 
 ![](./images/plot3.png)
 
-Although the predicted cluster centers are not perfectly on top of the real centers (due to the random nature of the sampling), they are very close to each other, showing that the algorithm does work when there are distinct clusters!
+Although the predicted cluster centers are not perfectly on top of the
+real centers (due to the random nature of the sampling), they are very
+close to each other, showing that the algorithm does work when there are
+distinct clusters!
 
-Since in this case our labels are known, we can caclulate the confusion matrix for the prediction of this algorithm.
+Since in this case our labels are known, we can caclulate the confusion
+matrix for the prediction of this algorithm.
 
-Now, since this is a *boring* example, let's use a more interesting dataset!
+Now… you might be wondering *how do I determine the number of
+clusters?!* Well, there are multiple ways of doing so. In our case, we
+decided on three clusters because we knew ahead of time that there would
+be three clustered, since we generated the data. Here are some ways I
+can think of:
+
+1.  Domain knowledge. Ideally, you should be familiar with the data
+    you’re working with and should have a sense of the number of
+    clusters in your data.
+2.  Create a scree plot. Plot the number of clusters against the total
+    squared distance of each point from its respective centroid. Let’s
+    see an example of this.
+
+``` r
+# first create function to determine total distance from clusters
+# pass in the data (raw data), the predicted labels from k means, and the centers
+find_distances <- function(data, predicted_labs, centers){
+  # first prepare dataframes for computations
+  merged <- cbind(data, center = predicted_labs) # combining the raw data with the predicted labs
+  # center_lab <- data.frame(centers, center = 1:nrow(centers))
+  #merged2 <- merge(merged1, center_lab)
+  tot_sq_dist <- 0 # initialize total square distacnce
+  
+  for(cen in 1:nrow(centers)){
+    cluster_points <- merged[merged$center==cen,  colnames(merged) != 'center']
+    if(nrow(cluster_points)!=0){
+      expand_centers <- matrix(rep(centers[cen,], nrow(cluster_points)), ncol = 2, byrow=TRUE)
+      sq_dist <- sum((cluster_points - expand_centers)^2)
+      tot_sq_dist <- tot_sq_dist + sq_dist
+    }
+  }
+  
+  return(tot_sq_dist)  
+}
+
+
+km <- my_kmeans(no_labs, 4)
+predicted_labs <- km[[1]]
+centers <- km[[2]]
+find_distances(no_labs, predicted_labs, centers)
+```
+
+    ## [1] 385.0495
+
+Great, now let’s see how we can use a scree plot to our advantage!
+
+``` r
+lab_hist <- data.frame() # initialize histories
+cen_hist <- data.frame()
+dist_hist <- data.frame()
+
+num_clusters <- 10
+for(clusters in 1:num_clusters){
+  km <- my_kmeans(no_labs, n_clusters = clusters)
+  
+  new_df <- no_labs
+  new_df$pred <- km[[1]]
+  new_df$num_clusters <- clusters
+  
+  centers <- data.frame(km[[2]])
+  centers$num_clusters <- clusters
+  
+  lab_hist <- rbind(lab_hist, new_df)
+  cen_hist <- rbind(cen_hist, centers)
+  
+  sq_dist <- find_distances(no_labs, new_df$pred,
+                                    as.matrix(centers[,colnames(centers) != 'num_clusters']))
+  sq_dist_df <- data.frame(sq_dist, num_clusters = clusters)
+  dist_hist <- rbind(dist_hist, sq_dist_df)
+}
+
+g <- ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
+  geom_point() +
+  geom_point(color = 'white', size = 1) +
+  geom_line(color = 'maroon') +
+  labs(title = 'Scree Plot Example') + xlab('Number of Clusters') + ylab('Total Squared Distance') +
+  scale_x_continuous(breaks = 0:num_clusters+1) + theme_classic()
+  
+g
+```
+
+![](images/unnamed-chunk-10-1.png)
+
+``` r
+# create the gif
+
+g <- ggplot(lab_hist, aes(x,y)) +
+  geom_point(aes(color = pred)) +
+  geom_point(data = cen_hist, aes(X1, X2)) +
+  labs(title = 'Num clusters: {frame_time}') +
+  th + theme(text = element_text(size = 5)) +
+  transition_time(num_clusters) 
+  
+animate(g, nframes =  num_clusters, fps = 1,
+        width = 1000, height=800, res = 300)
+```
+
+![](images/unnamed-chunk-10-1.gif)
+
+Now, since this is a *boring* example, let’s use a more interesting
+dataset!
