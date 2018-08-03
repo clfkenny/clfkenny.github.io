@@ -331,3 +331,10 @@ nav.hovered {
   font-size:15px;
 }
 
+
+/*change line spacing in lists*/
+ol li{
+  padding:5px;  
+  line-height: 1.3em;
+  font-size:1.1em;
+}
