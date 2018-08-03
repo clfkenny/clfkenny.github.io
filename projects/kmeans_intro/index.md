@@ -3,11 +3,6 @@ layout: projects
 
 ---
 
----
-layout: projects
-
----
-
 
 
 # **Introduction to K-Means Clustering (IN PROGRESS)**
