@@ -7,18 +7,18 @@ with open('index.md', "r+") as f:
 print('Finished writing header\n')
 
 
-# fixing latex equations
-print('Fixing LaTeX equations ...')
-import fileinput
-with fileinput.FileInput('index.md', inplace=True) as file:
-    for line in file:
-        print(line.replace('\\\\', '\\'), end='')
+# # fixing latex equations
+# print('Fixing LaTeX equations ...')
+# import fileinput
+# with fileinput.FileInput('index.md', inplace=True) as file:
+#     for line in file:
+#         print(line.replace('\\\\', '\\'), end='')
         
-with fileinput.FileInput('index.md', inplace=True) as file:
-    for line in file:
-        print(line.replace('\\_', '_'), end='')
+# with fileinput.FileInput('index.md', inplace=True) as file:
+#     for line in file:
+#         print(line.replace('\\_', '_'), end='')
   
-print('Finished fixing LaTeX equations\n')
+# print('Finished fixing LaTeX equations\n')
 
 
 # removing extra gif in middle of md
