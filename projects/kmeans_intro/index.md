@@ -7,7 +7,6 @@ layout: projects
 ====================================================
 
 <link rel="stylesheet" type="text/css" href="/projects/kmeans_intro/kmeans.css">
-
 <p style="text-align:center;">
 <em>Kenny Lov</em><br><br>
 </p>
@@ -43,14 +42,12 @@ confirm that we’ve indeed created distinct clusters.
 ``` r
 library(ggplot2)
 th <- theme_linedraw() # setting the theme for the plots
-
-
 tiff('./images/plot1.tiff', units="in", width=5, height=3, res=300)
 
 ggplot(combined, aes(x= x, y = y)) +
   geom_point(aes(color=label), size = 2) +
   labs(title = "Toy Example") + 
-  th + theme(aspect.ratio = 0.8)
+  th + theme(aspect.ratio = 0.8) 
 
 garb <- dev.off()
 ```
@@ -152,12 +149,11 @@ g <- ggplot(Z_hist, aes(x = x, y = y)) +
   th + theme(text = element_text(size = 5)) +
   transition_time(iteration) 
 
-
 animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-![](images/unnamed-chunk-6-1.gif)
+![](images/unnamed-chunk-7-1.gif)
 
 This animation essentially shows each step the algorithm takes to make
 its decision of which points are closest to each centroid. As you can
@@ -272,10 +268,8 @@ find_distances <- function(data, predicted_labs, centers){
       tot_sq_dist <- tot_sq_dist + sq_dist
     }
   }
-  
   return(tot_sq_dist)  
 }
-
 
 km <- my_kmeans(no_labs, 4)
 predicted_labs <- km[[1]]
@@ -324,7 +318,6 @@ ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
 garb <- dev.off()
 
 # create the gif
-
 g <- ggplot(lab_hist, aes(x,y)) +
   geom_point(aes(color = pred)) +
   geom_point(data = cen_hist, aes(X1, X2)) +
@@ -335,6 +328,7 @@ g <- ggplot(lab_hist, aes(x,y)) +
 animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
+
 
 |    Cluster \# Effect on Sq. Dist   |       Scree Plot      |
 |:----------------------------------:|:---------------------:|

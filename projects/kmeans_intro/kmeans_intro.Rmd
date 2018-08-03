@@ -1,11 +1,9 @@
 ---
-layout: projects
 title: Introduction to K-means Clustering
 author: Kenny Lov
 output:
   md_document:
     variant: markdown_github
-
 knit: (function(inputFile, encoding) { 
       rmarkdown::render(inputFile,
                         encoding=encoding, 
@@ -18,15 +16,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 # __Introduction to K-Means Clustering (IN PROGRESS)__
 
 <link rel="stylesheet" type="text/css" href="/projects/kmeans_intro/kmeans.css">
-
 <p style = 'text-align:center;'>
 <em>Kenny Lov</em><br><br>
 </p>
-
 
 ```{r}
 
@@ -63,8 +58,6 @@ Now that we've created this *toy* dataset, let's visualize it and confirm that w
 ```{r}
 library(ggplot2)
 th <- theme_linedraw() # setting the theme for the plots
-
-
 tiff('./images/plot1.tiff', units="in", width=5, height=3, res=300)
 
 ggplot(combined, aes(x= x, y = y)) +
@@ -73,15 +66,15 @@ ggplot(combined, aes(x= x, y = y)) +
   th + theme(aspect.ratio = 0.8) 
 
 garb <- dev.off()
-
-
 ```
 
 ```{r, echo = FALSE, eval = FALSE}
+colors = c('red', 'orange', 'purple')
 g <- ggplot(combined, aes(x= x, y = y)) +
-  geom_point(aes(color=label), size = 4) +
+  geom_point(aes(color=label), size = 8) +
   theme_void() + theme(aspect.ratio = 0.8, legend.position='none') +
-  stat_ellipse(aes(x=x, y=y,color=label, group=label),type = "norm", size = 2)
+  stat_ellipse(aes(x=x, y=y,color=label, group=label),type = "norm", size = 4) +
+  scale_color_manual(values=colors)
 g 
 
 ggsave(g, filename = "../img/k_means_icon.png",  bg = "transparent")
@@ -181,10 +174,8 @@ g <- ggplot(Z_hist, aes(x = x, y = y)) +
   th + theme(text = element_text(size = 5)) +
   transition_time(iteration) 
 
-
 animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1,
         width = 1000, height=800, res = 300)
-
 ```
 
 
@@ -219,7 +210,6 @@ tiff('./images/plot2.tiff', units="in", width=10, height=5, res=600)
 grid.arrange(g1, g2, nrow=1, respect=TRUE)
 
 garb <- dev.off()
-
 ```
 
 ![](./images/plot2.png)
@@ -283,10 +273,8 @@ find_distances <- function(data, predicted_labs, centers){
       tot_sq_dist <- tot_sq_dist + sq_dist
     }
   }
-  
   return(tot_sq_dist)  
 }
-
 
 km <- my_kmeans(no_labs, 4)
 predicted_labs <- km[[1]]
@@ -333,7 +321,6 @@ ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
 garb <- dev.off()
 
 # create the gif
-
 g <- ggplot(lab_hist, aes(x,y)) +
   geom_point(aes(color = pred)) +
   geom_point(data = cen_hist, aes(X1, X2)) +
@@ -345,34 +332,33 @@ animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-
 Cluster # Effect on Sq. Dist             |  Scree Plot
 :-------------------------:|:-------------------------:
 ![](images/unnamed-chunk-10-1.gif)   | ![](images/scree.png)
 
-```{r echo = F, eval=F}
-# create the second gif
-# anim_dist_hist <- data.frame() # just for fun, animation :)
-# for(i in 1:nrow(dist_hist)){
-#   ph <- dist_hist[dist_hist$num_clusters <= i,]
-#   ph$frame <- i
-#   anim_dist_hist <- rbind(anim_dist_hist, ph)
-# }
-# 
-# g2 <- ggplot(anim_dist_hist, aes(x = as.integer(num_clusters), y = sq_dist)) +
-#   geom_line(color = 'maroon') +
-#   geom_point() +
-#   geom_point(color = 'white', size = 1) +
-#   
-#   labs(title = 'Num clusters: {frame_time}') + 
-#   xlab('Number of Clusters') +
-#   ylab('Total Distance') +
-#   theme_classic() + theme(text = element_text(size=5), legend.position="none") +
-#   scale_x_continuous(breaks = 0:num_clusters+1) +
-#   transition_time(as.integer(frame))
-# 
-# animate(g2, nframes =  num_clusters, fps = 1,
-#         width = 1000, height=800, res = 300)
+```{r eval=FALSE, include=FALSE}
+create the second gif
+anim_dist_hist <- data.frame() # just for fun, animation :)
+for(i in 1:nrow(dist_hist)){
+  ph <- dist_hist[dist_hist$num_clusters <= i,]
+  ph$frame <- i
+  anim_dist_hist <- rbind(anim_dist_hist, ph)
+}
+
+g2 <- ggplot(anim_dist_hist, aes(x = as.integer(num_clusters), y = sq_dist)) +
+  geom_line(color = 'maroon') +
+  geom_point() +
+  geom_point(color = 'white', size = 1) +
+
+  labs(title = 'Num clusters: {frame_time}') +
+  xlab('Number of Clusters') +
+  ylab('Total Distance') +
+  theme_classic() + theme(text = element_text(size=5), legend.position="none") +
+  scale_x_continuous(breaks = 0:num_clusters+1) +
+  transition_time(as.integer(frame))
+
+animate(g2, nframes =  num_clusters, fps = 1,
+        width = 1000, height=800, res = 300)
 ```
 
 
