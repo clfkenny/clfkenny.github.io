@@ -34,7 +34,7 @@ This is the function the algorithm aims to minimize:
 <p>
 $$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
 
-Testinng LaTeX in line ... $\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$
+Testinng LaTeX in line ... \(\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\)
 
 </p>
 
