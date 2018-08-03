@@ -86,7 +86,7 @@ ggsave(g, filename = "../img/k_means_icon.png",  bg = "transparent")
 Yes, there are indeed distinct clusters with various normal distributions! R already comes with a great built-in function `kmeans` that can compute clusters. However, for the sake of understanding, we'll hand-code a function that can compute the clusters as well as keep track of the data for each iteration to visualize the progress of the algorithm. If this sounds confusing now, it will make sense in a bit.
 
 
-```{r}
+```{r my_kmeans func}
 my_kmeans <- function(df, n_clusters){ # the function will take a dataframe and num clusters as input
   # first, get the range of possible values to initiate random centers
   
@@ -315,7 +315,7 @@ ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
   geom_point() +
   geom_point(color = 'white', size = 1) +
   geom_line(color = 'maroon') +
-  labs(title = 'Scree Plot Example') + xlab('Number of Clusters') + ylab('Total Squared Distance') +
+  xlab('Number of Clusters') + ylab('Total Squared Distance') +
   scale_x_continuous(breaks = 0:num_clusters+1) + theme_classic()
   
 garb <- dev.off()
@@ -324,8 +324,8 @@ garb <- dev.off()
 g <- ggplot(lab_hist, aes(x,y)) +
   geom_point(aes(color = pred)) +
   geom_point(data = cen_hist, aes(X1, X2)) +
-  labs(title = 'Num clusters: {frame_time}') +
-  th + theme(text = element_text(size = 5), legend.position = 'none') +
+  labs(title = 'Number of Clusters: {frame_time}') +
+  th + theme(text = element_text(size = 8), legend.position = 'none') +
   transition_time(num_clusters) 
   
 animate(g, nframes =  num_clusters, fps = 1,

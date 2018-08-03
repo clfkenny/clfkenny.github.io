@@ -153,7 +153,7 @@ animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-![](images/unnamed-chunk-7-1.gif)
+![](images/unnamed-chunk-6-1.gif)
 
 This animation essentially shows each step the algorithm takes to make
 its decision of which points are closest to each centroid. As you can
@@ -312,7 +312,7 @@ ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
   geom_point() +
   geom_point(color = 'white', size = 1) +
   geom_line(color = 'maroon') +
-  labs(title = 'Scree Plot Example') + xlab('Number of Clusters') + ylab('Total Squared Distance') +
+  xlab('Number of Clusters') + ylab('Total Squared Distance') +
   scale_x_continuous(breaks = 0:num_clusters+1) + theme_classic()
   
 garb <- dev.off()
@@ -321,14 +321,13 @@ garb <- dev.off()
 g <- ggplot(lab_hist, aes(x,y)) +
   geom_point(aes(color = pred)) +
   geom_point(data = cen_hist, aes(X1, X2)) +
-  labs(title = 'Num clusters: {frame_time}') +
-  th + theme(text = element_text(size = 5), legend.position = 'none') +
+  labs(title = 'Number of Clusters: {frame_time}') +
+  th + theme(text = element_text(size = 8), legend.position = 'none') +
   transition_time(num_clusters) 
   
 animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
-
 
 
 |    Cluster \# Effect on Sq. Dist   |       Scree Plot      |
