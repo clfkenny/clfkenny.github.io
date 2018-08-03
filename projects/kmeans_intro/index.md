@@ -3,27 +3,36 @@ layout: projects
 
 ---
 
-**Introduction to K-Means Clustering (IN PROGRESS)**
-====================================================
+
+
+# **Introduction to K-Means Clustering (IN PROGRESS)**
 
 <link rel="stylesheet" type="text/css" href="/projects/kmeans_intro/kmeans.css">
+
 <p style="text-align:center;">
+
 <em>Kenny Lov</em><br><br>
+
 </p>
+
 This is the function the algorithm aims to minimize:
-<p>
-$$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
 
-Testinng LaTeX in line ... $\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$
+<p>
+
+\[\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\]
+
+Testing LaTeX in line … \(\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\)
 
 </p>
-First, let's used a contrived *toy* example to better understand this
-topic. k-means clustering works better if the clusters are spherical and
-normally distributed. For this example, we'll create a small, arbitrary
-dataset with 5 different clusters (5 populations with different means
-and variances).
 
-``` {.r}
+First, let’s used a contrived *toy* example to better understand this
+topic. k-means clustering works better if the clusters are spherical and
+normally distributed. For this example, we’ll create a small, arbitrary
+dataset with 5 different clusters (5 populations with different means
+and
+variances).
+
+``` r
 # first create individual clusters with different distribution parameters
 set.seed(123) # setting a seed for reproducibility
 
@@ -43,10 +52,10 @@ combined <- rbind(df1, df2, df3)
 combined$label <- as.factor(combined$label) # label must be converted into a factor since it will be interpreted as a continuous variable, which it is not.
 ```
 
-Now that we've created this *toy* dataset, let's visualize it and
-confirm that we've indeed created distinct clusters.
+Now that we’ve created this *toy* dataset, let’s visualize it and
+confirm that we’ve indeed created distinct clusters.
 
-``` {.r}
+``` r
 library(ggplot2)
 th <- theme_linedraw() # setting the theme for the plots
 tiff('./images/plot1.tiff', units="in", width=5, height=3, res=300)
@@ -62,13 +71,14 @@ garb <- dev.off()
 ![](./images/plot1.png)
 
 Yes, there are indeed distinct clusters with various normal
-distributions! R already comes with a great built-in function `kmeans`
-that can compute clusters. However, for the sake of understanding, we'll
+distributions\! R already comes with a great built-in function `kmeans`
+that can compute clusters. However, for the sake of understanding, we’ll
 hand-code a function that can compute the clusters as well as keep track
 of the data for each iteration to visualize the progress of the
-algorithm. If this sounds confusing now, it will make sense in a bit.
+algorithm. If this sounds confusing now, it will make sense in a
+bit.
 
-``` {.r}
+``` r
 my_kmeans <- function(df, n_clusters){ # the function will take a dataframe and num clusters as input
   # first, get the range of possible values to initiate random centers
   
@@ -135,12 +145,12 @@ my_kmeans <- function(df, n_clusters){ # the function will take a dataframe and 
 ```
 
 Might not be the most efficient code possible with all the for loops and
-what not... but let's see what it can do.
+what not… but let’s see what it can do.
 
 Since this is an iterative approach, we can visualize the progress at
-every iteration using the history variables provided by my function!
+every iteration using the history variables provided by my function\!
 
-``` {.r}
+``` r
 library(gganimate)
 
 no_labs = combined[,1:2]
@@ -160,7 +170,7 @@ animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-![](images/unnamed-chunk-5-1.gif)
+![](images/unnamed-chunk-5-1.gif)<!-- -->
 
 This animation essentially shows each step the algorithm takes to make
 its decision of which points are closest to each centroid. As you can
@@ -171,10 +181,11 @@ came from. We can see that the algorithm does a really good job in
 finding the centers for each group that we manually created, although
 there are some that are wrongly grouped.
 
-Final Result (as a sanity check, let's compare with R's built in
-`kmeans` function):
+Final Result (as a sanity check, let’s compare with R’s built in
+`kmeans`
+function):
 
-``` {.r}
+``` r
 combined$predicted <- as.factor(prediction[[1]]) # remeber to convert the integer values to  factors
 centers <- prediction[[2]]
 
@@ -208,12 +219,12 @@ garb <- dev.off()
 The difference in colors between the two graphs is simply an artifact of
 the random initialization of the centroids. Even though some clusters
 are different colors, the points are actually clustered the same in both
-`my_kmeans` and R's `kmeans`. So it work!
+`my_kmeans` and R’s `kmeans`. So it work\!
 
-Now let's compare the centers that the algorithm found to the actual
+Now let’s compare the centers that the algorithm found to the actual
 centers that we created.
 
-``` {.r}
+``` r
 predicted_centers <- tail(c_hist, 3)[,-3] # k-means predicted centers
 predicted_centers$real <- 'predicted'
 
@@ -239,25 +250,27 @@ garb <- dev.off()
 Although the predicted cluster centers are not perfectly on top of the
 real centers (due to the random nature of the sampling), they are very
 close to each other, showing that the algorithm does work when there are
-distinct clusters!
+distinct clusters\!
 
 Since in this case our labels are known, we can caclulate the confusion
 matrix for the prediction of this algorithm.
 
-Now... you might be wondering *how do I determine the number of
-clusters?!* Well, there are multiple ways of doing so. In our case, we
+Now… you might be wondering *how do I determine the number of
+clusters?\!* Well, there are multiple ways of doing so. In our case, we
 decided on three clusters because we knew ahead of time that there would
 be three clustered, since we generated the data. Here are some ways I
 can think of:
 
 1.  Domain knowledge. Ideally, you should be familiar with the data
-    you're working with and should have a sense of the number of
+    you’re working with and should have a sense of the number of
     clusters in your data.
 2.  Create a scree plot. Plot the number of clusters against the total
-    squared distance of each point from its respective centroid. Let's
+    squared distance of each point from its respective centroid. Let’s
     see an example of this.
 
-``` {.r}
+<!-- end list -->
+
+``` r
 # first create function to determine total distance from clusters
 # pass in the data (raw data), the predicted labels from k means, and the centers
 find_distances <- function(data, predicted_labs, centers){
@@ -286,9 +299,9 @@ find_distances(no_labs, predicted_labs, centers)
 
     ## [1] 385.0495
 
-Great, now let's see how we can use a scree plot to our advantage!
+Great, now let’s see how we can use a scree plot to our advantage\!
 
-``` {.r}
+``` r
 lab_hist <- data.frame() # initialize histories
 cen_hist <- data.frame()
 dist_hist <- data.frame()
@@ -336,10 +349,11 @@ animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
+![](images/unnamed-chunk-9-1.gif)<!-- -->
 
-     Cluster \# Effect on Sq. Dist          Scree Plot
-  ----------------------------------- -----------------------
-   ![](images/unnamed-chunk-9-1.gif)   ![](images/scree.png)
+|   Cluster \# Effect on Sq. Dist   |      Scree Plot       |
+| :-------------------------------: | :-------------------: |
+| ![](images/unnamed-chunk-9-1.gif) | ![](images/scree.png) |
 
-Now, since this is a *boring* example, let's use a more interesting
-dataset!
+Now, since this is a *boring* example, let’s use a more interesting
+dataset\!
