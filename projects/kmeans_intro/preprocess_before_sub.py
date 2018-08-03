@@ -4,11 +4,12 @@ with open('index.md', "r+") as f:
 	old = f.read()
 	f.seek(0)
 	f.write("---\nlayout: projects\n\n---\n\n" + old)
-print('Finished writing header\n\n')
+print('Finished writing header\n')
+
 
 
 # removing extra gif in middle of md
-print('\nRemoving extra gif in middle of md ...')
+print('Removing extra gif in middle of md ...')
 with open('index.md', "r") as f:
 	lines = f.readlines()
 
@@ -18,7 +19,7 @@ with open('index.md', "w") as f:
 		if line != rm_line:
 			f.write(line)
 
-print('\nFinished removing extra gif\n\n')
+print('Finished removing extra gif\n')
 
 
 
