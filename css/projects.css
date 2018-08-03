@@ -307,3 +307,18 @@ p img{
 	display:block;
 	margin-right: auto;
 	margin-left:auto;
+
+
+
+/*  shrinking nav bar when scrolling down*/
+
+nav{
+  background-color:#ccc;
+   -webkit-transition: all 0.4s ease;
+   transition: all 0.4s ease;
+}
+
+nav.shrink {
+  min-height: 5px;
+  font-size: 10px;
+}
