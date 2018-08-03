@@ -70,12 +70,23 @@ tiff('./images/plot1.tiff', units="in", width=5, height=3, res=300)
 ggplot(combined, aes(x= x, y = y)) +
   geom_point(aes(color=label), size = 2) +
   labs(title = "Toy Example") + 
-  th + theme(aspect.ratio = 0.8)
+  th + theme(aspect.ratio = 0.8) 
 
 garb <- dev.off()
 
 
 ```
+
+```{r, echo = FALSE, eval = FALSE}
+g <- ggplot(combined, aes(x= x, y = y)) +
+  geom_point(aes(color=label), size = 4) +
+  theme_void() + theme(aspect.ratio = 0.8, legend.position='none') +
+  stat_ellipse(aes(x=x, y=y,color=label, group=label),type = "norm", size = 2)
+g 
+
+ggsave(g, filename = "../img/k_means_icon.png",  bg = "transparent")
+```
+
 
 ![](./images/plot1.png)
 
