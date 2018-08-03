@@ -3,7 +3,6 @@ layout: projects
 
 ---
 
-
 **Introduction to K-Means Clustering (IN PROGRESS)**
 ====================================================
 
@@ -307,7 +306,7 @@ for(clusters in 1:num_clusters){
   dist_hist <- rbind(dist_hist, sq_dist_df)
 }
 
-tiff('./images/scree.tiff', units="in", width=5, height=3, res=300)
+tiff('./images/scree.tiff', units="px", width=1000, height=800, res=300)
 
 ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
   geom_point() +
@@ -329,6 +328,7 @@ g <- ggplot(lab_hist, aes(x,y)) +
 animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
+
 
 
 |    Cluster \# Effect on Sq. Dist   |       Scree Plot      |
