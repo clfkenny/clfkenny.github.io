@@ -332,7 +332,7 @@ animate(g, nframes =  num_clusters, fps = 1,
 
 |    Cluster \# Effect on Sq. Dist   |       Scree Plot      |
 |:----------------------------------:|:---------------------:|
-| ![](images/unnamed-chunk-11-1.gif) | ![](images/scree.png) |
+| ![](images/unnamed-chunk-10-1.gif) | ![](images/scree.png) |
 
 Now, since this is a *boring* example, let’s use a more interesting
 dataset!
