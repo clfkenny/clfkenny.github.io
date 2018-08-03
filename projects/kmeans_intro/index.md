@@ -14,9 +14,7 @@ layout: projects
 </p>
 This is the function the algorithm aims to minimize:
 <p>
-$$  
-\\min\_{C\_1,...,C\_K} \\sum^{K}\_{k=1}W(C\_k)  
-$$
+$$  \\min\_{C\_1,...,C\_K} \\sum^{K}\_{k=1}W(C\_k)  $$
 </p>
 First, let’s used a contrived *toy* example to better understand this
 topic. k-means clustering works better if the clusters are spherical and
