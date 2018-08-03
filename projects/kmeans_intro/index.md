@@ -68,11 +68,12 @@ algorithm. If this sounds confusing now, it will make sense in a bit.
 my_kmeans <- function(df, n_clusters){ # the function will take a dataframe and num clusters as input
   # first, get the range of possible values to initiate random centers
   
-  Z_hist <- data.frame()          # create history of Z and centers to see                                                                    progress of iterations
+  Z_hist <- data.frame()          # create history of Z and centers to see progress of iterations
   C_hist <- data.frame()
   
-  Z <- rep(-1, nrow(df))     # Z are our indicator variable, we need to set placeholders for these                                           variables that are different values. values don't matter as long as they                                       are different from each other
-  Z_new <- rep(0, nrow(df))  # these variables will tell the algorithm when to stop iterations
+  Z <- rep(-1, nrow(df))     # Z are our indicator variable, we need to set placeholders for these variables that are different values. values don't matter as long as they are different from each other
+ 
+   Z_new <- rep(0, nrow(df))  # these variables will tell the algorithm when to stop iterations
   
   centers <- array(0, dim = c(n_clusters, ncol(df)) ) # create a placeholder for centers array
   # now we can initialize random centers
@@ -334,7 +335,6 @@ g <- ggplot(lab_hist, aes(x,y)) +
 animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
-
 
 |    Cluster \# Effect on Sq. Dist   |       Scree Plot      |
 |:----------------------------------:|:---------------------:|
