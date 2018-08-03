@@ -1,3 +1,8 @@
+---
+layout: projects
+
+---
+
 **Introduction to K-Means Clustering (IN PROGRESS)**
 ====================================================
 
@@ -47,11 +52,8 @@ ggplot(combined, aes(x= x, y = y)) +
   labs(title = "Toy Example") + 
   th + theme(aspect.ratio = 0.8)
 
-dev.off()
+garb <- dev.off()
 ```
-
-    ## quartz_off_screen 
-    ##                 2
 
 ![](./images/plot1.png)
 
@@ -194,11 +196,8 @@ tiff('./images/plot2.tiff', units="in", width=10, height=5, res=600)
 
 grid.arrange(g1, g2, nrow=1, respect=TRUE)
 
-dev.off()
+garb <- dev.off()
 ```
-
-    ## quartz_off_screen 
-    ##                 2
 
 ![](./images/plot2.png)
 
@@ -228,11 +227,8 @@ ggplot(combined, aes(x = x, y = y)) +
   labs(title = 'Comparing Real and Predicted Centers') +
   th + theme(aspect.ratio = 0.8)
 
-dev.off()
+garb <- dev.off()
 ```
-
-    ## quartz_off_screen 
-    ##                 2
 
 ![](./images/plot3.png)
 
@@ -324,8 +320,7 @@ ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
   labs(title = 'Scree Plot Example') + xlab('Number of Clusters') + ylab('Total Squared Distance') +
   scale_x_continuous(breaks = 0:num_clusters+1) + theme_classic()
   
-dev.off()
-```
+garb <- dev.off()
 
 # create the gif
 
@@ -339,6 +334,7 @@ g <- ggplot(lab_hist, aes(x,y)) +
 animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
+
 
 |    Cluster \# Effect on Sq. Dist   |       Scree Plot      |
 |:----------------------------------:|:---------------------:|

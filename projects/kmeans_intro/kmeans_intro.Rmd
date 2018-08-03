@@ -72,7 +72,7 @@ ggplot(combined, aes(x= x, y = y)) +
   labs(title = "Toy Example") + 
   th + theme(aspect.ratio = 0.8)
 
-dev.off()
+garb <- dev.off()
 
 
 ```
@@ -206,7 +206,7 @@ tiff('./images/plot2.tiff', units="in", width=10, height=5, res=600)
 
 grid.arrange(g1, g2, nrow=1, respect=TRUE)
 
-dev.off()
+garb <- dev.off()
 
 ```
 
@@ -235,7 +235,7 @@ ggplot(combined, aes(x = x, y = y)) +
   labs(title = 'Comparing Real and Predicted Centers') +
   th + theme(aspect.ratio = 0.8)
 
-dev.off()
+garb <- dev.off()
 ```
 
 ![](./images/plot3.png)
@@ -318,7 +318,7 @@ ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
   labs(title = 'Scree Plot Example') + xlab('Number of Clusters') + ylab('Total Squared Distance') +
   scale_x_continuous(breaks = 0:num_clusters+1) + theme_classic()
   
-dev.off()
+garb <- dev.off()
 
 # create the gif
 
