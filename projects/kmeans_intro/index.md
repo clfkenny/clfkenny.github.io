@@ -342,7 +342,12 @@ animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-![](images/unnamed-chunk-10-1.gif) ![](images/unnamed-chunk-10-1.png)
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](images/unnamed-chunk-10-1.gif)   | ![](images/unnamed-chunk-10-1.png)
+
+
+
 
 Now, since this is a *boring* example, let’s use a more interesting
 dataset!
