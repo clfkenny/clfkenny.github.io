@@ -1,8 +1,3 @@
----
-layout: projects
-
----
-
 **Introduction to K-Means Clustering (IN PROGRESS)**
 ====================================================
 
@@ -320,14 +315,17 @@ for(clusters in 1:num_clusters){
   dist_hist <- rbind(dist_hist, sq_dist_df)
 }
 
-g <- ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
+tiff('./images/scree.tiff', units="in", width=5, height=3, res=300)
+
+ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
   geom_point() +
   geom_point(color = 'white', size = 1) +
   geom_line(color = 'maroon') +
   labs(title = 'Scree Plot Example') + xlab('Number of Clusters') + ylab('Total Squared Distance') +
   scale_x_continuous(breaks = 0:num_clusters+1) + theme_classic()
   
-g
+dev.off()
+```
 
 # create the gif
 
@@ -342,12 +340,9 @@ animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
-![](images/unnamed-chunk-10-1.gif)   | ![](images/unnamed-chunk-10-1.png)
-
-
-
+|    Cluster \# Effect on Sq. Dist   |       Scree Plot      |
+|:----------------------------------:|:---------------------:|
+| ![](images/unnamed-chunk-10-1.gif) | ![](images/scree.png) |
 
 Now, since this is a *boring* example, let’s use a more interesting
 dataset!
