@@ -21,7 +21,7 @@ This is the function the algorithm aims to minimize:
 
 $$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
 
-Testing LaTeX in line … $\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$
+Testing LaTeX in line … \(\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\)
 
 </p>
 
