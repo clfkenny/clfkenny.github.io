@@ -3,6 +3,11 @@ layout: projects
 
 ---
 
+---
+layout: projects
+
+---
+
 
 
 # **Introduction to K-Means Clustering (IN PROGRESS)**
@@ -19,9 +24,9 @@ This is the function the algorithm aims to minimize:
 
 <p>
 
-\[\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\]
+$$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
 
-Testing LaTeX in line … \(\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\)
+Testing LaTeX in line … $\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$
 
 </p>
 
