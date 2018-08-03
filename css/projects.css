@@ -326,3 +326,8 @@ nav.shrink {
 nav.shrink #name{
   top:-6px;
 }
+
+nav.hovered {
+  font-size:15px;
+}
+
