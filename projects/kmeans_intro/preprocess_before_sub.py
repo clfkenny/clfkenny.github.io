@@ -13,6 +13,11 @@ import fileinput
 with fileinput.FileInput('index.md', inplace=True) as file:
     for line in file:
         print(line.replace('\\\\', '\\'), end='')
+        
+with fileinput.FileInput('index.md', inplace=True) as file:
+    for line in file:
+        print(line.replace('\\_', '_'), end='')
+  
 print('Finished fixing LaTeX equations\n')
 
 
