@@ -349,7 +349,6 @@ animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-![](images/unnamed-chunk-9-1.gif)<!-- -->
 
 |   Cluster \# Effect on Sq. Dist   |      Scree Plot       |
 | :-------------------------------: | :-------------------: |
