@@ -328,11 +328,7 @@ g <- ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
   scale_x_continuous(breaks = 0:num_clusters+1) + theme_classic()
   
 g
-```
 
-![](images/unnamed-chunk-10-1.png)
-
-``` r
 # create the gif
 
 g <- ggplot(lab_hist, aes(x,y)) +
@@ -346,7 +342,7 @@ animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-![](images/unnamed-chunk-10-1.gif)
+![](images/unnamed-chunk-10-1.gif) ![](images/unnamed-chunk-10-1.png)
 
 Now, since this is a *boring* example, let’s use a more interesting
 dataset!
