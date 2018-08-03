@@ -3,6 +3,8 @@ layout: projects
 
 ---
 
+
+
 **Introduction to K-Means Clustering (IN PROGRESS)**
 ====================================================
 
@@ -10,6 +12,11 @@ layout: projects
 <p style="text-align:center;">
 <em>Kenny Lov</em><br><br>
 </p>
+This is the function the algorithm aims to minimize:
+$$  
+\\min\_{C\_1,...,C\_K} \\sum^{K}\_{k=1}W(C\_k) \\ 
+$$
+
 First, let’s used a contrived *toy* example to better understand this
 topic. k-means clustering works better if the clusters are spherical and
 normally distributed. For this example, we’ll create a small, arbitrary
@@ -46,7 +53,7 @@ tiff('./images/plot1.tiff', units="in", width=5, height=3, res=300)
 
 ggplot(combined, aes(x= x, y = y)) +
   geom_point(aes(color=label), size = 2) +
-  labs(title = "Toy Example") + 
+  labs(title = "Our Example") + 
   th + theme(aspect.ratio = 0.8) 
 
 garb <- dev.off()
@@ -153,7 +160,7 @@ animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-![](images/unnamed-chunk-6-1.gif)
+![](images/unnamed-chunk-5-1.gif)
 
 This animation essentially shows each step the algorithm takes to make
 its decision of which points are closest to each centroid. As you can
@@ -330,9 +337,9 @@ animate(g, nframes =  num_clusters, fps = 1,
 ```
 
 
-|    Cluster \# Effect on Sq. Dist   |       Scree Plot      |
-|:----------------------------------:|:---------------------:|
-| ![](images/unnamed-chunk-10-1.gif) | ![](images/scree.png) |
+|   Cluster \# Effect on Sq. Dist   |       Scree Plot      |
+|:---------------------------------:|:---------------------:|
+| ![](images/unnamed-chunk-9-1.gif) | ![](images/scree.png) |
 
 Now, since this is a *boring* example, let’s use a more interesting
 dataset!

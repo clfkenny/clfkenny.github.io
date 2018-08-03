@@ -8,6 +8,10 @@ knit: (function(inputFile, encoding) {
       rmarkdown::render(inputFile,
                         encoding=encoding, 
                         output_file=file.path(dirname(inputFile), 'index.md')) })
+
+header-includes:
+  - \usepackage{asmath}
+  
 ---
 
 ```{r, echo = F}
@@ -23,9 +27,12 @@ knitr::opts_chunk$set(
 <em>Kenny Lov</em><br><br>
 </p>
 
-```{r}
 
-```
+
+This is the function the algorithm aims to minimize:
+$$  
+\min_{C_1,...,C_K} \sum^{K}_{k=1}W(C_k) \ 
+$$
 
 
 
@@ -62,7 +69,7 @@ tiff('./images/plot1.tiff', units="in", width=5, height=3, res=300)
 
 ggplot(combined, aes(x= x, y = y)) +
   geom_point(aes(color=label), size = 2) +
-  labs(title = "Toy Example") + 
+  labs(title = "Our Example") + 
   th + theme(aspect.ratio = 0.8) 
 
 garb <- dev.off()
@@ -334,7 +341,7 @@ animate(g, nframes =  num_clusters, fps = 1,
 
 Cluster # Effect on Sq. Dist             |  Scree Plot
 :-------------------------:|:-------------------------:
-![](images/unnamed-chunk-10-1.gif)   | ![](images/scree.png)
+![](images/unnamed-chunk-9-1.gif)   | ![](images/scree.png)
 
 ```{r eval=FALSE, include=FALSE}
 create the second gif

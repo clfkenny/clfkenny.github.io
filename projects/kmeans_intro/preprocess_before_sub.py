@@ -13,7 +13,7 @@ print('Removing extra gif in middle of md ...')
 with open('index.md', "r") as f:
 	lines = f.readlines()
 
-rm_line = '![](images/unnamed-chunk-10-1.gif)' + '\n'
+rm_line = '![](images/unnamed-chunk-9-1.gif)' + '\n'
 with open('index.md', "w") as f:
 	for line in lines:
 		if line != rm_line:
