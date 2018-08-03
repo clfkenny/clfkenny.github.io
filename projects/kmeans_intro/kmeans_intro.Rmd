@@ -368,6 +368,4 @@ Cluster # Effect on Sq. Dist             |  Scree Plot
 
 
 
-
-
 Now, since this is a *boring* example, let's use a more interesting dataset! 
