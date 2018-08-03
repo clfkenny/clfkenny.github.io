@@ -3,3 +3,8 @@ p img{
   margin-left:auto;
   max-width: 85%;
 }
+
+
+table img{
+  max-width:100%;
+}
