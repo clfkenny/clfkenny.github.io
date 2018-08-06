@@ -28,24 +28,23 @@ knitr::opts_chunk$set(
 <em>Kenny Lov</em><br><br>
 </p>
 
-<div>
-**K-Means Clustering** is a machine learning algorithm that falls under the category of unsupervised learning. Unsupervised learning techniques are used when there is a set of features  \(X\) without an associated label or response \(Y\) and thus the aim is not for prediction, but rather to uncover new and perhaps interesting trends and subgroups within the data. 
+<p>
 
+<i>K-Means Clustering</i> is a machine learning algorithm that falls under the category of unsupervised learning. Unsupervised learning techniques are used when there is a set of features  \(X\) without an associated label or response \(Y\) and thus the aim is not for prediction, but rather to uncover new and perhaps interesting trends and subgroups within the data. 
+
+<br>
 
 This is the function the algorithm aims to minimize:
-
 $$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
 
 Testing LaTeX in line ... \(\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\)
 
-
+</p>
 
 
 First, let's used a contrived *toy* example to better understand this topic.
 k-means clustering works better if the clusters are spherical and normally distributed.
 For this example, we'll create a small, arbitrary dataset with 5 different clusters (5 populations with different means and variances).
-
-</div>
 
 ```{r}
 # first create individual clusters with different distribution parameters
