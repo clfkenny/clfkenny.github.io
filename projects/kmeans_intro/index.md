@@ -1,3 +1,8 @@
+---
+layout: projects
+
+---
+
 
 
 # **Introduction to K-Means Clustering (IN PROGRESS)**
@@ -21,7 +26,7 @@ This is the function the algorithm aims to minimize:
 
 <p>
 
-\[\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\]
+$$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
 
 Testing LaTeX in line … \(\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\)
 
@@ -351,7 +356,6 @@ animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-![](images/unnamed-chunk-9-1.gif)<!-- -->
 
 |   Cluster \# Effect on Sq. Dist   |      Scree Plot       |
 | :-------------------------------: | :-------------------: |
