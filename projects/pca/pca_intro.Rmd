@@ -1,0 +1,26 @@
+---
+title: Introduction to Principal Component Analysis
+author: Kenny Lov
+output:
+  md_document:
+    variant: markdown_github
+
+knit: (function(inputFile, encoding) { 
+      rmarkdown::render(inputFile,
+                        encoding=encoding, 
+                        output_file=file.path(dirname(inputFile), 'index.md')) })
+---
+
+
+```{r, echo = F}
+knitr::opts_chunk$set(
+  fig.path = "images/"
+)
+```
+
+
+# __Introduction to Principal Component Analysis__
+
+<p style = 'text-align:center;'>
+<em>Kenny Lov</em><br><br>
+</p>

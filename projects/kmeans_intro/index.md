@@ -1,8 +1,3 @@
----
-layout: projects
-
----
-
 
 
 # **Introduction to K-Means Clustering (IN PROGRESS)**
@@ -15,11 +10,18 @@ layout: projects
 
 </p>
 
+*K-Means Clustering* is a machine learning algorithm that falls under
+the category of unsupervised learning. Unsupervised learning techniques
+are used when there is a set of features \(X\) without an associated
+label or response \(Y\) and thus the aim is not for prediction, but
+rather to uncover new and perhaps interesting trends and subgroups
+within the data.
+
 This is the function the algorithm aims to minimize:
 
 <p>
 
-$$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
+\[\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\]
 
 Testing LaTeX in line … \(\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\)
 
@@ -349,6 +351,7 @@ animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
+![](images/unnamed-chunk-9-1.gif)<!-- -->
 
 |   Cluster \# Effect on Sq. Dist   |      Scree Plot       |
 | :-------------------------------: | :-------------------: |
