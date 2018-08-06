@@ -15,12 +15,16 @@ layout: projects
 
 </p>
 
+<p>
+
 *K-Means Clustering* is a machine learning algorithm that falls under
 the category of unsupervised learning. Unsupervised learning techniques
 are used when there is a set of features \(X\) without an associated
 label or response \(Y\) and thus the aim is not for prediction, but
 rather to uncover new and perhaps interesting trends and subgroups
 within the data.
+
+</p>
 
 This is the function the algorithm aims to minimize:
 
