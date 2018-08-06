@@ -23,16 +23,26 @@ techniques are used when there is a set of features \(X\) without an
 associated label or response \(Y\) and thus the aim is not for
 prediction, but rather to uncover new and perhaps interesting trends and
 subgroups within the data. Unsupervised learning is often used as part
-of <i>exploratory data analysis</i> and can aid in visualizations.
-Here’s a breakdown of the steps of <i>K-Means</i>: <br><br>
+of <i>exploratory data analysis</i> and can aid in visualizations. The
+main goal of <i>K-Means</i> is to partition the observations into
+distinct groups such that the observations in one group or cluster are
+as similar to each other as possible while also being as different as
+possible from the observations from other groups. So, how exactly is
+</i>similarity</i> measured? By Euclidian distance based on an
+observation’s numerical features. Here’s a breakdown of the steps of
+<i>K-Means</i>:
 
 <ol>
 
 <li>
 
+Scale the data since Euclidian distances will be involved
+
 </li>
 
 <li>
+
+Select number of clusters believed to exist in the data
 
 </li>
 
@@ -46,7 +56,24 @@ Here’s a breakdown of the steps of <i>K-Means</i>: <br><br>
 
 </ol>
 
-<br><br>
+Completion of the algorithm yields:
+
+<ul>
+
+<li>
+
+A vector of labels that corresponds to which group or cluster an
+observation belongs to
+
+</li>
+
+<li>
+
+The location in the feature space for each of the cluster centroids
+
+</li>
+
+</ul>
 
 This is the function the algorithm aims to minimize:
 $$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
@@ -122,8 +149,8 @@ my_kmeans <- function(df, n_clusters){ # the function will take a dataframe and 
   centers <- array(0, dim = c(n_clusters, ncol(df)) ) # create a placeholder for centers array
   # now we can initialize random centers
 
-  min <- min(df[,1])
-  max <- max(df[,2])  
+  min <- min(df)
+  max <- max(df)  
   for(row in seq(1, n_clusters)){
     for(col in seq(1, dim(centers)[2] ))
       centers[row, col] <- runif(1, min, max)
@@ -383,6 +410,59 @@ animate(g, nframes =  num_clusters, fps = 1,
 |   Cluster \# Effect on Sq. Dist   |      Scree Plot       |
 | :-------------------------------: | :-------------------: |
 | ![](images/unnamed-chunk-9-1.gif) | ![](images/scree.png) |
+
+**Important Note:** It is very important to scale the data before
+running *K-Means* algorithm. Let me demonstrate why this is so. Here is
+an example of height and weights along with gender that I obtained from
+the web. We have height in *mm* and weight in *tons* (for the sake of
+demonstration). We know beforehand that there are two groups - males and
+females, so we’ll set number of clusters to 2.
+
+``` r
+library(knitr)
+h_w <- read.csv('./data/gender-height-weight.csv')[,c(1,4:5)]
+colnames(h_w) = c('Gender', 'Height', 'Weight')
+# sample observations, since harder to see with 10000 observations
+h_w_sample <- h_w[sample(1:nrow(h_w), 200),]
+# converting inches to feet for sake of demonstration
+h_w_sample$Height = h_w_sample$Height*10
+h_w_sample$Weight <- h_w_sample$Weight * 0.0011
+h_w_sample$kmean_lab <- as.factor(kmeans(h_w_sample[,2:3], 2)$cluster)
+
+h_w_scaled <- data.frame(scale(h_w_sample[2:3]))
+h_w_scaled$Gender <- h_w_sample$Gender
+h_w_scaled$kmean_lab <- as.factor(kmeans(h_w_scaled[,1:2], 2)$cluster)
+
+g1 <- ggplot(h_w_sample, aes(x = Weight, y = Height)) + 
+  geom_point(aes(color = Gender, shape = kmean_lab), size = 4) + 
+  labs(title = "Unscaled")
+
+g2 <- ggplot(h_w_scaled, aes(x = Weight, y = Height)) + 
+         geom_point(aes(color = Gender, shape = kmean_lab), size = 4)
+
+tiff('./images/scaling.tiff', units="in", width=10, height=5, res=600)
+
+grid.arrange(g1, g2, nrow=1, respect=TRUE)
+
+garb <- dev.off()
+
+
+t1 <- table(h_w_sample$Gender, h_w_sample$kmean_lab)
+t2 <- table(h_w_scaled$Gender, h_w_scaled$kmean_lab)
+kable(list(t1, t2))
+```
+
+|        |  1 |  2 |
+| ------ | -: | -: |
+| Female | 19 | 84 |
+| Male   | 84 | 13 |
+
+|        |  1 |  2 |
+| ------ | -: | -: |
+| Female | 12 | 91 |
+| Male   | 87 | 10 |
+
+![](./images/scaling.png)
 
 Now, since this is a *boring* example, let’s use a more interesting
 dataset\!
