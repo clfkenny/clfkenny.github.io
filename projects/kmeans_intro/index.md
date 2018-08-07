@@ -461,7 +461,7 @@ t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), align = 'clc',
 <b>Confusion
 Matrix:</b>
 
-<div name = "confusion_mat">
+<div id = "confusion_mat">
 
 <table class="table" style="width: auto !important; float: left; margin-right: 10px;">
 

@@ -230,13 +230,14 @@ code.highlighter-rouge{
 	padding:3px;
 }
 
+/*tables*/
 table{
     border-style: hidden;
     border-collapse: collapse;
 }
 
 td, th {
-    border: 1px solid #dddddd
+    border: 1px solid #dddddd;
     padding: 8px;
     text-align: left;
 }
