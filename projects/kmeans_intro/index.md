@@ -450,14 +450,14 @@ garb <- dev.off()
 
 
 t1 <- kable(table(h_w_sample$Gender, h_w_sample$kmean_lab), caption = "Unscaled Features",
-            format = "html") %>% kable_styling(full_width = F, position = "float_left")
+            format = "html") %>% kable_styling(full_width = F, position = "left")
 t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), caption = "Scaled Features",
-            format = "html") %>% kable_styling(full_width = F, position = "float_right")
+            format = "html") %>% kable_styling(full_width = F, position = "right")
 ```
 
 ![](./images/scaling.png)
 
-<table class="table" style="width: auto !important; float: left; margin-right: 10px;">
+<table class="table" style="width: auto !important; ">
 
 <caption>
 
@@ -540,7 +540,7 @@ Male
 
 </table>
 
-<table class="table" style="width: auto !important; float: right; margin-left: 10px;">
+<table class="table" style="width: auto !important; margin-right: 0; margin-left: auto">
 
 <caption>
 
