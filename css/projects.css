@@ -252,6 +252,24 @@ thead {
     color: white;
 }
 
+ /*making table edges rouner*/
+table thead th:first-child{
+  border-top-left-radius:10px;
+}
+
+table thead th:last-child{
+  border-top-right-radius:10px;
+}
+
+
+table tr:last-child td:first-child{
+  border-bottom-left-radius:10px;
+}
+
+table tr:last-child td:last-child{
+  border-bottom-right-radius:10px;
+}
+
 /* background color gradient */
 body:nth-child(2) {
     min-height: 100%;

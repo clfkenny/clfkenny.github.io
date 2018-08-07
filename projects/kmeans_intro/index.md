@@ -453,8 +453,9 @@ t1 <- kable(table(h_w_sample$Gender, h_w_sample$kmean_lab), caption = "Unscaled 
             format = "html") %>% kable_styling(full_width = F, position = "float_left")
 t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), caption = "Scaled Features",
             format = "html") %>% kable_styling(full_width = F, position = "float_right")
-t1
 ```
+
+![](./images/scaling.png)
 
 <table class="table" style="width: auto !important; float: left; margin-right: 10px;">
 
@@ -539,10 +540,6 @@ Male
 
 </table>
 
-``` r
-t2
-```
-
 <table class="table" style="width: auto !important; float: right; margin-left: 10px;">
 
 <caption>
@@ -624,8 +621,6 @@ Male
 </tbody>
 
 </table>
-
-![](./images/scaling.png)
 
 Now, since this is a *boring* example, let’s use a more interesting
 dataset\!

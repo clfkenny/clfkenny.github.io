@@ -430,12 +430,13 @@ t1 <- kable(table(h_w_sample$Gender, h_w_sample$kmean_lab), caption = "Unscaled 
             format = "html") %>% kable_styling(full_width = F, position = "float_left")
 t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), caption = "Scaled Features",
             format = "html") %>% kable_styling(full_width = F, position = "float_right")
-t1
-t2
-
 ```
 
 ![](./images/scaling.png)
+```{r, echo = F}
+t1
+t2
+```
 
 ```{r}
 
