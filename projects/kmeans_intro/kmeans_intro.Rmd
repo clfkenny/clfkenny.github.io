@@ -6,6 +6,7 @@ output:
     variant: gfm
     
 tables: yes
+always_allow_html: yes
 
 knit: (function(inputFile, encoding) { 
       rmarkdown::render(inputFile,
@@ -396,6 +397,7 @@ It is very important to scale the data before running *K-Means* algorithm. Let m
 
 ```{r}
 library(knitr)
+library(kableExtra)
 h_w <- read.csv('./data/gender-height-weight.csv')[,c(1,4:5)]
 colnames(h_w) = c('Gender', 'Height', 'Weight')
 # sample observations, since harder to see with 10000 observations
@@ -424,10 +426,13 @@ grid.arrange(g1, g2, nrow=1, respect=TRUE)
 garb <- dev.off()
 
 
-t1 <- kable(table(h_w_sample$Gender, h_w_sample$kmean_lab), caption = "Unscaled Features")
-t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), caption = "Scaled Features")
+t1 <- kable(table(h_w_sample$Gender, h_w_sample$kmean_lab), caption = "Unscaled Features",
+            format = "html") %>% kable_styling(full_width = F, position = "float_left")
+t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), caption = "Scaled Features",
+            format = "html") %>% kable_styling(full_width = F, position = "float_right")
+t1
+t2
 
-kable(list(table(h_w_sample$Gender, h_w_sample$kmean_lab),table(h_w_scaled$Gender, h_w_scaled$kmean_lab)), booktabs=T)
 ```
 
 ![](./images/scaling.png)

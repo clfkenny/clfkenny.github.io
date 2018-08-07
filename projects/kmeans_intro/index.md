@@ -420,6 +420,7 @@ the sake of demonstration). We know beforehand that there are two groups
 
 ``` r
 library(knitr)
+library(kableExtra)
 h_w <- read.csv('./data/gender-height-weight.csv')[,c(1,4:5)]
 colnames(h_w) = c('Gender', 'Height', 'Weight')
 # sample observations, since harder to see with 10000 observations
@@ -448,21 +449,181 @@ grid.arrange(g1, g2, nrow=1, respect=TRUE)
 garb <- dev.off()
 
 
-t1 <- kable(table(h_w_sample$Gender, h_w_sample$kmean_lab), caption = "Unscaled Features")
-t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), caption = "Scaled Features")
-
-kable(list(table(h_w_sample$Gender, h_w_sample$kmean_lab),table(h_w_scaled$Gender, h_w_scaled$kmean_lab)), booktabs=T)
+t1 <- kable(table(h_w_sample$Gender, h_w_sample$kmean_lab), caption = "Unscaled Features",
+            format = "html") %>% kable_styling(full_width = F, position = "float_left")
+t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), caption = "Scaled Features",
+            format = "html") %>% kable_styling(full_width = F, position = "float_right")
+t1
 ```
 
-|        |  1 |  2 |
-| ------ | -: | -: |
-| Female | 19 | 84 |
-| Male   | 84 | 13 |
+<table class="table" style="width: auto !important; float: left; margin-right: 10px;">
 
-|        |  1 |  2 |
-| ------ | -: | -: |
-| Female | 12 | 91 |
-| Male   | 87 | 10 |
+<caption>
+
+Unscaled
+Features
+
+</caption>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+</th>
+
+<th style="text-align:right;">
+
+1
+
+</th>
+
+<th style="text-align:right;">
+
+2
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+Female
+
+</td>
+
+<td style="text-align:right;">
+
+19
+
+</td>
+
+<td style="text-align:right;">
+
+84
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Male
+
+</td>
+
+<td style="text-align:right;">
+
+84
+
+</td>
+
+<td style="text-align:right;">
+
+13
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+``` r
+t2
+```
+
+<table class="table" style="width: auto !important; float: right; margin-left: 10px;">
+
+<caption>
+
+Scaled Features
+
+</caption>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+</th>
+
+<th style="text-align:right;">
+
+1
+
+</th>
+
+<th style="text-align:right;">
+
+2
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+Female
+
+</td>
+
+<td style="text-align:right;">
+
+12
+
+</td>
+
+<td style="text-align:right;">
+
+91
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Male
+
+</td>
+
+<td style="text-align:right;">
+
+87
+
+</td>
+
+<td style="text-align:right;">
+
+10
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
 
 ![](./images/scaling.png)
 
