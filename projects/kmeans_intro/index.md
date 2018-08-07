@@ -411,12 +411,13 @@ animate(g, nframes =  num_clusters, fps = 1,
 | :-------------------------------: | :-------------------: |
 | ![](images/unnamed-chunk-9-1.gif) | ![](images/scree.png) |
 
-**Important Note:** It is very important to scale the data before
-running *K-Means* algorithm. Let me demonstrate why this is so. Here is
-a contrived example of height and weights along with gender that I
-obtained from the web. We have height in *mm* and weight in *tons* (for
-the sake of demonstration). We know beforehand that there are two groups
-- males and females, so we’ll set number of clusters to 2.
+**Important Note:** It is very important to scale or normalize the data
+before running *K-Means* algorithm if the features have different units.
+Let me demonstrate why this is so. Here is a contrived example of height
+and weights along with gender that I obtained from the web. We have
+height in *mm* and weight in *tons* (for the sake of demonstration). We
+know beforehand that there are two groups - males and females, so we’ll
+set number of clusters to 2.
 
 ``` r
 library(knitr)
@@ -449,14 +450,16 @@ grid.arrange(g1, g2, nrow=1, respect=TRUE)
 garb <- dev.off()
 
 
-t1 <- kable(table(h_w_sample$Gender, h_w_sample$kmean_lab), caption = "Unscaled Features",
+t1 <- kable(table(h_w_sample$Gender, h_w_sample$kmean_lab), align = 'clc',
+            caption = "Unscaled Features",
             format = "html") %>% kable_styling(full_width = F, position = "float_left")
-t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), caption = "Scaled Features",
+t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), align = 'clc',
+            caption = "Scaled Features",
             format = "html") %>% kable_styling(full_width = F, position = "right")
 ```
 
 ![](./images/scaling.png) *Confusion
-Matrix*:
+Matrix:*
 
 <table class="table" style="width: auto !important; float: left; margin-right: 10px;">
 
@@ -475,13 +478,13 @@ Features
 
 </th>
 
-<th style="text-align:right;">
+<th style="text-align:center;">
 
 1
 
 </th>
 
-<th style="text-align:right;">
+<th style="text-align:left;">
 
 2
 
@@ -501,13 +504,13 @@ Female
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
 19
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:left;">
 
 84
 
@@ -523,13 +526,13 @@ Male
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
 84
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:left;">
 
 13
 
@@ -557,13 +560,13 @@ Scaled Features
 
 </th>
 
-<th style="text-align:right;">
+<th style="text-align:center;">
 
 1
 
 </th>
 
-<th style="text-align:right;">
+<th style="text-align:left;">
 
 2
 
@@ -583,13 +586,13 @@ Female
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
 12
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:left;">
 
 91
 
@@ -605,13 +608,13 @@ Male
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
 87
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:left;">
 
 10
 
