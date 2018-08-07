@@ -230,20 +230,20 @@ code.highlighter-rouge{
 	padding:3px;
 }
 
-/* tables */
 table{
+    border-style: hidden;
     border-collapse: collapse;
 }
 
 td, th {
     border: 1px solid #ddddd;
     padding: 8px;
-	text-align: left;
+  text-align: left;
 }
 
-tr:nth-child(even){background-color:	#E8E8E8;}
+tr:nth-child(even){background-color:  #E8E8E8;}
 
-tbody tr:hover {background-color:	#DCDCDC;}
+tbody tr:hover {background-color: #DCDCDC;}
 
 thead {
     padding-top: 12px;
@@ -251,6 +251,7 @@ thead {
     background-color: var(--main-accent-color);
     color: white;
 }
+
 
  /*making table edges rouner*/
 table thead tr:first-child th:first-child{

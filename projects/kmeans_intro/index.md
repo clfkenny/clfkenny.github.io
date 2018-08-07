@@ -450,14 +450,15 @@ garb <- dev.off()
 
 
 t1 <- kable(table(h_w_sample$Gender, h_w_sample$kmean_lab), caption = "Unscaled Features",
-            format = "html") %>% kable_styling(full_width = F, position = "left")
+            format = "html") %>% kable_styling(full_width = F, position = "float_left")
 t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), caption = "Scaled Features",
             format = "html") %>% kable_styling(full_width = F, position = "right")
 ```
 
-![](./images/scaling.png)
+![](./images/scaling.png) *Confusion
+Matrix*:
 
-<table class="table" style="width: auto !important; ">
+<table class="table" style="width: auto !important; float: left; margin-right: 10px;">
 
 <caption>
 
