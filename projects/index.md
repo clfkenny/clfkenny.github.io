@@ -61,7 +61,7 @@ padding-right:5px;
 <a href = "/projects/#"> 
  <div class = "item-card" id = 'pca'> 
   <b>Introduction to Principal Component Analysis (PCA)</b>
-  <p><i>text</i>
+  <p><i></i>
   </p>
  </div> 
  
