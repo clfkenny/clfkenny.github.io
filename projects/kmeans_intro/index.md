@@ -259,13 +259,14 @@ animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1,
 ![](images/unnamed-chunk-5-1.gif)<!-- -->
 
 This animation essentially shows each step the algorithm takes to make
-its decision of which points are closest to each centroid. As you can
-see, the centroids (black dots) move around the grid and each color
-represents which centroid/cluster the individual samples are currently
-part of. The shape of each point represents the real group the point
-came from. We can see that the algorithm does a really good job in
-finding the centers for each group that we manually created, although
-there are some that are wrongly grouped.
+its decision of which points are closest to each centroid. Iteration 0
+is the initial randomization of the centroids (black dots). As you can
+see, the centroids move around the grid and each color represents which
+centroid/cluster the individual samples are currently part of. The shape
+of each point represents the real group the point came from. We can see
+that the algorithm does a really good job in finding the centers for
+each group that we manually created, although there are some that are
+wrongly grouped.
 
 Final Result (as a sanity check, let’s compare with R’s built in
 `kmeans`
@@ -305,7 +306,7 @@ garb <- dev.off()
 The difference in colors between the two graphs is simply an artifact of
 the random initialization of the centroids. Even though some clusters
 are different colors, the points are actually clustered the same in both
-`my_kmeans` and R’s `kmeans`. So it work\!
+`my_kmeans` and R’s `kmeans`. So it works\!
 
 Now let’s compare the centers that the algorithm found to the actual
 centers that we created.
@@ -335,8 +336,8 @@ garb <- dev.off()
 
 Although the predicted cluster centers are not perfectly on top of the
 real centers (due to the random nature of the sampling), they are very
-close to each other, showing that the algorithm does work when there are
-distinct clusters\!
+close to each other, demonstrating that the algorithm does work when
+there are distinct clusters\!
 
 Since in this case our labels are known, we can caclulate the confusion
 matrix for the prediction of this algorithm.
@@ -353,8 +354,8 @@ can think of:
     you’re working with and should have a sense of the number of
     clusters in your data.
 2.  Create a scree plot. Plot the number of clusters against the total
-    squared distance of each point from its respective centroid. Let’s
-    see an example of this.
+    within sum of squares distance of each point from its respective
+    centroid. Let’s see an example of this.
 
 <!-- end list -->
 
@@ -368,6 +369,7 @@ find_distances <- function(data, predicted_labs, centers){
   #merged2 <- merge(merged1, center_lab)
   tot_sq_dist <- 0 # initialize total square distacnce
   
+  # following lines add up the total squared distances
   for(cen in 1:nrow(centers)){
     cluster_points <- merged[merged$center==cen,  colnames(merged) != 'center']
     if(nrow(cluster_points)!=0){
@@ -469,6 +471,7 @@ set number of clusters to 2.
 ``` r
 library(knitr)
 library(kableExtra)
+set.seed(123)
 h_w <- read.csv('./data/gender-height-weight.csv')[,c(1,4:5)]
 colnames(h_w) = c('Gender', 'Height', 'Weight')
 # sample observations, since harder to see with 10000 observations
@@ -496,11 +499,12 @@ grid.arrange(g1, g2, nrow=1, respect=TRUE)
 
 garb <- dev.off()
 
-
-t1 <- kable(table(h_w_sample$Gender, h_w_sample$kmean_lab), align = 'clc',
+cm1 <- table(h_w_sample$Gender, h_w_sample$kmean_lab)
+cm2 <- table(h_w_scaled$Gender, h_w_scaled$kmean_lab)
+t1 <- kable(cm1, align = 'clc',
             caption = "Unscaled Features",
             format = "html") %>% kable_styling(full_width = F, position = "float_left")
-t2 <- kable(table(h_w_scaled$Gender, h_w_scaled$kmean_lab), align = 'clc',
+t2 <- kable(cm2, align = 'clc',
             caption = "Scaled Features",
             format = "html") %>% kable_styling(full_width = F, position = "right")
 ```
@@ -555,13 +559,13 @@ Female
 
 <td style="text-align:center;">
 
-93
+82
 
 </td>
 
 <td style="text-align:left;">
 
-11
+15
 
 </td>
 
@@ -577,13 +581,13 @@ Male
 
 <td style="text-align:center;">
 
-21
+17
 
 </td>
 
 <td style="text-align:left;">
 
-75
+86
 
 </td>
 
@@ -637,13 +641,13 @@ Female
 
 <td style="text-align:center;">
 
-12
+88
 
 </td>
 
 <td style="text-align:left;">
 
-92
+9
 
 </td>
 
@@ -659,13 +663,13 @@ Male
 
 <td style="text-align:center;">
 
-83
+11
 
 </td>
 
 <td style="text-align:left;">
 
-13
+92
 
 </td>
 
@@ -677,7 +681,11 @@ Male
 
 </div>
 
-![](./images/scaling.png)
+![](./images/scaling.png) We see that different scales can yield
+different clustering results. Although the graphs may look similar to
+each other, the confusion matrix tells a different story. The confusion
+matrix tells us that the accuracy for the unscaled features is 84% while
+the accuracy for the scaled features is 90%.
 
 Now, since this is a *boring* example, let’s use a more interesting
 dataset\!
