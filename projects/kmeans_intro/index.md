@@ -98,7 +98,11 @@ The location in the feature space for each of the cluster centroids
 
 </ul>
 
-## The Algorithm
+<h2>
+
+The Algorithm
+
+</h2>
 
 This is the function the algorithm aims to minimize:
 $$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
