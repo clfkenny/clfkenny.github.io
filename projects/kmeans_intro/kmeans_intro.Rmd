@@ -431,11 +431,11 @@ h_w_scaled$kmean_lab <- as.factor(kmeans(h_w_scaled[,1:2], 2)$cluster)
 
 g1 <- ggplot(h_w_sample, aes(x = Weight, y = Height)) + 
         geom_point(aes(color = Gender, shape = kmean_lab), size = 4) + 
-        labs(title = "Unscaled Features")
+        labs(title = "Unscaled Features") + th
 
 g2 <- ggplot(h_w_scaled, aes(x = Weight, y = Height)) + 
         geom_point(aes(color = Gender, shape = kmean_lab), size = 4) +
-        labs(title = "Scaled Features" )
+        labs(title = "Scaled Features" ) + th
 
 tiff('./images/scaling.tiff', units="in", width=10, height=5, res=600)
 
