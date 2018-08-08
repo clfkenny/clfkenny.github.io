@@ -441,13 +441,26 @@ animate(g, nframes =  num_clusters, fps = 1,
 | :---------------------------: | :-------------------: |
 |    ![](images/scree-1.gif)    | ![](images/scree.png) |
 
-**Important Note:** <br> It is very important to scale or normalize the
-data before running *K-Means* algorithm if the features have different
-units. Let me demonstrate why this is so. Here is a contrived example of
-height and weights along with gender that I obtained from the web. We
-have height in *mm* and weight in *tons* (for the sake of
-demonstration). We know beforehand that there are two groups - males and
-females, so we’ll set number of clusters to 2.
+<p>
+
+It is expected that the more clusters there are, the lower the total
+squared distance <i>will</i> be. However, we can see that there is a
+<i>steep</i> drop in the total squared distance from 1 cluster to 3
+clusters and then marginal reduction in total squared distance upon
+adding any more clusters, which creates an “L” shaped plot. The number
+of clusters at the point of the elbow should correspond to the ideal
+number of clusters \(K\) to be used, and in this case it correctly
+corresponds to our three clusters that we generated.
+
+</p>
+
+**Important Note:** <br> It is important to scale or normalize the data
+before running *K-Means* algorithm if the features have different units.
+Let me demonstrate why this is so. Here is a contrived example of height
+and weights along with gender that I obtained from the web. We have
+height in *mm* and weight in *tons* (for the sake of demonstration). We
+know beforehand that there are two groups - males and females, so we’ll
+set number of clusters to 2.
 
 ``` r
 library(knitr)

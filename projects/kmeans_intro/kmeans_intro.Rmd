@@ -376,33 +376,36 @@ Cluster # Effect on Sq. Dist             |  Scree Plot
 ![](images/scree-1.gif)   | ![](images/scree.png)
 
 ```{r eval=FALSE, include=FALSE}
-create the second gif
-anim_dist_hist <- data.frame() # just for fun, animation :)
-for(i in 1:nrow(dist_hist)){
-  ph <- dist_hist[dist_hist$num_clusters <= i,]
-  ph$frame <- i
-  anim_dist_hist <- rbind(anim_dist_hist, ph)
-}
-
-g2 <- ggplot(anim_dist_hist, aes(x = as.integer(num_clusters), y = sq_dist)) +
-  geom_line(color = 'maroon') +
-  geom_point() +
-  geom_point(color = 'white', size = 1) +
-
-  labs(title = 'Num clusters: {frame_time}') +
-  xlab('Number of Clusters') +
-  ylab('Total Distance') +
-  theme_classic() + theme(text = element_text(size=5), legend.position="none") +
-  scale_x_continuous(breaks = 0:num_clusters+1) +
-  transition_time(as.integer(frame))
-
-animate(g2, nframes =  num_clusters, fps = 1,
-        width = 1000, height=800, res = 300)
+# create the second gif
+# anim_dist_hist <- data.frame() # just for fun, animation :)
+# for(i in 1:nrow(dist_hist)){
+#   ph <- dist_hist[dist_hist$num_clusters <= i,]
+#   ph$frame <- i
+#   anim_dist_hist <- rbind(anim_dist_hist, ph)
+# }
+# 
+# g2 <- ggplot(anim_dist_hist, aes(x = as.integer(num_clusters), y = sq_dist)) +
+#   geom_line(color = 'maroon') +
+#   geom_point() +
+#   geom_point(color = 'white', size = 1) +
+# 
+#   labs(title = 'Num clusters: {frame_time}') +
+#   xlab('Number of Clusters') +
+#   ylab('Total Distance') +
+#   theme_classic() + theme(text = element_text(size=5), legend.position="none") +
+#   scale_x_continuous(breaks = 0:num_clusters+1) +
+#   transition_time(as.integer(frame))
+# 
+# animate(g2, nframes =  num_clusters, fps = 1,
+#         width = 1000, height=800, res = 300)
 ```
 
+<p>
+It is expected that the more clusters there are, the lower the total squared distance <i>will</i> be. However, we can see that there is a <i>steep</i> drop in the total squared distance from 1 cluster to 3 clusters and then marginal reduction in total squared distance upon adding any more clusters, which creates an "L" shaped plot. The number of clusters at the point of the elbow should correspond to the ideal number of clusters \(K\) to be used, and in this case it correctly corresponds to our three clusters that we generated. 
+</p>
 
 **Important Note:** <br>
-It is very important to scale or normalize the data before running *K-Means* algorithm if the features have different units. Let me demonstrate why this is so. Here is a contrived example of height and weights along with gender that I obtained from the web. We have height in *mm* and weight in *tons* (for the sake of demonstration). We know beforehand that there are two groups - males and females, so we'll set number of clusters to 2.
+It is important to scale or normalize the data before running *K-Means* algorithm if the features have different units. Let me demonstrate why this is so. Here is a contrived example of height and weights along with gender that I obtained from the web. We have height in *mm* and weight in *tons* (for the sake of demonstration). We know beforehand that there are two groups - males and females, so we'll set number of clusters to 2.
 
 ```{r}
 library(knitr)
