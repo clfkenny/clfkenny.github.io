@@ -24,7 +24,7 @@ associated label or response \(Y\) and thus the aim is not for
 prediction, but rather to uncover new and perhaps interesting trends and
 subgroups within the data. Unsupervised learning is often used as part
 of <i>exploratory data analysis</i> and can aid in visualizations. The
-main goal of <i>K-Means</i> is to partition the observations into
+main goal of <i>K-Means</i> is to partition the observations into \(K\)
 distinct groups such that the observations in one group or cluster are
 as similar to each other as possible while also being as different as
 possible from the observations from other groups. So, how exactly is
@@ -42,15 +42,38 @@ Scale the data since Euclidian distances will be involved
 
 <li>
 
-Select number of clusters believed to exist in the data
+Select \(K\) number of clusters believed to exist in the data
 
 </li>
 
 <li>
 
+Randomly initialize the centroids
+
 </li>
 
 <li>
+
+Calculate distances between samples and each centroid
+
+</li>
+
+<li>
+
+Group the samples into the cluster which they are closest to
+
+</li>
+
+<li>
+
+Recalculate cluster centers based on these newly assigned samples
+
+</li>
+
+<li>
+
+Repeat from step 4 until cluster centers no longer shift (when samples
+no longer get reassigned to a different centroid)
 
 </li>
 
@@ -74,6 +97,8 @@ The location in the feature space for each of the cluster centroids
 </li>
 
 </ul>
+
+## The Algorithm
 
 This is the function the algorithm aims to minimize:
 $$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
@@ -312,6 +337,8 @@ distinct clusters\!
 Since in this case our labels are known, we can caclulate the confusion
 matrix for the prediction of this algorithm.
 
+## Selecting K
+
 Now… you might be wondering *how do I determine the number of
 clusters?\!* Well, there are multiple ways of doing so. In our case, we
 decided on three clusters because we knew ahead of time that there would
@@ -348,13 +375,12 @@ find_distances <- function(data, predicted_labs, centers){
   return(tot_sq_dist)  
 }
 
-km <- my_kmeans(no_labs, 4)
-predicted_labs <- km[[1]]
-centers <- km[[2]]
-find_distances(no_labs, predicted_labs, centers)
+# testing function ...
+# km <- my_kmeans(no_labs, 4)
+# predicted_labs <- km[[1]]
+# centers <- km[[2]]
+# find_distances(no_labs, predicted_labs, centers)
 ```
-
-    ## [1] 385.0495
 
 Great, now let’s see how we can use a scree plot to our advantage\!
 
@@ -407,17 +433,17 @@ animate(g, nframes =  num_clusters, fps = 1,
 ```
 
 
-|   Cluster \# Effect on Sq. Dist   |      Scree Plot       |
-| :-------------------------------: | :-------------------: |
-| ![](images/unnamed-chunk-9-1.gif) | ![](images/scree.png) |
+| Cluster \# Effect on Sq. Dist |      Scree Plot       |
+| :---------------------------: | :-------------------: |
+|    ![](images/scree-1.gif)    | ![](images/scree.png) |
 
-**Important Note:** It is very important to scale or normalize the data
-before running *K-Means* algorithm if the features have different units.
-Let me demonstrate why this is so. Here is a contrived example of height
-and weights along with gender that I obtained from the web. We have
-height in *mm* and weight in *tons* (for the sake of demonstration). We
-know beforehand that there are two groups - males and females, so we’ll
-set number of clusters to 2.
+**Important Note:** <br> It is very important to scale or normalize the
+data before running *K-Means* algorithm if the features have different
+units. Let me demonstrate why this is so. Here is a contrived example of
+height and weights along with gender that I obtained from the web. We
+have height in *mm* and weight in *tons* (for the sake of
+demonstration). We know beforehand that there are two groups - males and
+females, so we’ll set number of clusters to 2.
 
 ``` r
 library(knitr)
@@ -508,13 +534,13 @@ Female
 
 <td style="text-align:center;">
 
-19
+93
 
 </td>
 
 <td style="text-align:left;">
 
-84
+11
 
 </td>
 
@@ -530,13 +556,13 @@ Male
 
 <td style="text-align:center;">
 
-84
+21
 
 </td>
 
 <td style="text-align:left;">
 
-13
+75
 
 </td>
 
@@ -596,7 +622,7 @@ Female
 
 <td style="text-align:left;">
 
-91
+92
 
 </td>
 
@@ -612,13 +638,13 @@ Male
 
 <td style="text-align:center;">
 
-87
+83
 
 </td>
 
 <td style="text-align:left;">
 
-10
+13
 
 </td>
 
@@ -634,3 +660,5 @@ Male
 
 Now, since this is a *boring* example, let’s use a more interesting
 dataset\!
+
+## Application …

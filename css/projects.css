@@ -254,6 +254,10 @@ thead {
 }
 
 
+thead tr:nth-child(2) th{
+  color:var(--main-accent-color);
+}
+
  /*making table edges rouner*/
 table thead tr:first-child th:first-child{
   border-top-left-radius:10px;
