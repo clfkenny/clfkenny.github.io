@@ -416,11 +416,15 @@ for(clusters in 1:num_clusters){
 tiff('./images/scree.tiff', units="px", width=1000, height=800, res=300)
 
 ggplot(dist_hist, aes(x = num_clusters, y = sq_dist)) +
-  geom_point() +
-  geom_point(color = 'white', size = 1) +
-  geom_line(color = 'maroon') +
+  geom_point(size=4) +
+  geom_point(color = 'white', size = 3) +
+  geom_line(color = 'maroon', size= 1) +
   xlab('Number of Clusters') + ylab('Total Squared Distance') +
-  scale_x_continuous(breaks = 0:num_clusters+1) + theme_classic()
+  scale_x_continuous(breaks = 0:num_clusters+1) + theme_classic() +
+  annotate("text", x = 4.5, y = 1500, label = "Elbow Point", size = 5, fontface=2,
+           colour = '#4285f4') +
+  geom_segment(aes(x=4.2, y=1300, xend = 3.1, yend = 500), arrow = arrow(length=unit(0.3, 'cm')),
+               colour = '#4285f4')
   
 garb <- dev.off()
 
@@ -448,9 +452,9 @@ squared distance <i>will</i> be. However, we can see that there is a
 <i>steep</i> drop in the total squared distance from 1 cluster to 3
 clusters and then marginal reduction in total squared distance upon
 adding any more clusters, which creates an “L” shaped plot. The number
-of clusters at the point of the elbow should correspond to the ideal
-number of clusters \(K\) to be used, and in this case it correctly
-corresponds to our three clusters that we generated.
+of clusters at the point of the elbow should correspond to the
+appropriate number of clusters \(K\) to be used, and in this case it
+correctly corresponds to our three clusters that we generated.
 
 </p>
 
