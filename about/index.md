@@ -18,22 +18,21 @@ padding-right:5px;
 }
 
 
-  
 
 .image-cropper{
   display:inline-block;
   position:fixed;
-  width:180px;
-  height:180px;
+  width:220px;
+  height:220px;
   overflow:hidden;
   border-radius:50%;
   right:10%;
 }
 
 img#me{ 
-  width:180px;
-  margin-left:0px;
-  margin-top:-30px;
+  width:300px;
+  margin-left:-35px;
+  margin-top:-25px;
 }
 </style>
 
