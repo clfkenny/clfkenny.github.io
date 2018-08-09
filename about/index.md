@@ -40,7 +40,7 @@ img#me{
 
 
 <div class = 'image-cropper'>
-<img id = "me" src="linkedin pic.jpg">
+<img id = "me" src="fb_img.jpg">
 </div>
 
 # *A little about me*
