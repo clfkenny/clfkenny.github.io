@@ -73,5 +73,7 @@ padding-right:5px;
 </div>
 
 <script>
-//  $('#pca').onclick = function Alert() {alert('Work in progress...');}
+$("#pca").click(function(){
+    alert("Work in progress...");
+});
 </script>
