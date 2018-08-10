@@ -35,6 +35,8 @@ knitr::opts_chunk$set(
 
 <i>K-Means clustering</i> is a machine learning algorithm that falls under the category of unsupervised learning. Unsupervised learning techniques are used when there is a set of features  \(X\) without an associated label or response \(Y\) and thus the aim is not for prediction, but rather to uncover new and perhaps interesting trends and subgroups within the data. Unsupervised learning is often used as part of <i>exploratory data analysis</i> and can aid in visualizations. The main goal of <i>K-Means</i> is to partition the observations into \(K\) distinct groups such that the observations in one group or cluster are as similar to each other as possible while also being as different as possible from the observations from other groups. So, how exactly is <i>similarity</i> measured? By Euclidian distance based on an observation's numerical features. Here's a breakdown of the steps of <i>K-Means</i>: 
 
+</p>
+
 <ol>
   <li>Scale the data since Euclidian distances will be involved</li>
   <li>Select \(K\) number of clusters believed to exist in the data</li>
@@ -55,6 +57,7 @@ Completion of the algorithm yields:
 
 <h2>The Algorithm</h2>
 
+<p>
 This is the function the algorithm aims to minimize:
 $$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
 

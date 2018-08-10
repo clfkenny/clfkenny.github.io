@@ -32,6 +32,8 @@ possible from the observations from other groups. So, how exactly is
 observation’s numerical features. Here’s a breakdown of the steps of
 <i>K-Means</i>:
 
+</p>
+
 <ol>
 
 <li>
@@ -103,6 +105,8 @@ The location in the feature space for each of the cluster centroids
 The Algorithm
 
 </h2>
+
+<p>
 
 This is the function the algorithm aims to minimize:
 $$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
