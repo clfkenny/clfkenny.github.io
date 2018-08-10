@@ -107,8 +107,6 @@ The Algorithm
 This is the function the algorithm aims to minimize:
 $$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
 
-Testing LaTeX in line … \(\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\)
-
 </p>
 
 First, let’s used a contrived *toy* example to better understand this
