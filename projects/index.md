@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Blogg | Kenny Lov
+title: Blog | Kenny Lov
 ---
 <style> 
 nav ul li:nth-child(2) a{
