@@ -16,14 +16,23 @@ nav ul li:nth-child(1) a{
   padding-right:5px;
 }
  
+
+.outline{
+  position:fixed;
+  background:radial-gradient(#9598f5 0%, var(--main-accent-color) 100%);
+  right:10%;
+  width:240px;
+  height:240px;
+  border-radius:50%;
+}
+ 
 .image-cropper{
-  display:inline-block;
   position:fixed;
   width:220px;
   height:220px;
   overflow:hidden;
   border-radius:50%;
-  right:10%;
+  margin: 10px 10px;
 }
 
 img#me{ 
@@ -31,9 +40,10 @@ img#me{
   margin-left:-35px;
   margin-top:-25px;
 }
+
 </style>
 
-<div class = 'outline' style = 'z-index: -2;'>
+<div class = 'outline'>
 	<div class = 'image-cropper'>
 		<img id = "me" src="fb_img.jpg">	
 	</div>
