@@ -18,7 +18,7 @@ nav ul li:nth-child(1) a{
  
 
 .outline{
-  position:fixed;
+  position:absolute;
   background:radial-gradient(#9598f5 0%, var(--main-accent-color) 100%);
   right:10%;
   width:240px;
@@ -27,7 +27,7 @@ nav ul li:nth-child(1) a{
 }
  
 .image-cropper{
-  position:fixed;
+  position:absolute;
   width:220px;
   height:220px;
   overflow:hidden;
