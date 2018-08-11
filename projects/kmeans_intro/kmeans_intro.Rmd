@@ -3,7 +3,7 @@ title: Introduction to K-means Clustering
 author: Kenny Lov
 output:
   md_document:
-    variant: markdown_github
+    variant: gfm
     
 tables: yes
 always_allow_html: yes
