@@ -1,15 +1,16 @@
-div.item-card::-webkit-scrollbar{
+/*div.item-card::-webkit-scrollbar{
   display:none;
 }
 
-
+*/
 div.item-card{
   height:20px;
   padding:20px 20px;
   box-shadow:2px 2px 5px grey;
   text-align:center;
   transition: all 0.3s ease-in-out;
-  overflow:auto;
+  /*overflow:auto;*/
+  overflow:hidden;
   border-radius:8px;
 }
 
