@@ -49,6 +49,8 @@ Hi! My name is Kenny and I studied at University of California, Los Angeles. I g
 
 To me, data, or more specifically, machine learning is... almost like a super power. It allows us to consume data from the past to predict the future, often times with amazing results.   
 
+From microscopic biological neurons to massive artificial neural networks with billions of paramters, I think I've found my calling. 
+
 Perhaps it was the study of biological neurons and neural networks that piqued my recent interest in learning more about the silicon model of the brain (artificial neural networks).  -->
 
 
