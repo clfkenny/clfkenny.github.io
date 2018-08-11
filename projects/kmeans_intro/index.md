@@ -5,120 +5,59 @@ layout: projects
 
 
 
-# **Introduction to K-Means Clustering (IN PROGRESS)**
+**Introduction to K-Means Clustering (IN PROGRESS)**
+====================================================
 
 <link rel="stylesheet" type="text/css" href="/projects/kmeans_intro/kmeans.css">
-
 <p style="text-align:center;">
-
 <em>Kenny Lov</em><br><br>
-
 </p>
-
 <p>
-
-<i>K-Means clustering</i> is a machine learning algorithm that falls
-under the category of unsupervised learning. Unsupervised learning
-techniques are used when there is a set of features \(X\) without an
-associated label or response \(Y\) and thus the aim is not for
-prediction, but rather to uncover new and perhaps interesting trends and
-subgroups within the data. Unsupervised learning is often used as part
-of <i>exploratory data analysis</i> and can aid in visualizations. The
-main goal of <i>K-Means</i> is to partition the observations into \(K\)
-distinct groups such that the observations in one group or cluster are
-as similar to each other as possible while also being as different as
-possible from the observations from other groups. So, how exactly is
-<i>similarity</i> measured? By Euclidian distance based on an
-observation’s numerical features. Here’s a breakdown of the steps of
-<i>K-Means</i>:
+<i>K-Means clustering</i> is a machine learning algorithm that falls under the category of unsupervised learning. Unsupervised learning techniques are used when there is a set of features *X* without an associated label or response *Y* and thus the aim is not for prediction, but rather to uncover new and perhaps interesting trends and subgroups within the data. Unsupervised learning is often used as part of <i>exploratory data analysis</i> and can aid in visualizations. The main goal of <i>K-Means</i> is to partition the observations into *K* distinct groups such that the observations in one group or cluster are as similar to each other as possible while also being as different as possible from the observations from other groups. So, how exactly is <i>similarity</i> measured? By Euclidian distance based on an observation's numerical features. Here's a breakdown of the steps of <i>K-Means</i>:
 
 </p>
-
 <ol>
-
 <li>
-
 Scale the data since Euclidian distances will be involved
-
 </li>
-
 <li>
-
-Select \(K\) number of clusters believed to exist in the data
-
+Select *K* number of clusters believed to exist in the data
 </li>
-
 <li>
-
 Randomly initialize the centroids
-
 </li>
-
 <li>
-
 Calculate distances between samples and each centroid
-
 </li>
-
 <li>
-
 Group the samples into the cluster which they are closest to
-
 </li>
-
 <li>
-
 Recalculate cluster centers based on these newly assigned samples
-
 </li>
-
 <li>
-
-Repeat from step 4 until cluster centers no longer shift (when samples
-no longer get reassigned to a different centroid)
-
+Repeat from step 4 until cluster centers no longer shift (when samples no longer get reassigned to a different centroid)
 </li>
-
 </ol>
-
 Completion of the algorithm yields:
 
 <ul>
-
 <li>
-
-A vector of labels that corresponds to which group or cluster an
-observation belongs to
-
+A vector of labels that corresponds to which group or cluster an observation belongs to
 </li>
-
 <li>
-
 The location in the feature space for each of the cluster centroids
-
 </li>
-
 </ul>
-
 <h2>
-
 The Algorithm
-
 </h2>
-
 <p>
-
 This is the function the algorithm aims to minimize:
-$$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
+$$\\min\_{C\_1,...,C\_K}\\sum^{K}\_{k=1}W(C\_k)$$
 
 </p>
-
-First, let’s used a contrived *toy* example to better understand this
-topic. k-means clustering works better if the clusters are spherical and
-normally distributed. For this example, we’ll create a small, arbitrary
-dataset with 5 different clusters (5 populations with different means
-and
-variances).
+First, let's used a contrived *toy* example to better understand this topic. k-means clustering works better if the clusters are spherical and normally distributed. For this example, we'll create a small, arbitrary dataset with 5 different clusters (5 populations with different means and variances).
 
 ``` r
 # first create individual clusters with different distribution parameters
@@ -140,8 +79,7 @@ combined <- rbind(df1, df2, df3)
 combined$label <- as.factor(combined$label) # label must be converted into a factor since it will be interpreted as a continuous variable, which it is not.
 ```
 
-Now that we’ve created this *toy* dataset, let’s visualize it and
-confirm that we’ve indeed created distinct clusters.
+Now that we've created this *toy* dataset, let's visualize it and confirm that we've indeed created distinct clusters.
 
 ``` r
 library(ggplot2)
@@ -158,13 +96,7 @@ garb <- dev.off()
 
 ![](./images/plot1.png)
 
-Yes, there are indeed distinct clusters with various normal
-distributions\! R already comes with a great built-in function `kmeans`
-that can compute clusters. However, for the sake of understanding, we’ll
-hand-code a function that can compute the clusters as well as keep track
-of the data for each iteration to visualize the progress of the
-algorithm. If this sounds confusing now, it will make sense in a
-bit.
+Yes, there are indeed distinct clusters with various normal distributions! R already comes with a great built-in function `kmeans` that can compute clusters. However, for the sake of understanding, we'll hand-code a function that can compute the clusters as well as keep track of the data for each iteration to visualize the progress of the algorithm. If this sounds confusing now, it will make sense in a bit.
 
 ``` r
 my_kmeans <- function(df, n_clusters){ # the function will take a dataframe and num clusters as input
@@ -232,11 +164,9 @@ my_kmeans <- function(df, n_clusters){ # the function will take a dataframe and 
 }
 ```
 
-Might not be the most efficient code possible with all the for loops and
-what not… but let’s see what it can do.
+Might not be the most efficient code possible with all the for loops and what not... but let's see what it can do.
 
-Since this is an iterative approach, we can visualize the progress at
-every iteration using the history variables provided by my function\!
+Since this is an iterative approach, we can visualize the progress at every iteration using the history variables provided by my function!
 
 ``` r
 library(gganimate)
@@ -258,21 +188,11 @@ animate(g, nframes=  length(unique(Z_hist$iteration)), fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-![](images/unnamed-chunk-5-1.gif)<!-- -->
+![](images/unnamed-chunk-5-1.gif)
 
-This animation essentially shows each step the algorithm takes to make
-its decision of which points are closest to each centroid. Iteration 0
-is the initial randomization of the centroids (black dots). As you can
-see, the centroids move around the grid and each color represents which
-centroid/cluster the individual samples are currently part of. The shape
-of each point represents the real group the point came from. We can see
-that the algorithm does a really good job in finding the centers for
-each group that we manually created, although there are some that are
-wrongly grouped.
+This animation essentially shows each step the algorithm takes to make its decision of which points are closest to each centroid. Iteration 0 is the initial randomization of the centroids (black dots). As you can see, the centroids move around the grid and each color represents which centroid/cluster the individual samples are currently part of. The shape of each point represents the real group the point came from. We can see that the algorithm does a really good job in finding the centers for each group that we manually created, although there are some that are wrongly grouped.
 
-Final Result (as a sanity check, let’s compare with R’s built in
-`kmeans`
-function):
+Final Result (as a sanity check, let's compare with R's built in `kmeans` function):
 
 ``` r
 combined$predicted <- as.factor(prediction[[1]]) # remeber to convert the integer values to  factors
@@ -305,13 +225,9 @@ garb <- dev.off()
 
 ![](./images/plot2.png)
 
-The difference in colors between the two graphs is simply an artifact of
-the random initialization of the centroids. Even though some clusters
-are different colors, the points are actually clustered the same in both
-`my_kmeans` and R’s `kmeans`. So it works\!
+The difference in colors between the two graphs is simply an artifact of the random initialization of the centroids. Even though some clusters are different colors, the points are actually clustered the same in both `my_kmeans` and R's `kmeans`. So it works!
 
-Now let’s compare the centers that the algorithm found to the actual
-centers that we created.
+Now let's compare the centers that the algorithm found to the actual centers that we created.
 
 ``` r
 predicted_centers <- tail(c_hist, 3)[,-3] # k-means predicted centers
@@ -336,30 +252,17 @@ garb <- dev.off()
 
 ![](./images/plot3.png)
 
-Although the predicted cluster centers are not perfectly on top of the
-real centers (due to the random nature of the sampling), they are very
-close to each other, demonstrating that the algorithm does work when
-there are distinct clusters\!
+Although the predicted cluster centers are not perfectly on top of the real centers (due to the random nature of the sampling), they are very close to each other, demonstrating that the algorithm does work when there are distinct clusters!
 
-Since in this case our labels are known, we can caclulate the confusion
-matrix for the prediction of this algorithm.
+Since in this case our labels are known, we can caclulate the confusion matrix for the prediction of this algorithm.
 
-## Selecting K
+Selecting K
+-----------
 
-Now… you might be wondering *how do I determine the number of
-clusters?\!* Well, there are multiple ways of doing so. In our case, we
-decided on three clusters because we knew ahead of time that there would
-be three clustered, since we generated the data. Here are some ways I
-can think of:
+Now... you might be wondering *how do I determine the number of clusters?!* Well, there are multiple ways of doing so. In our case, we decided on three clusters because we knew ahead of time that there would be three clustered, since we generated the data. Here are some ways I can think of:
 
-1.  Domain knowledge. Ideally, you should be familiar with the data
-    you’re working with and should have a sense of the number of
-    clusters in your data.
-2.  Create a scree plot. Plot the number of clusters against the total
-    within sum of squares distance of each point from its respective
-    centroid. Let’s see an example of this.
-
-<!-- end list -->
+1.  Domain knowledge. Ideally, you should be familiar with the data you're working with and should have a sense of the number of clusters in your data.
+2.  Create a scree plot. Plot the number of clusters against the total within sum of squares distance of each point from its respective centroid. Let's see an example of this.
 
 ``` r
 # first create function to determine total distance from clusters
@@ -390,7 +293,7 @@ find_distances <- function(data, predicted_labs, centers){
 # find_distances(no_labs, predicted_labs, centers)
 ```
 
-Great, now let’s see how we can use a scree plot to our advantage\!
+Great, now let's see how we can use a scree plot to our advantage!
 
 ``` r
 lab_hist <- data.frame() # initialize histories
@@ -444,31 +347,16 @@ animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
+![](images/scree-1.gif)
 
-| Cluster \# Effect on Sq. Dist |      Scree Plot       |
-| :---------------------------: | :-------------------: |
+| Cluster \# Effect on Sq. Dist |       Scree Plot      |
+|:-----------------------------:|:---------------------:|
 |    ![](images/scree-1.gif)    | ![](images/scree.png) |
 
 <p>
-
-It is expected that the more clusters there are, the lower the total
-squared distance <i>will</i> be. However, we can see that there is a
-<i>steep</i> drop in the total squared distance from 1 cluster to 3
-clusters and then marginal reduction in total squared distance upon
-adding any more clusters, which creates an “L” shaped plot. The number
-of clusters at the point of the elbow should correspond to the
-appropriate number of clusters \(K\) to be used, and in this case it
-correctly corresponds to our three clusters that we generated.
-
+It is expected that the more clusters there are, the lower the total squared distance <i>will</i> be. However, we can see that there is a <i>steep</i> drop in the total squared distance from 1 cluster to 3 clusters and then marginal reduction in total squared distance upon adding any more clusters, which creates an "L" shaped plot. The number of clusters at the point of the elbow should correspond to the appropriate number of clusters *K* to be used, and in this case it correctly corresponds to our three clusters that we generated.
 </p>
-
-**Important Note:** <br> It is important to scale or normalize the data
-before running *K-Means* algorithm if the features have different units.
-Let me demonstrate why this is so. Here is a contrived example of height
-and weights along with gender that I obtained from the web. We have
-height in *mm* and weight in *tons* (for the sake of demonstration). We
-know beforehand that there are two groups - males and females, so we’ll
-set number of clusters to 2.
+**Important Note:** <br> It is important to scale or normalize the data before running *K-Means* algorithm if the features have different units. Let me demonstrate why this is so. Here is a contrived example of height and weights along with gender that I obtained from the web. We have height in *mm* and weight in *tons* (for the sake of demonstration). We know beforehand that there are two groups - males and females, so we'll set number of clusters to 2.
 
 ``` r
 library(knitr)
@@ -511,185 +399,93 @@ t2 <- kable(cm2, align = 'clc',
             format = "html") %>% kable_styling(full_width = F, position = "right")
 ```
 
-<b>Confusion
-Matrix:</b>
-
-<div id = "confusion_mat">
-
+<b>Confusion Matrix:</b>
 <table class="table" style="width: auto !important; float: left; margin-right: 10px;">
-
 <caption>
-
-Unscaled
-Features
-
+Unscaled Features
 </caption>
-
 <thead>
-
 <tr>
-
 <th style="text-align:left;">
-
 </th>
-
 <th style="text-align:center;">
-
 1
-
 </th>
-
 <th style="text-align:left;">
-
 2
-
 </th>
-
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr>
-
 <td style="text-align:left;">
-
 Female
-
 </td>
-
 <td style="text-align:center;">
-
 82
-
 </td>
-
 <td style="text-align:left;">
-
 15
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 Male
-
 </td>
-
 <td style="text-align:center;">
-
 17
-
 </td>
-
 <td style="text-align:left;">
-
 86
-
 </td>
-
 </tr>
-
 </tbody>
-
 </table>
-
 <table class="table" style="width: auto !important; margin-right: 0; margin-left: auto">
-
 <caption>
-
 Scaled Features
-
 </caption>
-
 <thead>
-
 <tr>
-
 <th style="text-align:left;">
-
 </th>
-
 <th style="text-align:center;">
-
 1
-
 </th>
-
 <th style="text-align:left;">
-
 2
-
 </th>
-
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr>
-
 <td style="text-align:left;">
-
 Female
-
 </td>
-
 <td style="text-align:center;">
-
 88
-
 </td>
-
 <td style="text-align:left;">
-
 9
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 Male
-
 </td>
-
 <td style="text-align:center;">
-
 11
-
 </td>
-
 <td style="text-align:left;">
-
 92
-
 </td>
-
 </tr>
-
 </tbody>
-
 </table>
 
-</div>
+![](./images/scaling.png) We see that different scales can yield different clustering results. Although the graphs may look similar to each other, the confusion matrix tells a different story. The confusion matrix tells us that the accuracy for the unscaled features is 84% while the accuracy for the scaled features is 90%. So, in this case scaling makes a difference!
 
-![](./images/scaling.png) We see that different scales can yield
-different clustering results. Although the graphs may look similar to
-each other, the confusion matrix tells a different story. The confusion
-matrix tells us that the accuracy for the unscaled features is 84% while
-the accuracy for the scaled features is 90%.
+Now, since this is a *boring* example, let's use a more interesting dataset!
 
-Now, since this is a *boring* example, let’s use a more interesting
-dataset\!
-
-## Application …
+Application ...
+---------------

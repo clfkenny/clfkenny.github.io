@@ -3,7 +3,7 @@ title: Introduction to K-means Clustering
 author: Kenny Lov
 output:
   md_document:
-    variant: gfm
+    variant: markdown_github
     
 tables: yes
 always_allow_html: yes
@@ -467,7 +467,7 @@ acc2 <- sum(diag(cm2))/sum(cm2)
 </div>
 
 ![](./images/scaling.png)
-We see that different scales can yield different clustering results. Although the graphs may look similar to each other, the confusion matrix tells a different story. The confusion matrix tells us that the accuracy for the unscaled features is `r acc1*100`% while the accuracy for the scaled features is `r acc2*100`%.
+We see that different scales can yield different clustering results. Although the graphs may look similar to each other, the confusion matrix tells a different story. The confusion matrix tells us that the accuracy for the unscaled features is `r acc1*100`% while the accuracy for the scaled features is `r acc2*100`%. So, in this case scaling makes a difference!
 
 
 Now, since this is a *boring* example, let's use a more interesting dataset! 
