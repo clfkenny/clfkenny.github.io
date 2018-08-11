@@ -33,8 +33,8 @@ img#me{
 }
 </style>
 
-<div class = 'image-cropper'>
-	<div class = 'outline'>
+<div class = 'outline' style = 'z-index: -2;'>
+	<div class = 'image-cropper'>
 		<img id = "me" src="fb_img.jpg">	
 	</div>
 </div>
