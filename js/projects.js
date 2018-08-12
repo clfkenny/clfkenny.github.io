@@ -1,26 +1,25 @@
 var shrunk = false;
+var iScrollPos = 0;
+
 $(window).scroll(function() {
+
   if ($(document).scrollTop() > 150) {
     $('nav').addClass('shrink');
     shrunk = true;
   } else {
     $('nav').removeClass('shrink');
-	$('nav').removeClass('hovered');
     shrunk = false;
   }
+
+    var iCurScrollPos = $(this).scrollTop();
+    if (iCurScrollPos < iScrollPos) {
+        if(shrunk){
+      $('nav').removeClass('shrink');
+      console.log('if');
+          }
+    }
+    iScrollPos = iCurScrollPos;
+
+
+
 });
-
-nav = $('nav');
-
-function onHover(){
-  if(shrunk===true){
-    nav.addClass('hovered');
-  }
-}
-
-function noHover(){
-  nav.removeClass('hovered');
-}
-
-nav[0].addEventListener("mouseover", onHover);
-nav[0].addEventListener("mouseout", noHover);
