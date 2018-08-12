@@ -362,3 +362,11 @@ ol li, ul li{
   line-height: 1.3em;
   font-size:1.1em;
 }
+
+
+/*horizontal line styling*/
+
+hr{
+  border-top: dotted 2px;
+  color:var(--main-accent-color);
+}
