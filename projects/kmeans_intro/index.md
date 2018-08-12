@@ -102,14 +102,28 @@ The location in the feature space for each of the cluster centroids
 
 <h2>
 
+Use Cases
+
+</h2>
+
+<h2>
+
 The Algorithm
 
 </h2>
 
 <p>
 
-This is the function the algorithm aims to minimize:
-$$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$
+<br><br> This is the function the algorithm aims to minimize:
+$$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$ Where:
+$$W(C_k) = \frac{1}{|C_k|} \sum^{}_{i, i' \in C_k}\sum^{p}_{j=1}(x_{ij}-x_{i'j})^2$$
+
+Looks complicated, but all it really means is that we want to divide up
+the observations into \(K\) clusters such that the total variation
+within each cluster is as small as possible. The within cluster
+distances will be defined with euclidian distance. Therefore the total
+within cluster <i>variation</i> is defined by within cluster distances
+divided by the number of observations per cluster \(C_k\).
 
 </p>
 
@@ -688,7 +702,7 @@ different clustering results. Although the graphs may look similar to
 each other, the confusion matrix tells a different story. The confusion
 matrix tells us that the accuracy for the unscaled features is 84% while
 the accuracy for the scaled features is 90%. So, in this case scaling
-makes a difference\! x
+does makes a difference\!
 
 Now, since this is a *boring* example, let’s use a more interesting
 dataset\!
