@@ -688,7 +688,7 @@ different clustering results. Although the graphs may look similar to
 each other, the confusion matrix tells a different story. The confusion
 matrix tells us that the accuracy for the unscaled features is 84% while
 the accuracy for the scaled features is 90%. So, in this case scaling
-makes a difference\!
+makes a difference\! x
 
 Now, since this is a *boring* example, let’s use a more interesting
 dataset\!
