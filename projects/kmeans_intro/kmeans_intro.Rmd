@@ -55,6 +55,14 @@ Completion of the algorithm yields:
 </ul>
 
 
+## Table of Contents
+1. [Use Cases](#Use-Cases)
+2. [The Algorithm](#The-Algorithm)
+3. [Selecting K ](#Selecting-K)
+4. []
+
+
+
 <h2>Use Cases</h2>
 
 
