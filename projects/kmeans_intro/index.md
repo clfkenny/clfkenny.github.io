@@ -102,22 +102,14 @@ The location in the feature space for each of the cluster centroids
 
 ## Table of Contents
 
-1.  [Use Cases](#Use-Cases)
-2.  [The Algorithm](#The-Algorithm)
-3.  [Selecting K](#Selecting-K)
+1.  [Use Cases](#use-cases)
+2.  [The Algorithm](#the-algorithm)
+3.  [Selecting K](#selecting-k)
 4.  $$$$
 
-<h2>
+## Use Cases
 
-Use Cases
-
-</h2>
-
-<h2>
-
-The Algorithm
-
-</h2>
+## The Algorithm
 
 <p>
 
