@@ -62,7 +62,7 @@ Calculate distances between samples and each centroid
 
 <li>
 
-Group the samples into the cluster which they are closest to
+Assign the samples into the cluster whose centroid they are closest to
 
 </li>
 
@@ -105,7 +105,7 @@ The location in the feature space for each of the cluster centroids
 1.  [Use Cases](#use-cases)
 2.  [The Algorithm](#the-algorithm)
 3.  [Selecting K](#selecting-k)
-4.  $$$$
+4.  [Applications](#applications)
 
 ## Use Cases
 
@@ -113,7 +113,7 @@ The location in the feature space for each of the cluster centroids
 
 <p>
 
-<br><br> This is the function the algorithm aims to minimize:
+This is the function the algorithm aims to minimize:
 $$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$ Where:
 $$W(C_k) = \frac{1}{|C_k|} \sum^{}_{i, i' \in C_k}\sum^{p}_{j=1}(x_{ij}-x_{i'j})^2$$
 
@@ -125,6 +125,12 @@ within cluster <i>variation</i> is defined by within cluster distances
 divided by the number of observations per cluster \(C_k\).
 
 </p>
+
+<br>
+
+<hr>
+
+<br>
 
 First, let’s used a contrived *toy* example to better understand this
 topic. k-means clustering works better if the clusters are spherical and
@@ -448,7 +454,7 @@ garb <- dev.off()
 # create the gif
 g <- ggplot(lab_hist, aes(x,y)) +
   geom_point(aes(color = pred)) +
-  geom_point(data = cen_hist, aes(X1, X2)) +
+  geom_point(data = cen_hist, aes(X1, X2), size=3) +
   labs(title = 'Number of Clusters: {frame_time}') +
   th + theme(text = element_text(size = 8), legend.position = 'none') +
   transition_time(num_clusters) 
@@ -471,7 +477,10 @@ clusters and then marginal reduction in total squared distance upon
 adding any more clusters, which creates an “L” shaped plot. The number
 of clusters at the point of the elbow should correspond to the
 appropriate number of clusters \(K\) to be used, and in this case it
-correctly corresponds to our three clusters that we generated.
+correctly corresponds to our three clusters that we generated. If we
+take a look at the animation, we see that the algorithm forces the
+observations into a cluster, even if a true cluster doesn’t actually
+exist.
 
 </p>
 
@@ -706,4 +715,4 @@ does makes a difference\!
 Now, since this is a *boring* example, let’s use a more interesting
 dataset\!
 
-## Application …
+## Applications
