@@ -484,13 +484,13 @@ exist.
 
 </p>
 
-**Important Note:** <br> It is important to scale or normalize the data
-before running *K-Means* algorithm if the features have different units.
-Let me demonstrate why this is so. Here is a contrived example of height
-and weights along with gender that I obtained from the web. We have
-height in *mm* and weight in *tons* (for the sake of demonstration). We
-know beforehand that there are two groups - males and females, so we’ll
-set number of clusters to 2.
+<u><strong>Important Note:</u></strong> <br> It is important to scale or
+normalize the data before running *K-Means* algorithm if the features
+have different units. Let me demonstrate why this is so. Here is a
+contrived example of height and weights along with gender that I
+obtained from the web. We have height in *mm* and weight in *tons* (for
+the sake of demonstration). We know beforehand that there are two groups
+- males and females, so we’ll set number of clusters to 2.
 
 ``` r
 library(knitr)
@@ -533,8 +533,8 @@ t2 <- kable(cm2, align = 'clc',
             format = "html") %>% kable_styling(full_width = F, position = "right")
 ```
 
-<b>Confusion
-Matrix:</b>
+<u><strong>Confusion
+Matrix</u></strong>
 
 <div id = "confusion_mat">
 
