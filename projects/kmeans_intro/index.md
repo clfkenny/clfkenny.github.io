@@ -478,13 +478,13 @@ adding any more clusters, which creates an “L” shaped plot. The number
 of clusters at the point of the elbow should correspond to the
 appropriate number of clusters \(K\) to be used, and in this case it
 correctly corresponds to our three clusters that we generated. If we
-take a look at the animation, we see that the algorithm forces the
-observations into a cluster, even if a true cluster doesn’t actually
+take a look at the animation, we see that the algorithm <u>forces</u>
+the observations into a cluster, even if a true cluster doesn’t actually
 exist.
 
 </p>
 
-<u><strong>Important Note:</u></strong> <br> It is important to scale or
+<u><strong>Important Note:</strong></u> <br> It is important to scale or
 normalize the data before running *K-Means* algorithm if the features
 have different units. Let me demonstrate why this is so. Here is a
 contrived example of height and weights along with gender that I
@@ -534,7 +534,7 @@ t2 <- kable(cm2, align = 'clc',
 ```
 
 <u><strong>Confusion
-Matrix</u></strong>
+Matrix</strong></u>
 
 <div id = "confusion_mat">
 
