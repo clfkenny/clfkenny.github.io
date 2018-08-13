@@ -1,8 +1,3 @@
----
-layout: projects
-
----
-
 
 
 # **Introduction to K-Means Clustering**
@@ -139,8 +134,8 @@ fields\!
 <p>
 
 This is the function the algorithm aims to minimize:
-$$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$ Where:
-$$W(C_k) = \frac{1}{|C_k|} \sum^{}_{i, i' \in C_k}\sum^{p}_{j=1}(x_{ij}-x_{i'j})^2$$
+\[\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\] Where:
+\[W(C_k) = \frac{1}{|C_k|} \sum^{}_{i, i' \in C_k}\sum^{p}_{j=1}(x_{ij}-x_{i'j})^2\]
 
 Looks complicated, but all it really means is that we want to divide up
 the observations into \(K\) clusters such that the total variation
@@ -488,6 +483,7 @@ animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
+![](images/scree-1.gif)<!-- -->
 
 | Cluster \# Effect on Sq. Dist |      Scree Plot       |
 | :---------------------------: | :-------------------: |
@@ -754,7 +750,7 @@ library(ISLR) # load the library
 default <- Default # grab the data
 default$default <- ifelse(default$default == 'No', 'n', 'd') # rename some variables
 default$student <- ifelse(default$student == 'No', 'n', 's')
-default$group <- paste(default$student, default$default, sep = ', ') # create a new variable group
+default$group <- as.factor(paste(default$student, default$default, sep = ', ')) # create a new variable group
 
 default$kmeans <- as.factor(kmeans(default[,c('balance', 'income')], centers = 4)$cluster)
 
@@ -775,7 +771,10 @@ garb <- dev.off()
 
 ![](./images/example1.png)
 
-Hey… that doesn’t look right\! Want to guess what went wrong here? The
+Looking at this plot, we can definitely see the general location of some
+groups. We see that in general people tend to default when their balance
+is higher and that students have lower incomes than non students. But…
+that doesn’t look right\! Want to guess what went wrong here? The
 scaling is off\! Let’s fix this.
 
 ``` r
@@ -798,9 +797,42 @@ garb <- dev.off()
 
 ![](./images/example2.png)
 
-Goes to show how important scaling is. However, it still doesn’t look
-right.
+Goes to show how important scaling is. Looks better than before,
+however, it still doesn’t look right. I didn’t expect this at all but
+I’m assuming the problem with kmeans is that there is an imbalance of
+classes. The centroids aren’t where they should be. I guess we learn
+something new everyday\! Well, I’m not giving up yet, so let’s try to
+fix this problem. I’m going to try oversampling the minority classes and
+see if that will affect the centroid locations.
 
-Looking at this plot, we can definitely see the general location of some
-groups. We see that in general people tend to default when their balance
-is higher and that students have lower incomes than non students.
+``` r
+# grab the indexes of these categories to oversample
+nn_idx <- which(default$default == 'n' & default$student == 'n')
+sn_idx <- which(default$default == 'n' & default$student == 's')
+nd_idx <- which(default$default == 'd' & default$student == 'n')
+sd_idx <- which(default$default == 'd' & default$student == 's')
+
+# oversample each class so that there is an equal number of each one (the majority class)
+amount <- length(nn_idx)
+
+sn_idx_over <- sample(sn_idx, amount, replace = TRUE)
+nd_idx_over <- sample(nd_idx, amount, replace = TRUE)
+sd_idx_over <- sample(sd_idx, amount, replace = TRUE)
+
+new_idx <- c(nn_idx, sn_idx_over, nd_idx_over, sd_idx_over)
+
+default_scaled_over <- default_scaled[new_idx,]
+default_scaled_over$kmeans <- as.factor(kmeans(default_scaled_over[,c('balance', 'income')], centers = 4, nstart = 100)$cluster)
+
+
+g2 <- ggplot(default_scaled_over, aes(x=balance, y = income)) +
+  geom_point(aes(color = kmeans), alpha = 0.1 )
+
+tiff('./images/example3.tiff', units="in", width=10, height=5, res=600)
+
+grid.arrange(g1, g2, nrow=1, respect=TRUE)
+
+garb <- dev.off()
+```
+
+![](./images/example3.png)
