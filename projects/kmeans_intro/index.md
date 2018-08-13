@@ -745,13 +745,42 @@ dataset\!
 
 This dataset, provided by the `ISLR` library is called `Default`. It
 consists of four variables: `default`, `student`, `balance`, and
-`income`. I will create a new group by combining student and default for
-visualization purposes. Let’s see how well *K-Means* can cluster these
-observations.
+`income`. Let’s see how well *K-Means* can cluster these observations.
+First let’s see if the algorithm can distinguish between student and non
+students.
 
 ``` r
 library(ISLR) # load the library
 default <- Default # grab the data
+
+default$kmeans <- as.factor(kmeans(default[,c('balance', 'income')], centers = 2)$cluster)
+
+g1 <- ggplot(default, aes(x=balance, y = income)) +
+  geom_point(aes(color = student), alpha = 0.4 )
+
+g2 <- ggplot(default, aes(x=balance, y = income)) +
+  geom_point(aes(color = kmeans), alpha = 0.4 )
+
+tiff('./images/example1.tiff', units="in", width=10, height=5, res=600)
+
+grid.arrange(g1, g2, nrow=1, respect=TRUE)
+
+garb <- dev.off()
+```
+
+![](./images/example1.png)
+
+Looks like it does a fairly decent job distinguishing between students
+and non students. It sees that there’s a group that has a lower income
+(student) and another group that has a higher income (non students).
+<br>
+
+Now let’s see if the algorithm can distinguish between students who
+default, students who don’t default, non students who default, and non
+students who don’t
+default.
+
+``` r
 default$default <- ifelse(default$default == 'No', 'n', 'd') # rename some variables
 default$student <- ifelse(default$student == 'No', 'n', 's')
 default$group <- as.factor(paste(default$student, default$default, sep = ', ')) # create a new variable group
@@ -766,14 +795,14 @@ g2 <- ggplot(default, aes(x=balance, y = income)) +
   geom_point(aes(color = kmeans), alpha = 0.4 )
 
 
-tiff('./images/example1.tiff', units="in", width=10, height=5, res=600)
+tiff('./images/example2.tiff', units="in", width=10, height=5, res=600)
 
 grid.arrange(g1, g2, nrow=1, respect=TRUE)
 
 garb <- dev.off()
 ```
 
-![](./images/example1.png)
+![](./images/example2.png)
 
 Looking at this plot, we can definitely see the general location of some
 groups. We see that in general people tend to default when their balance
@@ -786,8 +815,11 @@ default_scaled <- default
 default_scaled[, c('balance', 'income')] <- scale(default[,c('balance', 'income')])
 
 default_scaled$kmeans <- as.factor(kmeans(default_scaled[,c('balance', 'income')], centers = 4, nstart = 100)$cluster)
+```
 
+    ## Warning: Quick-TRANSfer stage steps exceeded maximum (= 500000)
 
+``` r
 g2 <- ggplot(default_scaled, aes(x=balance, y = income)) +
   geom_point(aes(color = kmeans), alpha = 0.4 )
 
@@ -799,7 +831,7 @@ grid.arrange(g1, g2, nrow=1, respect=TRUE)
 garb <- dev.off()
 ```
 
-![](./images/example2.png)
+![](./images/example3.png)
 
 Goes to show how important scaling is. Looks better than before,
 however, it still doesn’t look right. I didn’t expect this at all but
@@ -830,7 +862,7 @@ default_scaled_over$kmeans <- as.factor(kmeans(default_scaled_over[,c('balance',
 
 
 g2 <- ggplot(default_scaled_over, aes(x=balance, y = income)) +
-  geom_point(aes(color = kmeans), alpha = 0.1 )
+  geom_point(aes(color = kmeans), alpha = 0.5)
 
 tiff('./images/example3.tiff', units="in", width=10, height=5, res=600)
 
@@ -839,4 +871,8 @@ grid.arrange(g1, g2, nrow=1, respect=TRUE)
 garb <- dev.off()
 ```
 
-![](./images/example3.png)
+![](./images/example4.png)
+
+Well, it looks like the cluster centers have shifted a bit but these
+groups, based on these features, may not be distinguishable by the
+algorithm.
