@@ -64,8 +64,13 @@ Completion of the algorithm yields:
 
 
 ## Applications
+Suppose you run an online shopping site and have access to each shopper's browsing and purchase histories. A clustering algorithm, such as *K-Means* can be used to perform market/customer segmentation by identifying groups of shoppers with similar browsing and purchase histories. Once grouped, an individual shopper be shown items that other similar shoppers have purchased or are interested in, acting as sort of a basic recommendation system. <br><br>
 
+Now suppose you're a breast cancer researcher and you have the results of gene expression assays from hundreds of patients. You are interested in which group of genes are associated with the specific type of cancer you're studying, so you can use this algorithm to find these subgroups to gain a better understanding of the disease. <br><br>
 
+Finally suppose you run an automobile insurance company and want to detect fraudulent claims. You have information about the claims, such as time, location, and number of passengers in the cars involved in the accident. You can perform clustering analysis to attempt to group the legitimate claims together and the fraudulent claims together. Now when you get a new claim, you can see whether this new claim is more similar to the legitimate cluster or the fraudulent cluster.
+
+As you can see, this algorithm can be applied in a wide variety of fields!
 
 
 

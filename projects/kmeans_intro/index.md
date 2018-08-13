@@ -102,12 +102,37 @@ The location in the feature space for each of the cluster centroids
 
 ## Table of Contents
 
-1.  [Use Cases](#use-cases)
+1.  [Applications](#applications)
 2.  [The Algorithm](#the-algorithm)
 3.  [Selecting K](#selecting-k)
-4.  [Applications](#applications)
+4.  [Example](#example)
 
-## Use Cases
+## Applications
+
+Suppose you run an online shopping site and have access to each
+shopper’s browsing and purchase histories. A clustering algorithm,
+such as *K-Means* can be used to perform market/customer segmentation by
+identifying groups of shoppers with similar browsing and purchase
+histories. Once grouped, an individual shopper be shown items that other
+similar shoppers have purchased or are interested in, acting as sort of
+a basic recommendation system. <br><br>
+
+Now suppose you’re a breast cancer researcher and you have the results
+of gene expression assays from hundreds of patients. You are interested
+in which group of genes are associated with the specific type of cancer
+you’re studying, so you can use this algorithm to find these subgroups
+to gain a better understanding of the disease. <br><br>
+
+Finally suppose you run an automobile insurance company and want to
+detect fraudulent claims. You have information about the claims, such as
+time, location, and number of passengers in the cars involved in the
+accident. You can perform clustering analysis to attempt to group the
+legitimate claims together and the fraudulent claims together. Now when
+you get a new claim, you can see whether this new claim is more similar
+to the legitimate cluster or the fraudulent cluster.
+
+As you can see, this algorithm can be applied in a wide variety of
+fields\!
 
 ## The Algorithm
 
@@ -478,19 +503,20 @@ adding any more clusters, which creates an “L” shaped plot. The number
 of clusters at the point of the elbow should correspond to the
 appropriate number of clusters \(K\) to be used, and in this case it
 correctly corresponds to our three clusters that we generated. If we
-take a look at the animation, we see that the algorithm <u>forces</u>
+take a look at the animation, we see that the algorithm <b>forces</b>
 the observations into a cluster, even if a true cluster doesn’t actually
 exist.
 
 </p>
 
-<u><strong>Important Note:</strong></u> <br> It is important to scale or
-normalize the data before running *K-Means* algorithm if the features
-have different units. Let me demonstrate why this is so. Here is a
-contrived example of height and weights along with gender that I
-obtained from the web. We have height in *mm* and weight in *tons* (for
-the sake of demonstration). We know beforehand that there are two groups
-- males and females, so we’ll set number of clusters to 2.
+<u><strong style = "font-size:1.2em;">Important Note:</strong></u> <br>
+It is important to scale or normalize the data before running *K-Means*
+algorithm if the features have different units. Let me demonstrate why
+this is so. Here is a contrived example of height and weights along with
+gender that I obtained from the web. We have height in *mm* and weight
+in *tons* (for the sake of demonstration). We know beforehand that there
+are two groups - males and females, so we’ll set number of clusters to
+2.
 
 ``` r
 library(knitr)
@@ -533,7 +559,7 @@ t2 <- kable(cm2, align = 'clc',
             format = "html") %>% kable_styling(full_width = F, position = "right")
 ```
 
-<u><strong>Confusion
+<u><strong style = "font-size:1.2em;">Confusion
 Matrix</strong></u>
 
 <div id = "confusion_mat">
@@ -715,4 +741,4 @@ does makes a difference\!
 Now, since this is a *boring* example, let’s use a more interesting
 dataset\!
 
-## Applications
+## Example
