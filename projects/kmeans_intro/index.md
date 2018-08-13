@@ -824,7 +824,7 @@ g2 <- ggplot(default_scaled, aes(x=balance, y = income)) +
   geom_point(aes(color = kmeans), alpha = 0.4 )
 
 
-tiff('./images/example2.tiff', units="in", width=10, height=5, res=600)
+tiff('./images/example3.tiff', units="in", width=10, height=5, res=600)
 
 grid.arrange(g1, g2, nrow=1, respect=TRUE)
 
@@ -876,3 +876,5 @@ garb <- dev.off()
 Well, it looks like the cluster centers have shifted a bit but these
 groups, based on these features, may not be distinguishable by the
 algorithm.
+
+<br><br>
