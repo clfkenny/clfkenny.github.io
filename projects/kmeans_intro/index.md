@@ -1,3 +1,8 @@
+---
+layout: projects
+
+---
+
 
 
 # **Introduction to K-Means Clustering**
@@ -134,8 +139,8 @@ fields\!
 <p>
 
 This is the function the algorithm aims to minimize:
-\[\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)\] Where:
-\[W(C_k) = \frac{1}{|C_k|} \sum^{}_{i, i' \in C_k}\sum^{p}_{j=1}(x_{ij}-x_{i'j})^2\]
+$$\min_{C_1,...,C_K}\sum^{K}_{k=1}W(C_k)$$ Where:
+$$W(C_k) = \frac{1}{|C_k|} \sum^{}_{i, i' \in C_k}\sum^{p}_{j=1}(x_{ij}-x_{i'j})^2$$
 
 Looks complicated, but all it really means is that we want to divide up
 the observations into \(K\) clusters such that the total variation
@@ -483,7 +488,6 @@ animate(g, nframes =  num_clusters, fps = 1,
         width = 1000, height=800, res = 300)
 ```
 
-![](images/scree-1.gif)<!-- -->
 
 | Cluster \# Effect on Sq. Dist |      Scree Plot       |
 | :---------------------------: | :-------------------: |
