@@ -5,7 +5,7 @@ layout: projects
 
 
 
-# **Introduction to K-Means Clustering (IN PROGRESS)**
+# **Introduction to K-Means Clustering**
 
 <link rel="stylesheet" type="text/css" href="/projects/kmeans_intro/kmeans.css">
 
@@ -115,13 +115,13 @@ such as *K-Means* can be used to perform market/customer segmentation by
 identifying groups of shoppers with similar browsing and purchase
 histories. Once grouped, an individual shopper be shown items that other
 similar shoppers have purchased or are interested in, acting as sort of
-a basic recommendation system. <br><br>
+a basic recommendation system. <br>
 
 Now suppose you’re a breast cancer researcher and you have the results
 of gene expression assays from hundreds of patients. You are interested
 in which group of genes are associated with the specific type of cancer
 you’re studying, so you can use this algorithm to find these subgroups
-to gain a better understanding of the disease. <br><br>
+to gain a better understanding of the disease. <br>
 
 Finally suppose you run an automobile insurance company and want to
 detect fraudulent claims. You have information about the claims, such as
@@ -742,3 +742,60 @@ Now, since this is a *boring* example, let’s use a more interesting
 dataset\!
 
 ## Example
+
+This dataset, provided by the `ISLR` library is called `Default`. It
+consists of four variables: `default`, `student`, `balance`, and
+`income`. I will create a new group by combining student and default for
+visualization purposes. Let’s see how well *K-Means* can cluster these
+observations.
+
+``` r
+library(ISLR) # load the library
+default <- Default # grab the data
+default$default <- ifelse(default$default == 'No', 'No Default', 'Default') # rename some variables
+default$student <- ifelse(default$student == 'No', 'Not Student', 'Student')
+default$group <- paste(default$student, default$default, sep = ', ') # create a new variable group
+
+default$kmeans <- as.factor(kmeans(default[,c('balance', 'income')], centers = 4)$cluster)
+
+
+g1 <- ggplot(default, aes(x=balance, y = income)) +
+  geom_point(aes(color = group), alpha = 0.4 )
+
+g2 <- ggplot(default, aes(x=balance, y = income)) +
+  geom_point(aes(color = kmeans), alpha = 0.4 )
+
+
+tiff('./images/example1.tiff', units="in", width=10, height=5, res=600)
+
+grid.arrange(g1, g2, nrow=1, respect=TRUE)
+
+garb <- dev.off()
+```
+
+Hey… that doesn’t look right\! Want to guess what went wrong here? The
+scaling is off\! Let’s fix this.
+
+``` r
+default_scaled <- default
+default_scaled[, c('balance', 'income')] <- scale(default[,c('balance', 'income')])
+
+default_scaled$kmeans <- as.factor(kmeans(default_scaled[,c('balance', 'income')], centers = 4, nstart = 100)$cluster)
+
+
+g2 <- ggplot(default_scaled, aes(x=balance, y = income)) +
+  geom_point(aes(color = kmeans), alpha = 0.4 )
+
+
+tiff('./images/example2.tiff', units="in", width=10, height=5, res=600)
+
+grid.arrange(g1, g2, nrow=1, respect=TRUE)
+
+garb <- dev.off()
+```
+
+Goes to show how important scaling is
+
+Looking at this plot, we can definitely see the general location of some
+groups. We see that in general people tend to default when their balance
+is higher and that students have lower incomes than non students.
