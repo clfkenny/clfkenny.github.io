@@ -600,7 +600,7 @@ default_scaled_over$kmeans <- as.factor(kmeans(default_scaled_over[,c('balance',
 g2 <- ggplot(default_scaled_over, aes(x=balance, y = income)) +
   geom_point(aes(color = kmeans), alpha = 0.5)
 
-tiff('./images/example3.tiff', units="in", width=10, height=5, res=600)
+tiff('./images/example4.tiff', units="in", width=10, height=5, res=600)
 
 grid.arrange(g1, g2, nrow=1, respect=TRUE)
 
