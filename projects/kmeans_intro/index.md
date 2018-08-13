@@ -752,8 +752,8 @@ observations.
 ``` r
 library(ISLR) # load the library
 default <- Default # grab the data
-default$default <- ifelse(default$default == 'No', 'No Default', 'Default') # rename some variables
-default$student <- ifelse(default$student == 'No', 'Not Student', 'Student')
+default$default <- ifelse(default$default == 'No', 'n', 'd') # rename some variables
+default$student <- ifelse(default$student == 'No', 'n', 's')
 default$group <- paste(default$student, default$default, sep = ', ') # create a new variable group
 
 default$kmeans <- as.factor(kmeans(default[,c('balance', 'income')], centers = 4)$cluster)
@@ -772,6 +772,8 @@ grid.arrange(g1, g2, nrow=1, respect=TRUE)
 
 garb <- dev.off()
 ```
+
+![](./images/example1.png)
 
 Hey… that doesn’t look right\! Want to guess what went wrong here? The
 scaling is off\! Let’s fix this.
@@ -794,7 +796,10 @@ grid.arrange(g1, g2, nrow=1, respect=TRUE)
 garb <- dev.off()
 ```
 
-Goes to show how important scaling is
+![](./images/example2.png)
+
+Goes to show how important scaling is. However, it still doesn’t look
+right.
 
 Looking at this plot, we can definitely see the general location of some
 groups. We see that in general people tend to default when their balance
