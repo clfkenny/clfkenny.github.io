@@ -66,6 +66,10 @@ From microscopic biological neurons to massive artificial neural networks with b
 <br><br>
 
 
+
+I studied at University of California, Los Angeles. I graduated June 2018 with a B.S. in Neuroscience with a minor in Statistics
+
+
 Perhaps it was the study of biological neurons and neural networks that piqued my recent interest in learning more about the silicon model of the brain (artificial neural networks).  -->
 
 
