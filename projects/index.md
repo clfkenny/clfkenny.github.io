@@ -56,7 +56,7 @@ padding-right:5px;
  </a>
 <br>
  
-
+<!---
 <div>
 <a href = "/projects/#"> 
  <div class = "item-card" id = 'pca'> 
@@ -77,3 +77,5 @@ $("#pca").click(function(){
     alert("Work in progress...");
 });
 </script>
+
+-->
