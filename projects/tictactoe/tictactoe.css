@@ -1,0 +1,116 @@
+body{
+	margin:0 auto;
+	background:#232323;
+	color:white;
+	font-family: "Montserrat", "Avenir";
+}
+
+h1, h2{
+	text-align:center;
+	background: steelblue;
+	color:white;
+	margin:0 auto;
+	padding:20px;
+	font-size:3em;
+	font-weight:normal;
+}
+
+p{
+	text-align:center;
+	margin:0;
+}
+
+.container{
+	max-width:300px;
+	margin:40px auto;
+}
+
+td{
+	width:100px;
+	height:100px;
+	border: 2px solid steelblue;
+}
+
+
+tr{
+	vertical-align:middle;
+}
+
+table{
+	border-collapse:collapse;
+}
+
+
+p span{
+	width: 30px;
+	font-size: 2em;
+	margin: 20px;
+}
+
+table span{
+	position:absolute;
+	font-size:5em;
+	margin:-45px 20px;
+	transition: width 1s;
+}
+
+#stripe{
+	height:40px;
+	background:white;
+	color:#232323;
+	font-size: 1.5em;
+}
+
+button{
+	border:none;
+	background:none;
+	height:100%;
+	font-weight:700;
+	color:steelblue;
+	text-transform: uppercase;
+	font-size:inherit;
+	letter-spacing:4px;
+	outline:none;
+	transition:all 0.7s;
+}
+
+button:hover{
+	color:white;
+	background:steelblue;
+}
+
+.selected{
+	color:white;
+	background:steelblue;
+}
+
+table div hr{
+	border-color:red;
+	background:red;
+	height:5px;
+	width:120%;
+	border:0px;
+}
+
+table div.horizontal{
+	margin:0 -30px;
+	width: 130%
+}
+
+table div.vertical{
+	margin:-30px;
+	transform:rotate(90deg);
+}
+
+table div.diag_1{
+	margin:-30px -30px -30px -60px;
+	transform:rotate(46.5deg);
+}
+table div.diag_2{
+	margin:0px -30px -30px -60px;
+	transform:rotate(-46.5deg);
+}
+
+td.hover{
+	border:3px solid teal;
+}

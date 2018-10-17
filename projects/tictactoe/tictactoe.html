@@ -2,9 +2,38 @@
 <html>
 <head>
 	<title>Tic Tac Toe</title>
+	<link rel="stylesheet" type="text/css" href="tictactoe.css">
+	<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
 </head>
 <body>
 	<h1>Tic Tac Toe</h1>
+	<!-- <h2>The ultimate, <strong>unbeatable</strong> opponent!</h2> -->
+	<p id = 'stripe'>	<button id = "reset_btn">Reset</button> 
+		<!-- You play as: <button>X</button> <button>O</button> -->
+	</p>
+<div class = "container">
+	<table>
 
+		<tr>
+			<td id = '00'><span class = "placed"></span><span class = "hover"></span><div class = 'line'></div></td>
+			<td id = '01'><span class = "placed"></span><span class = "hover"></span><div class = 'line'></div></td>
+			<td id = '02'><span class = "placed"></span><span class = "hover"></span><div class = 'line'></div></td>
+		</tr>
+			<tr>
+			<td id = '10'><span class = "placed"></span><span class = "hover"></span><div class = 'line'></div></td>
+			<td id = '11'><span class = "placed"></span><span class = "hover"></span><div class = 'line'></div></td>
+			<td id = '12'><span class = "placed"></span><span class = "hover"></span><div class = 'line'></div></td>
+		</tr>
+			<tr>
+			<td id = '20'><span class = "placed"></span><span class = "hover"></span><div class = 'line'></div></td>
+			<td id = '21'><span class = "placed"></span><span class = "hover"></span><div class = 'line'></div></td>
+			<td id = '22'><span class = "placed"></span><span class = "hover"></span><div class = 'line'></div></td>
+	</table>
+</div>
+
+<script type="text/javascript" src = "tictactoe.js"></script>
 </body>
 </html>
