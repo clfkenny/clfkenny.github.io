@@ -12,8 +12,8 @@ $('#modes_btn').click(function(){
 // 	$('.mode').hide();
 // })
 
-var turn = 'X' // set initial turn
-
+var turn = 'X'; // set initial turn
+var gameEnd = false;
 var board = [
 	[,,],
 	[,,],
@@ -82,7 +82,8 @@ $('td').click(function(){
 		if(game_mode ==='local'){
 			if(turn==='O'){turn = 'X';}
 			else{turn ='O'};
-		} else if(game_mode ==='easy'){
+
+		} else if(game_mode ==='easy' && gameEnd === false){
 			easy_Move();
 		}
 	}
@@ -138,6 +139,7 @@ function reset_board(){
 	$('td div.line').html('');
 	$('td').removeClass();
 	$('td span.placed').text('');
+	gameEnd = false;
 
 }
 
@@ -208,7 +210,7 @@ function checkWin(turn, pos){
 	// Is there a winner?
 	if(winType != ""){
 		drawLine(row, col, winType);
-
+		gameEnd = true;
 		setTimeout(function(){
 			alert(turn + ' wins!')}, 500);
 

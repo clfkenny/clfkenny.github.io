@@ -52,7 +52,7 @@ padding-right:5px;
 </div>
 
 
-<h1> Miscellaneous</h1>
+<h1> <em>Miscellaneous</em></h1>
 <h3>Some other things:</h3>
 <div>
 <a href = "/projects/tictactoe/tictactoe.html"> 
