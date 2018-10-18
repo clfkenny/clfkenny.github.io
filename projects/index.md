@@ -58,7 +58,7 @@ padding-right:5px;
 <a href = "/projects/tictactoe/tictactoe.html"> 
  <div class = "item-card" id = 'tictactoe'> 
   <b>Tic Tac Toe</b>
-  <p><i>A simple Tic Tac Toe game</i></p>
+  <p><i>A simple Tic Tac Toe game made using basic HTML, CSS, and Javascript.</i></p>
  </div> 
 </a>
 <br>
