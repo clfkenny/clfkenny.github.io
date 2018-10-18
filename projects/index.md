@@ -47,7 +47,6 @@ padding-right:5px;
   <b>Introduction to K-Means Clustering</b>
   <p><i>A popular unsupervised learning/clustering algorithm that seeks to uncover hidden subgroups within data.</i>
   </p>
- </a>
  </div> 
 </a>
 </div>
@@ -59,10 +58,9 @@ padding-right:5px;
 <a href = "/projects/tictactoe/tictactoe.html"> 
  <div class = "item-card" id = 'tictactoe'> 
   <b>Tic Tac Toe</b>
-  <p><i>A simple Tic Tac Toe game</i>
-  </p>
- </a>
+  <p><i>A simple Tic Tac Toe game</i></p>
  </div> 
+</a>
 <br>
 
 
