@@ -29,6 +29,9 @@ td{
 	width:100px;
 	height:100px;
 	border: 2px solid steelblue;
+	text-align:center;
+	cursor:pointer;
+
 }
 
 
@@ -48,9 +51,8 @@ p span{
 }
 
 table span{
-	position:absolute;
+	position:relative;
 	font-size:5em;
-	margin:-45px 20px;
 	transition: width 1s;
 }
 
@@ -61,7 +63,7 @@ table span{
 	font-size: 1.5em;
 }
 
-button{
+button, #modes{
 	border:none;
 	background:none;
 	height:100%;
@@ -71,13 +73,18 @@ button{
 	font-size:inherit;
 	letter-spacing:4px;
 	outline:none;
-	transition:all 0.7s;
+	transition:all 0.5s;
+	padding: 0 30px;
+}
+#modes{
+	display:inline-block;
 }
 
-button:hover{
+button:hover, #modes:hover{
 	color:white;
 	background:steelblue;
 }
+
 
 .selected{
 	color:white;
@@ -92,25 +99,17 @@ table div hr{
 	border:0px;
 }
 
-table div.horizontal{
-	margin:0 -30px;
-	width: 130%
+td.win{
+	color:red;
 }
 
-table div.vertical{
-	margin:-30px;
-	transform:rotate(90deg);
-}
-
-table div.diag_1{
-	margin:-30px -30px -30px -60px;
-	transform:rotate(46.5deg);
-}
-table div.diag_2{
-	margin:0px -30px -30px -60px;
-	transform:rotate(-46.5deg);
-}
 
 td.hover{
 	border:3px solid teal;
+}
+
+#modes{
+	font-size:1em;
+	text-transform:uppercase;
+	cursor:progress;
 }

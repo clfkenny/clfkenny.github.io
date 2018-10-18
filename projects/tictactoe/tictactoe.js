@@ -1,3 +1,9 @@
+$('.mode').hide();
+
+$('#modes_btn').click(function(){
+	$('.mode').toggle(10);
+});
+
 var turn = 'X' // set initial turn
 
 var x_score = 0
@@ -38,6 +44,7 @@ $('td').click(function(){
 	}
 	else{
 		// Then, how on position on board
+		$(this).children('span.hover').text(''); // First remove hover icon
 		selectedSquare.text(turn);
 		selectedSquare.fadeIn(500);
 
@@ -65,10 +72,7 @@ function reset_board(){
 	];
 	$('td span.placed').fadeOut();
 	$('td div.line').html('');
-	$('td div.line').removeClass('vertical');
-	$('td div.line').removeClass('horizontal');
-	$('td div.line').removeClass('diag_1');
-	$('td div.line').removeClass('diag_2');
+	$('td').removeClass();
 }
 
 
@@ -150,27 +154,23 @@ function drawLine(row, col, winType){
 	// Draw horizontal line
 	if(winType === "row"){
 		for(var i =0; i < 3; i++){
-			$('td#' + row + i + ' .line').html('<hr>');
-			$('td#' + row + i + ' .line').addClass('horizontal');
+			$('td#' + row + i ).addClass('win');
 		}
 	}
 
 	// Draw vertical line
-
 	if(winType === "col"){
 		for(var i =0; i < 3; i++){
-			$('td#' + i + col + ' .line').html('<hr>');
-			$('td#' + i + col + ' .line').addClass('vertical');
+			$('td#' + i + col).addClass('win');
 		}
 	}
 
-	// Draw diagonal line
+	// Draw diagonal lines
 	diag_i = 0;
 	diag_j = 0;
 	if(winType === 'diag_1'){
 		for(var i = 0; i<3; i++){
-			$('td#' + diag_i + diag_j + ' .line').html('<hr>');
-			$('td#' + diag_i + diag_j + ' .line').addClass('diag_1');
+			$('td#' + diag_i + diag_j ).addClass('win');
 			diag_i += 1;
 			diag_j += 1;
 		}
@@ -180,13 +180,9 @@ function drawLine(row, col, winType){
 	diag_j = 2;
 	if(winType === 'diag_2'){
 		for(var i = 0; i<3; i++){
-			$('td#' + diag_i + diag_j + ' .line').html('<hr>');
-			$('td#' + diag_i + diag_j + ' .line').addClass('diag_2');
+			$('td#' + diag_i + diag_j ).addClass('win');
 			diag_i += 1;
 			diag_j -= 1;
 		}
 	}
-
-
-
 }
