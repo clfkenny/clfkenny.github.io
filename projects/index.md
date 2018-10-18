@@ -79,3 +79,16 @@ $("#pca").click(function(){
 </script>
 
 -->
+
+# *Miscellaneous*
+
+<div>
+<a href = "/projects/tictactoe/tictactoe.html"> 
+ <div class = "item-card" id = 'tictactoe'> 
+  <b>Tic Tac Toe</b>
+  <p><i>Tic tac toe </i>
+  </p>
+ </div> 
+ 
+ </a>
+<br>
