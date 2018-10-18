@@ -49,6 +49,8 @@ padding-right:5px;
   </p>
  </a>
  </div> 
+</a>
+</div>
 
 
 <h1> Miscellaneous</h1>
