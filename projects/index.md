@@ -51,8 +51,8 @@ padding-right:5px;
  </div> 
 
 
-# *Miscellaneous*
-### Some other things:
+<h1> Miscellaneous</h1>
+<h3>Some other things:</h3>
 <div>
 <a href = "/projects/tictactoe/tictactoe.html"> 
  <div class = "item-card" id = 'tictactoe'> 
