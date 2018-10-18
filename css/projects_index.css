@@ -49,6 +49,9 @@ p{
   --gradient-direction: to right;
 }
 
+div.item-card{
+  background-image:linear-gradient(var(--gradient-direction), var(--color-gradient);
+}
 
 div.item-card#pokemon{
   background-image:url("https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg"),
