@@ -25,19 +25,15 @@ padding-right:5px;
 # *Blog*
 ### Here are some geeky stuff I like to think about:
 
-
 <div>
 <a href = "/projects/pokemon_classifier"> 
- 
  <div class = "item-card" id = "pokemon"> 
   <b>Pokemon Type Classifier</b>
   <p><i>Scraping Pokemon stats and color from the web, exploring the data, and then attempting to predict the Pokemon's type using various machine learning algorithms!</i>
   </p>
  </div> 
- 
  </a>
 <br>
- 
 <br>
 <br>
 
@@ -51,10 +47,8 @@ padding-right:5px;
   <b>Introduction to K-Means Clustering</b>
   <p><i>A popular unsupervised learning/clustering algorithm that seeks to uncover hidden subgroups within data.</i>
   </p>
- </div> 
- 
  </a>
-<br>
+ </div> 
 
 # *Miscellaneous*
 ### Some other things:
@@ -64,9 +58,8 @@ padding-right:5px;
   <b>Tic Tac Toe</b>
   <p><i>A simple Tic Tac Toe game</i>
   </p>
- </div> 
- 
  </a>
+ </div> 
 <br>
 
 
