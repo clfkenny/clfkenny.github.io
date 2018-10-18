@@ -55,7 +55,21 @@ padding-right:5px;
  
  </a>
 <br>
+
+# *Miscellaneous*
+### Some other things:
+<div>
+<a href = "/projects/tictactoe/tictactoe.html"> 
+ <div class = "item-card" id = 'tictactoe'> 
+  <b>Tic Tac Toe</b>
+  <p><i>A simple Tic Tac Toe game</i>
+  </p>
+ </div> 
  
+ </a>
+<br>
+
+
 <!---
 <div>
 <a href = "/projects/#"> 
@@ -79,16 +93,3 @@ $("#pca").click(function(){
 </script>
 
 -->
-
-# *Miscellaneous*
-
-<div>
-<a href = "/projects/tictactoe/tictactoe.html"> 
- <div class = "item-card" id = 'tictactoe'> 
-  <b>Tic Tac Toe</b>
-  <p><i>Tic tac toe </i>
-  </p>
- </div> 
- 
- </a>
-<br>
