@@ -1,20 +1,46 @@
+$('#reset_btn').click(function(){
+	reset_board(board);
+})
+
 $('.mode').hide();
 
 $('#modes_btn').click(function(){
 	$('.mode').toggle(10);
 });
 
-var turn = 'X' // set initial turn
+// $('table').click(function(){
+// 	$('.mode').hide();
+// })
 
-var x_score = 0
-var o_score = 0
+var turn = 'X' // set initial turn
 
 var board = [
 	[,,],
 	[,,],
 	[,,]	
 ]
+
+var game_mode = 'local';
 reset_board();
+
+$('#local').click(function(){
+	$('.mode').removeClass("selected");
+	$('#local').addClass("selected");
+	game_mode = 'local';
+	reset_board();
+	turn = "X";
+})
+
+$('#easy').click(function(){
+	$('.mode').removeClass("selected");
+	$('#easy').addClass("selected");
+	game_mode = 'easy';
+	reset_board();
+	turn = "X";
+})
+
+
+
 
 // Player hovers on square
 $('td').mouseenter(function(){
@@ -33,10 +59,8 @@ $('td').mouseleave(function(){
 
 });
 
-
 // Player click on a square
 $('td').click(function(){
-
 	// First check to see if position is taken
 	selectedSquare = $(this).children('span.placed');
 	if(selectedSquare.text() != ""){
@@ -51,18 +75,58 @@ $('td').click(function(){
 		// Update matrix
 		pos = $(this).attr('id');
 		updateMatrix(turn, pos);
+		
 		checkWin(turn, pos);
 
 		// alternate turns
-		if(turn==='O'){turn = 'X';}
-		else{turn ='O'};
+		if(game_mode ==='local'){
+			if(turn==='O'){turn = 'X';}
+			else{turn ='O'};
+		} else if(game_mode ==='easy'){
+			easy_Move();
+		}
 	}
+
 });
 
-$('#reset_btn').click(function(){
-	reset_board(board);
-	$('td span.placed').text('');
-})
+
+
+
+
+function easy_Move(){
+	turn = 'O';
+
+	// Retrieve available positions to place
+	placedPositions = $('td span.placed');
+	possiblePositions = []
+	for(var i =0; i<placedPositions.length; i++){
+		if(placedPositions[i].innerHTML===''){
+			position = placedPositions.parent()[i].id;
+			possiblePositions.push(position);
+		}
+	}
+	console.log(possiblePositions);
+	// Generate random index to choose an available position
+	randIndexEasy = Math.floor(Math.random()*possiblePositions.length);
+	console.log(randIndexEasy);
+	pos = possiblePositions[randIndexEasy];
+	
+	for(var i = 0; i<placedPositions.length;i++){
+		if(placedPositions.parent()[i].id === pos){
+			placedPositions[i].innerHTML = turn;
+			$(placedPositions[i]).fadeIn(500);
+		}
+	}
+
+	updateMatrix(turn, pos);
+	checkWin(turn, pos);
+
+	turn = 'X';
+
+}
+
+
+
 
 function reset_board(){
 	board = [
@@ -73,6 +137,8 @@ function reset_board(){
 	$('td span.placed').fadeOut();
 	$('td div.line').html('');
 	$('td').removeClass();
+	$('td span.placed').text('');
+
 }
 
 
@@ -84,6 +150,7 @@ function updateMatrix(turn, pos){
 }
 
 function checkWin(turn, pos){
+
 	row = pos[0];
 	col = pos[1];
 
@@ -141,11 +208,15 @@ function checkWin(turn, pos){
 	// Is there a winner?
 	if(winType != ""){
 		drawLine(row, col, winType);
-		alert(turn + 'wins')
+
+		setTimeout(function(){
+			alert(turn + ' wins!')}, 500);
+
+		$('td').addClass('inactive');
 	} else{
-	// If no winner when full board, then draw
+	// If no winner when full board, then game is a draw
 		if($('td span.placed').text().length === 9){
-			alert('draw')
+			alert('Draw...')
 		}
 	}
 }

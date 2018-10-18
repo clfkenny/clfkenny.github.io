@@ -39,6 +39,10 @@ tr{
 	vertical-align:middle;
 }
 
+td.inactive{
+	pointer-events:none;
+}
+
 table{
 	border-collapse:collapse;
 }
@@ -101,6 +105,7 @@ table div hr{
 
 td.win{
 	color:red;
+	font-weight:700;
 }
 
 
