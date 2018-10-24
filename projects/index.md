@@ -51,6 +51,10 @@ padding-right:5px;
 </a>
 </div>
 
+<br>
+<br>
+<br>
+
 
 <h1> <em>Miscellaneous</em></h1>
 <h3>Some other things:</h3>
