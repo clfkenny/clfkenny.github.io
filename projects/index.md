@@ -50,7 +50,6 @@ padding-right:5px;
  </div> 
 </a>
 </div>
-
 <br>
 <br>
 <br>
