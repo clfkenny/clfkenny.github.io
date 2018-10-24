@@ -49,7 +49,6 @@ padding-right:5px;
   </p>
  </div> 
 </a>
-</div>
 <br>
 <br>
 <br>
@@ -65,6 +64,8 @@ padding-right:5px;
  </div> 
 </a>
 <br>
+
+</div>
 
 
 <!---
