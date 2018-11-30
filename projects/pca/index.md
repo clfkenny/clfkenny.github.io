@@ -16,9 +16,26 @@ layout: projects
 <p>
 
 Ever been in a situation where you had to analyze a dataset with way too
-many variables? Perhaps you wanted to plot your data Was there high
-correlation among those variables? If you answered <b>yes</b> to all of
-these questions, then <i>Principal Components Analysis</i> is be a
-potential
+many variables? Perhaps you wanted to somehow plot your data in a 2-D or
+3-D graph while preserving as much information as possible? Was there
+also high correlation among those variables? If you answered <b>yes</b>
+to all of these questions, then <i>Principal Components Analysis</i> is
+be a powerful dimensionality reduction tool that should be in your
+arsenal\!
 
 </p>
+
+1.  Center the dataset \(X\) that has \(n\) observations and \(d\)
+    variables
+
+2.  Compute the sample covariance matrix of \(X\), \(Q\) (size d x d)
+
+3.  Diagonalize sample covariance matrix \(Q\) such that it has the form
+    \(Q = PDP^T\), where \(P\) is an orthogonal matrix consisting of
+    \(\begin{bmatrix} v_1 & v_2 & ... & v_d \end{bmatrix}\) and \(D\) is
+    a diagonal matrix such that Diag(\(D\))
+    \(= \lambda_1, \lambda_2, ..., \lambda_d\), where each \(v_i\) is an
+    eigenvector of \(Q\) that corresponds to its eigenvalue
+    \(lambda_i\)  
+
+4.
