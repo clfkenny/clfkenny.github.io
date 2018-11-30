@@ -25,7 +25,7 @@ arsenal\!
 
 </p>
 
-Basic rundown of the algorithm:
+Quick overview of the technique:
 
 <ol>
 
@@ -37,21 +37,44 @@ Center the dataset \(X\) that has \(n\) observations and \(d\) variables
 
 <li>
 
-Compute the sample covariance matrix of \(X\), \(Q\) (size d x d)
+Compute the sample covariance matrix of \(X\),
+\(Q \in {\rm I\!R}^{d \times d}\)
 
 </li>
 
 <li>
 
-Diagonalize sample covariance matrix \(Q\) such that it has the form
+Diagonalize the sample covariance matrix \(Q\) such that it has the form
 \(Q = PDP^T\), where \(P\) is an orthogonal matrix consisting of
-\(\begin{bmatrix} v_1 & v_2 & ... & v_d \end{bmatrix}\) and \(D\) is a
-diagonal matrix such that Diag(\(D\))
-\(= \lambda_1, \lambda_2, ..., \lambda_d\), where each \(v_i\) is an
-eigenvector of \(Q\) that corresponds to its eigenvalue \(lambda_i\)
+\(\begin{bmatrix} \mathbf{v_1} \mathbf{v_2} ... \mathbf{v_d} \end{bmatrix}\)
+and \(D\) is a diagonal matrix such that Diag(\(D\))
+\(= \lambda_1, \lambda_2, ..., \lambda_d\), where each \(\mathbf{v_i}\)
+is an eigenvector of \(Q\) that corresponds to its eigenvalue
+\(lambda_i\)
 
 </li>
 
 <li>
+
+Decide the number of principal components to use (\(k\)), such that
+\(k \leq d\), and set
+\(P_k = \begin{bmatrix} \mathbf{v_1} \mathbf{v_2} ... \mathbf{v_k} \end{bmatrix} \in {\rm I\!R}^{d \times k}\)
+
+</li>
+
+<li>
+
+Transform the original vectors \(X\) to \(Y\) by projecting onto the
+lower dimensional subspace spanned by the \(k\) eigenvectors by
+computing \(Y = XP_k \in {\rm I\!R}^{n \times k}\)
+
+</li>
+
+<li>
+
+The columns of \(Y\) will be referred to as the principal components and
+have the nice property of orthogonality
+
+</li>
 
 </ol>
