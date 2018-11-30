@@ -1,0 +1,16 @@
+p img{
+  margin-right:auto;
+  margin-left:auto;
+  max-width: 85%;
+}
+
+
+table img{
+  max-width:100%;
+}
+
+div#confusion_mat{
+  text-align:center;
+  padding-left:20%;
+  padding-right:20%;
+}

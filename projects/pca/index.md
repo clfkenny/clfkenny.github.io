@@ -25,17 +25,33 @@ arsenal\!
 
 </p>
 
-1.  Center the dataset \(X\) that has \(n\) observations and \(d\)
-    variables
+Basic rundown of the algorithm:
 
-2.  Compute the sample covariance matrix of \(X\), \(Q\) (size d x d)
+<ol>
 
-3.  Diagonalize sample covariance matrix \(Q\) such that it has the form
-    \(Q = PDP^T\), where \(P\) is an orthogonal matrix consisting of
-    \(\begin{bmatrix} v_1 & v_2 & ... & v_d \end{bmatrix}\) and \(D\) is
-    a diagonal matrix such that Diag(\(D\))
-    \(= \lambda_1, \lambda_2, ..., \lambda_d\), where each \(v_i\) is an
-    eigenvector of \(Q\) that corresponds to its eigenvalue
-    \(lambda_i\)  
+<li>
 
-4.
+Center the dataset \(X\) that has \(n\) observations and \(d\) variables
+
+</li>
+
+<li>
+
+Compute the sample covariance matrix of \(X\), \(Q\) (size d x d)
+
+</li>
+
+<li>
+
+Diagonalize sample covariance matrix \(Q\) such that it has the form
+\(Q = PDP^T\), where \(P\) is an orthogonal matrix consisting of
+\(\begin{bmatrix} v_1 & v_2 & ... & v_d \end{bmatrix}\) and \(D\) is a
+diagonal matrix such that Diag(\(D\))
+\(= \lambda_1, \lambda_2, ..., \lambda_d\), where each \(v_i\) is an
+eigenvector of \(Q\) that corresponds to its eigenvalue \(lambda_i\)
+
+</li>
+
+<li>
+
+</ol>
