@@ -168,7 +168,7 @@ g <- ggplot(rot, aes(x = x, y = y)) +
   transition_time(lab) 
 
 animate(g, nframes=  200, fps = 20,
-        width = 700, height=550, res = 300)
+        width = 500, height=300, res = 300)
 ```
 <p>
 
@@ -177,7 +177,7 @@ Anyways, that's what essentially happens if you use the same number of eigenvect
 </p>
 
 ```{r}
-tiff('./images/plot3.tiff', units="in", width=3, height=3, res=600)
+tiff('./images/plot3.tiff', units="in", width=3, height=3, res=300)
 
 plot(X_cent_df, pty = 's', pch = 19, col = '#4682b4')
 title("Centered X")
