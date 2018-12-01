@@ -48,12 +48,12 @@ print('Finished fixing LaTeX equations\n')
 
 
 
-# # converting tiff to png and then deleting tiff
-# print('Converting tiff to png, then deleting tiff...')
-# import subprocess
-# import os
+# converting tiff to png and then deleting tiff
+print('Converting tiff to png, then deleting tiff...')
+import subprocess
+import os
 
-# # os.chdir(cwd+'/images')
-# subprocess.call('./images/convert.sh')
+# os.chdir(cwd+'/images')
+subprocess.call('./images/convert.sh')
 
-# print('Finished converting.\n')
+print('Finished converting.\n')

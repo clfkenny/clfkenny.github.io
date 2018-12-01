@@ -5,6 +5,8 @@ layout: projects
 
 
 
+    ## Loading required package: ggplot2
+
 # **Introduction to Principal Component Analysis**
 
 <p style="text-align:center;">
@@ -18,10 +20,10 @@ layout: projects
 Ever been in a situation where you had to analyze a dataset with way too
 many variables? Perhaps you wanted to somehow plot your data in a 2-D or
 3-D graph while preserving as much information as possible? Was there
-also high correlation among those variables? If you answered <b>yes</b>
-to all of these questions, then <i>Principal Components Analysis</i> is
-be a powerful dimensionality reduction tool that should be in your
-arsenal\!
+also high correlation and thus information redundancy among those
+variables? If you answered <b>yes</b> to all of these questions, then
+<i>Principal Components Analysis</i> is be a powerful dimensionality
+reduction tool that should be in your arsenal!
 
 </p>
 
@@ -32,6 +34,7 @@ Quick overview of the technique:
 <li>
 
 Center the dataset \(X\) that has \(n\) observations and \(d\) variables
+(also scale features if necessary)
 
 </li>
 
@@ -50,7 +53,7 @@ Diagonalize the sample covariance matrix \(Q\) such that it has the form
 and \(D\) is a diagonal matrix such that Diag(\(D\))
 \(= \lambda_1, \lambda_2, ..., \lambda_d\), where each \(\mathbf{v_i}\)
 is an eigenvector of \(Q\) that corresponds to its eigenvalue
-\(lambda_i\)
+\(\lambda_i\)
 
 </li>
 
@@ -64,17 +67,245 @@ Decide the number of principal components to use (\(k\)), such that
 
 <li>
 
-Transform the original vectors \(X\) to \(Y\) by projecting onto the
-lower dimensional subspace spanned by the \(k\) eigenvectors by
-computing \(Y = XP_k \in {\rm I\!R}^{n \times k}\)
+Transform the original vectors \(X\) to \(Z\) by projecting onto the
+lower dimensional linear subspace spanned by the \(k\) eigenvectors by
+computing \(Z = XP_k \in {\rm I\!R}^{n \times k}\)
 
 </li>
 
 <li>
 
-The columns of \(Y\) will be referred to as the principal components and
+The columns of \(Z\) will be referred to as the principal components and
 have the nice property of orthogonality
 
 </li>
 
 </ol>
+
+1.  [Applications](#applications)
+2.  [The Algorithm](#the-algorithm)
+3.  [Selecting Number of
+    Eigenvectors](#selecting-number-of-eigenvectors)
+4.  [Example](#example)
+
+## Applications
+
+## The Algorithm
+
+The steps listed above may seem daunting at first, but it is rather
+straightforward. Let’s get started with some generated sample data.
+Although this technique applies to higher dimensional data, it is easier
+to visualize what is happening with a simple 2D example and project it
+onto a 1D subspace (essentially onto a line).
+
+``` r
+set.seed(123) # set seed for reproducibility
+
+# create data that is moderately correlated
+x <- rnorm(50, mean = 5, sd = 1)
+y <- x + rnorm(50, mean = 0, sd = 1)
+X <- data.frame(x = x, y = y)
+```
+
+Now let’s visualize the data \(X\):
+
+``` r
+library(ggplot2)
+th <- theme_linedraw() # setting the theme for the plots
+tiff('./images/plot1.tiff', units="in", width=5, height=3, res=300)
+
+ggplot(X, aes(x= x, y = y)) +
+  geom_point(size = 1.5) +
+  labs(title = "Our Example") + 
+  th + theme(aspect.ratio = 0.8) 
+
+garb <- dev.off()
+```
+
+![](./images/plot1.png)
+
+Great, now we will center the data by subtracting the mean of each
+feature and compute the sample covariance matrix \(Q\).
+
+``` r
+X_cent <- scale(X, center = TRUE, scale = TRUE)
+Q = var(X_cent)
+
+t1 <- kable(Q, align = 'clc',
+            caption = "Covariance Matrix",
+            format = "html") %>% kable_styling(full_width = F, position = "float_left")
+```
+
+<u><strong style = "font-size:1.2em;">Confusion Matrix</strong></u>
+
+<div id = "confusion_mat">
+
+<table class="table" style="width: auto !important; float: left; margin-right: 10px;">
+
+<caption>
+
+Covariance Matrix
+
+</caption>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+</th>
+
+<th style="text-align:center;">
+
+x
+
+</th>
+
+<th style="text-align:left;">
+
+y
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+x
+
+</td>
+
+<td style="text-align:center;">
+
+1.0000000
+
+</td>
+
+<td style="text-align:left;">
+
+0.7025812
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+y
+
+</td>
+
+<td style="text-align:center;">
+
+0.7025812
+
+</td>
+
+<td style="text-align:left;">
+
+1.0000000
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+Now, we will diagonalize the sample covariance matrix \(Q\) such that it
+has the form \(Q = PDP^T\) via spectral decomposition. In R this is done
+using the `eigen` function, which returns a list of eigenvalues and the
+corresponding eigenvectors of the provided matrix.
+
+``` r
+eig <- eigen(Q)
+D <- diag(eig$values)
+P <- eig$vectors # Q = PDP^T
+
+# project X onto the eigen subspace
+Z <- as.matrix(X_cent) %*% P
+```
+
+This is the graph we get once we project the data onto the linear
+subspace spanned by the first two eigenvectors.
+
+``` r
+library(gridExtra)
+Z_df <- data.frame(x = Z[,1], y = Z[,2])
+g1 <- ggplot(Z_df , aes(x= x, y = y)) +
+  geom_point(size = 1.5) +
+  labs(title = "Principal Components") + ylim(-2,2) + labs(x = 'PC1', y = 'PC2') +
+  th + theme(aspect.ratio = 0.8) 
+
+X_cent_df <- data.frame(X_cent)
+g2 <- ggplot(X_cent_df, aes(x= x, y = y)) +
+  geom_point(size = 1.5) +
+  labs(title = "Centered X") + 
+  th + theme(aspect.ratio = 0.8) 
+
+tiff('./images/plot2.tiff', units="in", width=10, height=5, res=600)
+grid.arrange(g2, g1, nrow=1, respect=TRUE)
+garb <- dev.off()
+```
+
+![](./images/plot2.png)
+
+Very interesting results, huh? If you look carefully, you’ll notice
+something really cool. What would happen if you were to **rotate** the
+centered \(X\) clockwise just a bit…?
+
+![](images/unnamed-chunk-8-1.gif)<!-- -->
+
+Anyways, that’s what essentially happens if you use the same number of
+eigenvectors (\(k = d\)) as there are features in the original data. It
+becomes a matrix that encodes a rotation operator. It changes the basis
+of \(X\) from the standard basis to an eigenbasis. Cool stuff, but if
+you want to actually reduce the dimensions of your data, you will want
+to use a \(k < d\), so in this case let’s make \(k = 1\) such that
+\(P_k \in {\rm I\!R}^{d \times k}\). To visualize what will happen,
+let’s plot the subspace that is spanned by the first eigenvector
+(indicated by the red line).
+
+``` r
+perp.segment.coord <- function(x0, y0){
+ #finds endpoint for a perpendicular segment from the point (x0,y0) to the line
+ # defined by lm.mod as y=a+b*x
+  a <- 0 #intercept
+  b <- P[2,1] / P[1,1] #slope
+  x1 <- (x0+b*y0-a*b)/(1+b^2)
+  y1 <- a + b*x1
+  list(x0=x0, y0=y0, x1=x1, y1=y1)
+}
+
+tiff('./images/plot3.tiff', units="in", width=5, height=5, res=600)
+
+plot(X_cent_df, pty = 's', pch = 19)
+title("Centered X")
+abline(a = 0, b =  P[2,1] / P[1,1], col = 'red')
+ss <- perp.segment.coord(X_cent_df$x, X_cent_df$y)
+do.call(segments, ss)
+
+garb <- dev.off()
+```
+
+![](./images/plot3.png)
+
+Now you might be thinking… this looks quite similar to a simple linear
+regression right? Wrong\! OLS regression aims to find parameters
+minimize the sum of squares of the errors while PCA aims to find the
+best surface to project the data onto such that the orthogonal
+projection error is minimized. Here’s a diagram of what I mean:
+
+## Selecting Number of Eigenvectors
+
+## Example
