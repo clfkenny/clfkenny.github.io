@@ -225,10 +225,14 @@ y
 
 </div>
 
+<p>
+
 Now, we will diagonalize the sample covariance matrix \(Q\) such that it
 has the form \(Q = PDP^T\) via spectral decomposition. In R this is done
 using the `eigen` function, which returns a list of eigenvalues and the
 corresponding eigenvectors of the provided matrix.
+
+</p>
 
 ``` r
 eig <- eigen(Q)
@@ -263,11 +267,17 @@ garb <- dev.off()
 
 ![](./images/plot2.png)
 
+<p>
+
 Very interesting results, huh? If you look carefully, you’ll notice
-something really cool. What would happen if you were to **rotate** the
-centered \(X\) clockwise just a bit…?
+something really cool. What would happen if you were to <b>rotate</b>
+the centered \(X\) clockwise just a bit…?
+
+</p>
 
 ![](images/unnamed-chunk-8-1.gif)<!-- -->
+
+<p>
 
 Anyways, that’s what essentially happens if you use the same number of
 eigenvectors (\(k = d\)) as there are features in the original data. It
@@ -279,24 +289,14 @@ to use a \(k < d\), so in this case let’s make \(k = 1\) such that
 let’s plot the subspace that is spanned by the first eigenvector
 (indicated by the red line).
 
-``` r
-perp.segment.coord <- function(x0, y0){
- #finds endpoint for a perpendicular segment from the point (x0,y0) to the line
- # defined by lm.mod as y=a+b*x
-  a <- 0 #intercept
-  b <- P[2,1] / P[1,1] #slope
-  x1 <- (x0+b*y0-a*b)/(1+b^2)
-  y1 <- a + b*x1
-  list(x0=x0, y0=y0, x1=x1, y1=y1)
-}
+</p>
 
+``` r
 tiff('./images/plot3.tiff', units="in", width=5, height=5, res=600)
 
 plot(X_cent_df, pty = 's', pch = 19)
 title("Centered X")
 abline(a = 0, b =  P[2,1] / P[1,1], col = 'red')
-ss <- perp.segment.coord(X_cent_df$x, X_cent_df$y)
-do.call(segments, ss)
 
 garb <- dev.off()
 ```
@@ -308,6 +308,49 @@ regression right? Wrong\! OLS regression aims to find parameters
 minimize the sum of squares of the errors while PCA aims to find the
 best surface to project the data onto such that the orthogonal
 projection error is minimized. Here’s a diagram of what I mean:
+
+``` r
+ols.segment.coord <- function(x0, y0, lm.mod){
+ #finds endpoint for a perpendicular segment from the point (x0,y0) to the line
+ # defined by lm.mod as y=a+b*x
+  a <- coef(lm.mod)[1] #intercept
+  b <- coef(lm.mod)[2] #slope
+  x1 <- x0
+  y1 <- a + b*x1
+  list(x0=x0, y0=y0, x1=x1, y1=y1)
+}
+
+perp.segment.coord <- function(x0, y0){
+ #finds endpoint for a perpendicular segment from the point (x0,y0) to the line
+ # defined by lm.mod as y=a+b*x
+  a <- 0 #intercept
+  b <- P[2,1] / P[1,1] #slope
+  x1 <- (x0+b*y0-a*b)/(1+b^2)
+  y1 <- a + b*x1
+  list(x0=x0, y0=y0, x1=x1, y1=y1)
+}
+
+tiff('./images/plot4.tiff', units="in", width=10, height=5, res=600)
+
+par(mfrow=c(1,2)) # display 2 plots, one row two columns
+
+plot(X_cent_df, pty = 's', pch = 19)
+title("Centered X")
+abline(lm(y~x, X_cent_df), col = 'red')
+ss <- ols.segment.coord(X_cent_df$x, X_cent_df$y, lm(y~x, X_cent_df))
+do.call(segments, ss)
+
+plot(X_cent_df, pty = 's', pch = 19)
+title("Centered X")
+abline(a = 0, b =  P[2,1] / P[1,1], col = 'red')
+ss <- perp.segment.coord(X_cent_df$x, X_cent_df$y)
+do.call(segments, ss)
+
+
+garb <- dev.off()
+```
+
+![](./images/plot4.png)
 
 ## Selecting Number of Eigenvectors
 
