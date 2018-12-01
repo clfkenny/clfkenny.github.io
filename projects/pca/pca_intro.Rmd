@@ -32,7 +32,8 @@ knitr::opts_chunk$set(
 </p>
 
 <p>
-Ever been in a situation where you had to analyze a dataset with way too many variables? Perhaps you wanted to somehow plot your data in a 2-D or 3-D graph while preserving as much information as possible? Was there also high correlation among those variables? If you answered <b>yes</b> to all of these questions, then <i>Principal Components Analysis</i> is be a powerful dimensionality reduction tool that should be in your arsenal!
+Ever been in a situation where you had to analyze a dataset with way too many variables? Perhaps you wanted to somehow plot your data in a 2-D or 3-D graph while preserving as much information as possible? Was there also high correlation among those variables? If you answered <b>yes</b> to all of these questions, then <i>Principal Components Analysis</i> is be a powerful dimensionality reduction tool that should be in your arsenal! 
+
 </p>
 
 
@@ -46,6 +47,7 @@ Quick overview of the technique:
 <li> Transform the original vectors \(X\) to \(Y\) by projecting onto the lower dimensional subspace spanned by the \(k\) eigenvectors by computing \(Y = XP_k \in {\rm I\!R}^{n \times k}\)</li>
 <li> The columns of \(Y\) will be referred to as the principal components and have the nice property of orthogonality</li>
 </ol>
+
 
 ```{r}
 
