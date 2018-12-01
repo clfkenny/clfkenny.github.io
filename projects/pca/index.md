@@ -122,8 +122,12 @@ garb <- dev.off()
 
 ![](./images/plot1.png)
 
+<p>
+
 Great, now we will center the data by subtracting the mean of each
 feature and compute the sample covariance matrix \(Q\).
+
+</p>
 
 ``` r
 X_cent <- scale(X, center = TRUE, scale = TRUE)
@@ -134,7 +138,7 @@ t1 <- kable(Q, align = 'clc',
             format = "html") %>% kable_styling(full_width = F, position = "float_left")
 ```
 
-<u><strong style = "font-size:1.2em;">Confusion Matrix</strong></u>
+<u><strong style = "font-size:1.2em;">Covariance Matrix</strong></u>
 
 <div id = "cov_mat">
 
@@ -222,6 +226,8 @@ y
 
 </div>
 
+<br><br><br><br><br><br><br>
+
 <p>
 
 Now, we will diagonalize the sample covariance matrix \(Q\) such that it
@@ -289,7 +295,7 @@ let’s plot the subspace that is spanned by the first eigenvector
 </p>
 
 ``` r
-tiff('./images/plot3.tiff', units="in", width=5, height=5, res=600)
+tiff('./images/plot3.tiff', units="in", width=3, height=3, res=600)
 
 plot(X_cent_df, pty = 's', pch = 19, col = '#4682b4')
 title("Centered X")
