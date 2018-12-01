@@ -3,7 +3,7 @@ print('\nWriting header into index.md ...')
 with open('index.md', "r+") as f:
 	old = f.read()
 	f.seek(0)
-	f.write("---\nlayout: projects\n\n---\n\n" + old)
+	f.write("---\nlayout: projects\n\n---\n\n <link rel='stylesheet' type='text/css' href='/projects/pca/pca.css'>"  + old)
 print('Finished writing header\n')
 
 
@@ -18,6 +18,10 @@ with fileinput.FileInput('index.md', inplace=True) as file:
 with fileinput.FileInput('index.md', inplace=True) as file:
     for line in file:
         print(line.replace('\\]', '$$'), end='')
+
+with fileinput.FileInput('index.md', inplace=True) as file:
+    for line in file:
+        print(line.replace('arsenal\\!', 'arsenal!'), end='')
         
         
 # with fileinput.FileInput('index.md', inplace=True) as file:

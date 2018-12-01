@@ -3,12 +3,9 @@ layout: projects
 
 ---
 
-
+ <link rel='stylesheet' type='text/css' href='/projects/pca/pca.css'>
 
 # **Introduction to Principal Component Analysis**
-
-<link rel="stylesheet" type="text/css" href="/projects/pca/pca.css">
-
 
 <p style="text-align:center;">
 
@@ -116,7 +113,7 @@ th <- theme_linedraw() # setting the theme for the plots
 tiff('./images/plot1.tiff', units="in", width=5, height=3, res=300)
 
 ggplot(X, aes(x= x, y = y)) +
-  geom_point(size = 1.5) +
+  geom_point(size = 1.5, color = 'steelblue') +
   labs(title = "Our Example") + 
   th + theme(aspect.ratio = 0.8) 
 
@@ -250,13 +247,13 @@ subspace spanned by the first two eigenvectors.
 library(gridExtra)
 Z_df <- data.frame(x = Z[,1], y = Z[,2])
 g1 <- ggplot(Z_df , aes(x= x, y = y)) +
-  geom_point(size = 1.5) +
+  geom_point(size = 1.5, color = 'steelblue') +
   labs(title = "Principal Components") + ylim(-2,2) + labs(x = 'PC1', y = 'PC2') +
   th + theme(aspect.ratio = 0.8) 
 
 X_cent_df <- data.frame(X_cent)
 g2 <- ggplot(X_cent_df, aes(x= x, y = y)) +
-  geom_point(size = 1.5) +
+  geom_point(size = 1.5, color = 'steelblue') +
   labs(title = "Centered X") + 
   th + theme(aspect.ratio = 0.8) 
 
@@ -294,9 +291,9 @@ let’s plot the subspace that is spanned by the first eigenvector
 ``` r
 tiff('./images/plot3.tiff', units="in", width=5, height=5, res=600)
 
-plot(X_cent_df, pty = 's', pch = 19)
+plot(X_cent_df, pty = 's', pch = 19, col = '#4682b4')
 title("Centered X")
-abline(a = 0, b =  P[2,1] / P[1,1], col = 'red')
+abline(a = 0, b =  P[2,1] / P[1,1], col = 'red', lwd = 3)
 
 garb <- dev.off()
 ```
@@ -334,23 +331,29 @@ tiff('./images/plot4.tiff', units="in", width=10, height=5, res=600)
 
 par(mfrow=c(1,2)) # display 2 plots, one row two columns
 
-plot(X_cent_df, pty = 's', pch = 19)
-title("Centered X")
-abline(lm(y~x, X_cent_df), col = 'red')
+plot(X_cent_df, pty = 's', pch = 19, col = '#4682b4')
+title("Centered X (OLS)")
+abline(lm(y~x, X_cent_df), col = 'red', lwd = 3)
 ss <- ols.segment.coord(X_cent_df$x, X_cent_df$y, lm(y~x, X_cent_df))
-do.call(segments, ss)
+do.call(segments, c(ss, list(col = 'red', lwd = 1, lty = 2)))
 
-plot(X_cent_df, pty = 's', pch = 19)
-title("Centered X")
-abline(a = 0, b =  P[2,1] / P[1,1], col = 'red')
+plot(X_cent_df, pty = 's', pch = 19, col = '#4682b4')
+title("Centered X (PC)")
+abline(a = 0, b =  P[2,1] / P[1,1], col = 'red', lwd = 3)
 ss <- perp.segment.coord(X_cent_df$x, X_cent_df$y)
-do.call(segments, ss)
-
+do.call(segments, c(ss, list(col = 'red', lwd = 1, lty = 2)))
 
 garb <- dev.off()
 ```
 
 ![](./images/plot4.png)
+
+<p>
+
+As you can see, OLS minimizes errors from \(\hat{y} - y\) while PCA
+seeks to minimize the orthogonal variance.
+
+</p>
 
 ## Selecting Number of Eigenvectors
 
