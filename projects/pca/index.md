@@ -4,12 +4,9 @@ layout: projects
 ---
 
 
-
-    ## Loading required package: ggplot2
-
 # **Introduction to Principal Component Analysis**
 
-<link rel="stylesheet" type="text/css" href="/projects/kmeans_intro/pca.css">
+<link rel="stylesheet" type="text/css" href="/projects/pca/pca.css">
 
 
 <p style="text-align:center;">
