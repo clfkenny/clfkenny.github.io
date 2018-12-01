@@ -9,6 +9,9 @@ layout: projects
 
 # **Introduction to Principal Component Analysis**
 
+<link rel="stylesheet" type="text/css" href="/projects/kmeans_intro/pca.css">
+
+
 <p style="text-align:center;">
 
 <em>Kenny Lov</em><br><br>

@@ -18,14 +18,13 @@ header-includes:
 ---
 
 
-```{r, echo = F}
+```{r, echo = F, message = F, warning = F}
 knitr::opts_chunk$set(
   fig.path = "images/"
 )
 library(knitr)
 library(kableExtra)
 library(gganimate)
-
 ```
 
 
@@ -184,7 +183,6 @@ do.call(segments, ss)
 
 garb <- dev.off()
 ```
-
 
 ![](./images/plot3.png)
 
