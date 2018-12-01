@@ -9,7 +9,7 @@ table img{
   max-width:100%;
 }
 
-div#confusion_mat{
+div#cov_mat{
   text-align:center;
   padding-left:20%;
   padding-right:20%;

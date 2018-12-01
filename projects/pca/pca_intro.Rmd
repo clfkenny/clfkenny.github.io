@@ -100,14 +100,19 @@ t1 <- kable(Q, align = 'clc',
             format = "html") %>% kable_styling(full_width = F, position = "float_left")
 ```
 
+
 <u><strong style = "font-size:1.2em;">Confusion Matrix</strong></u>
-<div id = "confusion_mat">
+<div id = "cov_mat">
+
 
 ```{r, echo = F}
 t1
 ```
 
+</div>
+
 Now, we will diagonalize the sample covariance matrix \(Q\) such that it has the form \(Q = PDP^T\) via spectral decomposition. In R this is done using the `eigen` function, which returns a list of eigenvalues and the corresponding eigenvectors of the provided matrix.
+
 
 ```{r}
 eig <- eigen(Q)

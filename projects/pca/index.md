@@ -4,6 +4,7 @@ layout: projects
 ---
 
 
+
 # **Introduction to Principal Component Analysis**
 
 <link rel="stylesheet" type="text/css" href="/projects/pca/pca.css">
@@ -138,7 +139,7 @@ t1 <- kable(Q, align = 'clc',
 
 <u><strong style = "font-size:1.2em;">Confusion Matrix</strong></u>
 
-<div id = "confusion_mat">
+<div id = "cov_mat">
 
 <table class="table" style="width: auto !important; float: left; margin-right: 10px;">
 
@@ -221,6 +222,8 @@ y
 </tbody>
 
 </table>
+
+</div>
 
 Now, we will diagonalize the sample covariance matrix \(Q\) such that it
 has the form \(Q = PDP^T\) via spectral decomposition. In R this is done
