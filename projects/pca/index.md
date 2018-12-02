@@ -295,7 +295,7 @@ let’s plot the subspace that is spanned by the first eigenvector
 </p>
 
 ``` r
-tiff('./images/plot3.tiff', units="in", width=5, height=5, res=300)
+tiff('./images/plot3.tiff', units="in", width=5, height=5, res=100)
 
 plot(X_cent_df, pty = 's', pch = 19, col = '#4682b4')
 title("Centered X")
