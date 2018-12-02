@@ -135,14 +135,12 @@ Q = var(X_cent)
 
 t1 <- kable(Q, align = 'clc',
             caption = "Covariance Matrix",
-            format = "html") %>% kable_styling(full_width = F, position = "float_left")
+            format = "html") %>% kable_styling(full_width = F)
 ```
-
-<u><strong style = "font-size:1.2em;">Covariance Matrix</strong></u>
 
 <div id = "cov_mat">
 
-<table class="table" style="width: auto !important; float: left; margin-right: 10px;">
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 
 <caption>
 

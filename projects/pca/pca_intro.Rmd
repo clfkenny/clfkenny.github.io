@@ -51,6 +51,7 @@ Quick overview of the technique:
 <li> The columns of \(Z\) will be referred to as the principal components and have the nice property of orthogonality</li>
 </ol>
 
+## Table of Contents
 
 1. [Applications](#applications)
 2. [The Algorithm](#the-algorithm)
@@ -99,11 +100,9 @@ Q = var(X_cent)
 
 t1 <- kable(Q, align = 'clc',
             caption = "Covariance Matrix",
-            format = "html") %>% kable_styling(full_width = F, position = "float_left")
+            format = "html") %>% kable_styling(full_width = F)
 ```
 
-
-<u><strong style = "font-size:1.2em;">Covariance Matrix</strong></u>
 
 <div id = "cov_mat">
 
