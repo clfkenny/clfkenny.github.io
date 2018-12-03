@@ -41,6 +41,16 @@ padding-right:5px;
 
 # *Tutorials*
 ### Some basic tutorials to help better my understanding of the topics:
+
+<div>
+<a href = "/projects/pca"> 
+ <div class = "item-card" id = 'pca'> 
+  <b>Introduction to Principal Components Analysis</b>
+  <p><i>A popular dimensionality reduction technique.</i>
+  </p>
+ </div> 
+</a>
+
 <div>
 <a href = "/projects/kmeans_intro"> 
  <div class = "item-card" id = 'kmeans'> 
@@ -49,6 +59,8 @@ padding-right:5px;
   </p>
  </div> 
 </a>
+
+
 <br>
 <br>
 <br>
