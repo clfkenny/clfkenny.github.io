@@ -1,4 +1,9 @@
+---
+layout: projects
 
+---
+
+ <link rel='stylesheet' type='text/css' href='/projects/pca/pca.css'>
 
 # **Introduction to Principal Component Analysis**
 
@@ -16,7 +21,7 @@ many variables? Perhaps you wanted to somehow plot your data in a 2-D or
 also high correlation and thus information redundancy among those
 variables? If you answered <b>yes</b> to all of these questions, then
 <i>Principal Components Analysis</i> is be a powerful dimensionality
-reduction tool that should be in your arsenal\!
+reduction tool that should be in your arsenal!
 
 </p>
 
@@ -403,7 +408,7 @@ principal component is the eigenvalue that corresponds to that principal
 component, and thus the proportion of explained variance for the first
 \(m\) principal components is:
 
-\[ \frac{ \sum^m_{i=1}\lambda_i }{\sum^d_{i=1}\lambda_i} \]
+$$ \frac{ \sum^m_{i=1}\lambda_i }{\sum^d_{i=1}\lambda_i} $$
 
 Plotting the proportion of explained variance against the number of
 principal components provides some insight into how many principal
@@ -1090,7 +1095,7 @@ concentration and proportion of owner-occupied units built prior to
 1940. Additionally, tax appears to be highly correlated to how
 accessible highways are in the area. Great, now that we have a better
 understanding of our data, let’s see how principal component analysis
-can be useful\!
+can be useful!
 
 </p>
 
@@ -1229,7 +1234,7 @@ crim
 
 <td style="text-align:right;">
 
-\-0.4012494
+-0.4012494
 
 </td>
 
@@ -1241,7 +1246,7 @@ crim
 
 <td style="text-align:right;">
 
-\-0.0753712
+-0.0753712
 
 </td>
 
@@ -1253,7 +1258,7 @@ crim
 
 <td style="text-align:right;">
 
-\-0.7788347
+-0.7788347
 
 </td>
 
@@ -1275,13 +1280,13 @@ zn
 
 <td style="text-align:right;">
 
-\-0.2562763
+-0.2562763
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.4391012
+-0.4391012
 
 </td>
 
@@ -1293,7 +1298,7 @@ zn
 
 <td style="text-align:right;">
 
-\-0.3045328
+-0.3045328
 
 </td>
 
@@ -1311,7 +1316,7 @@ zn
 
 <td style="text-align:right;">
 
-\-0.4033599
+-0.4033599
 
 </td>
 
@@ -1397,7 +1402,7 @@ nox
 
 <td style="text-align:right;">
 
-\-0.1481618
+-0.1481618
 
 </td>
 
@@ -1431,13 +1436,13 @@ rm
 
 <td style="text-align:right;">
 
-\-0.1893443
+-0.1893443
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.0767626
+-0.0767626
 
 </td>
 
@@ -1455,19 +1460,19 @@ rm
 
 <td style="text-align:right;">
 
-\-0.1046867
+-0.1046867
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.0775791
+-0.0775791
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.3299394
+-0.3299394
 
 </td>
 
@@ -1501,7 +1506,7 @@ age
 
 <td style="text-align:right;">
 
-\-0.0341532
+-0.0341532
 
 </td>
 
@@ -1513,13 +1518,13 @@ age
 
 <td style="text-align:right;">
 
-\-0.1286496
+-0.1286496
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.6022184
+-0.6022184
 
 </td>
 
@@ -1535,25 +1540,25 @@ dis
 
 <td style="text-align:right;">
 
-\-0.3214520
+-0.3214520
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.3273196
+-0.3273196
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.2542048
+-0.2542048
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.0764528
+-0.0764528
 
 </td>
 
@@ -1571,7 +1576,7 @@ dis
 
 <td style="text-align:right;">
 
-\-0.1189003
+-0.1189003
 
 </td>
 
@@ -1593,7 +1598,7 @@ rad
 
 <td style="text-align:right;">
 
-\-0.3843764
+-0.3843764
 
 </td>
 
@@ -1645,7 +1650,7 @@ tax
 
 <td style="text-align:right;">
 
-\-0.3205710
+-0.3205710
 
 </td>
 
@@ -1697,13 +1702,13 @@ ptratio
 
 <td style="text-align:right;">
 
-\-0.1727336
+-0.1727336
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.4851667
+-0.4851667
 
 </td>
 
@@ -1715,7 +1720,7 @@ ptratio
 
 <td style="text-align:right;">
 
-\-0.2457383
+-0.2457383
 
 </td>
 
@@ -1727,7 +1732,7 @@ ptratio
 
 <td style="text-align:right;">
 
-\-0.3133497
+-0.3133497
 
 </td>
 
@@ -1743,7 +1748,7 @@ b
 
 <td style="text-align:right;">
 
-\-0.2030293
+-0.2030293
 
 </td>
 
@@ -1755,7 +1760,7 @@ b
 
 <td style="text-align:right;">
 
-\-0.1880326
+-0.1880326
 
 </td>
 
@@ -1773,13 +1778,13 @@ b
 
 <td style="text-align:right;">
 
-\-0.0921106
+-0.0921106
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.0082317
+-0.0082317
 
 </td>
 
@@ -1807,13 +1812,13 @@ lstat
 
 <td style="text-align:right;">
 
-\-0.2971503
+-0.2971503
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.3859245
+-0.3859245
 
 </td>
 
@@ -1825,13 +1830,13 @@ lstat
 
 <td style="text-align:right;">
 
-\-0.0877557
+-0.0877557
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.4238643
+-0.4238643
 
 </td>
 
