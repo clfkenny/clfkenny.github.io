@@ -323,23 +323,35 @@ We can use a scree plot to show how the number of principal components affects t
 
 ```{r}
 tiff('./images/plot7.tiff', units="in", width=5, height=3, res=300)
-
 ggplot(data.frame(y = summary(housing.pca)$importance[3,], x = as.factor(1:12)), aes(x = x, y = y)) +
          geom_bar(stat = 'identity', fill = 'steelblue', color = 'black') +
          scale_y_continuous(breaks = seq(0,1,0.1)) +
          labs(title = 'Proportion of Variance Explained', x = 'Principal Components', y = 'Proportion') + th
 garb <- dev.off()
-
 ```
 ![](./images/plot7.png)
 
 We can see that as we keep adding more principal components, the proportion of explained variance increases. The first principal component explains ~50% of the variation in data. The first and second principal component explain ~60% of the variation in the data. A good number to pick would be the number of principal components that explains ~90% of the data. In this case it would be 7.
 
 ### Interpretation
-Awesome, but what does each principal component actually mean? We'll need to take a look at each of the loadings. Although it varies by use case people often compare interpreting principal components to _reading to leaves_. Sometimes principal components don't have strong correlation with the original variables, so it's hard to make definitive interpretations.
+Awesome, but what does each principal component actually mean? We'll need to take a look at each of the loadings. Although it varies by use case people often compare interpreting principal components to _reading tea leaves_. Sometimes principal components don't have strong correlation with the original variables, so it's hard to make definitive interpretations.
 
 ```{r}
 kable(housing.pca$rotation[,1:7], format = "html") # select first 7 principal component loadings
 ```
 
+The principal components are the columns and the rows are the original variables. The values indicate how much weight the original variable has on the PC. A larger weight in the PC suggests that the original variable is represented more strongly in that PC. For example, the first principal component seems to be moderately correlated with all of the original variables. In this case, it is difficult to interpret. Although it explains most of the variation in the data, PC1 doesn't have a very strong _meaning_ or _attribute_. PC2 seems mostly correlated with crim, zn, rad, perhaps suggesting that it may be related to how wealthy the neighborhood is. 
 
+On the other hand, if we wanted to visualize the data in a lower dimensional representation, we can use the first 3 principal components and apply the transformation to the original dataset. It will provide a 3-D plot that looks like this:
+
+```{r}
+library(plot3D)
+Z <- housing.sc  %*% housing.pca$rotation[,1:3]
+tiff('./images/plot8.tiff', units="in", width=7, height=5, res=300)
+scatter3D(x = Z[,1], y = Z[,2], z = Z[,3], main = "3D Representation", xlab = 'PC1', ylab = 'PC2', zlab = 'PC3', 
+          phi=20, bty ="b2")
+garb <- dev.off()
+```
+![](./images/plot8.png)
+
+Perhaps with this particular dataset, there aren't meaningful insights we can draw from a lower dimensional visualization of the data.

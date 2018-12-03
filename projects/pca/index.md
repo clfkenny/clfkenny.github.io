@@ -1121,7 +1121,6 @@ affects the cumulative proportion explained.
 
 ``` r
 tiff('./images/plot7.tiff', units="in", width=5, height=3, res=300)
-
 ggplot(data.frame(y = summary(housing.pca)$importance[3,], x = as.factor(1:12)), aes(x = x, y = y)) +
          geom_bar(stat = 'identity', fill = 'steelblue', color = 'black') +
          scale_y_continuous(breaks = seq(0,1,0.1)) +
@@ -1143,8 +1142,8 @@ number to pick would be the number of principal components that explains
 Awesome, but what does each principal component actually mean? We’ll
 need to take a look at each of the loadings. Although it varies by use
 case people often compare interpreting principal components to *reading
-to leaves*. Sometimes principal components don’t have strong correlation
-with the original variables, so it’s hard to make definitive
+tea leaves*. Sometimes principal components don’t have strong
+correlation with the original variables, so it’s hard to make definitive
 interpretations.
 
 ``` r
@@ -1225,7 +1224,7 @@ crim
 
 <td style="text-align:right;">
 
-\-0.4012494
+-0.4012494
 
 </td>
 
@@ -1237,7 +1236,7 @@ crim
 
 <td style="text-align:right;">
 
-\-0.0753712
+-0.0753712
 
 </td>
 
@@ -1249,7 +1248,7 @@ crim
 
 <td style="text-align:right;">
 
-\-0.7788347
+-0.7788347
 
 </td>
 
@@ -1271,13 +1270,13 @@ zn
 
 <td style="text-align:right;">
 
-\-0.2562763
+-0.2562763
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.4391012
+-0.4391012
 
 </td>
 
@@ -1289,7 +1288,7 @@ zn
 
 <td style="text-align:right;">
 
-\-0.3045328
+-0.3045328
 
 </td>
 
@@ -1307,7 +1306,7 @@ zn
 
 <td style="text-align:right;">
 
-\-0.4033599
+-0.4033599
 
 </td>
 
@@ -1393,7 +1392,7 @@ nox
 
 <td style="text-align:right;">
 
-\-0.1481618
+-0.1481618
 
 </td>
 
@@ -1427,13 +1426,13 @@ rm
 
 <td style="text-align:right;">
 
-\-0.1893443
+-0.1893443
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.0767626
+-0.0767626
 
 </td>
 
@@ -1451,19 +1450,19 @@ rm
 
 <td style="text-align:right;">
 
-\-0.1046867
+-0.1046867
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.0775791
+-0.0775791
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.3299394
+-0.3299394
 
 </td>
 
@@ -1497,7 +1496,7 @@ age
 
 <td style="text-align:right;">
 
-\-0.0341532
+-0.0341532
 
 </td>
 
@@ -1509,13 +1508,13 @@ age
 
 <td style="text-align:right;">
 
-\-0.1286496
+-0.1286496
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.6022184
+-0.6022184
 
 </td>
 
@@ -1531,25 +1530,25 @@ dis
 
 <td style="text-align:right;">
 
-\-0.3214520
+-0.3214520
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.3273196
+-0.3273196
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.2542048
+-0.2542048
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.0764528
+-0.0764528
 
 </td>
 
@@ -1567,7 +1566,7 @@ dis
 
 <td style="text-align:right;">
 
-\-0.1189003
+-0.1189003
 
 </td>
 
@@ -1589,7 +1588,7 @@ rad
 
 <td style="text-align:right;">
 
-\-0.3843764
+-0.3843764
 
 </td>
 
@@ -1641,7 +1640,7 @@ tax
 
 <td style="text-align:right;">
 
-\-0.3205710
+-0.3205710
 
 </td>
 
@@ -1693,13 +1692,13 @@ ptratio
 
 <td style="text-align:right;">
 
-\-0.1727336
+-0.1727336
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.4851667
+-0.4851667
 
 </td>
 
@@ -1711,7 +1710,7 @@ ptratio
 
 <td style="text-align:right;">
 
-\-0.2457383
+-0.2457383
 
 </td>
 
@@ -1723,7 +1722,7 @@ ptratio
 
 <td style="text-align:right;">
 
-\-0.3133497
+-0.3133497
 
 </td>
 
@@ -1739,7 +1738,7 @@ b
 
 <td style="text-align:right;">
 
-\-0.2030293
+-0.2030293
 
 </td>
 
@@ -1751,7 +1750,7 @@ b
 
 <td style="text-align:right;">
 
-\-0.1880326
+-0.1880326
 
 </td>
 
@@ -1769,13 +1768,13 @@ b
 
 <td style="text-align:right;">
 
-\-0.0921106
+-0.0921106
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.0082317
+-0.0082317
 
 </td>
 
@@ -1803,13 +1802,13 @@ lstat
 
 <td style="text-align:right;">
 
-\-0.2971503
+-0.2971503
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.3859245
+-0.3859245
 
 </td>
 
@@ -1821,13 +1820,13 @@ lstat
 
 <td style="text-align:right;">
 
-\-0.0877557
+-0.0877557
 
 </td>
 
 <td style="text-align:right;">
 
-\-0.4238643
+-0.4238643
 
 </td>
 
@@ -1836,3 +1835,33 @@ lstat
 </tbody>
 
 </table>
+
+The principal components are the columns and the rows are the original
+variables. The values indicate how much weight the original variable has
+on the PC. A larger weight in the PC suggests that the original variable
+is represented more strongly in that PC. For example, the first
+principal component seems to be moderately correlated with all of the
+original variables. In this case, it is difficult to interpret. Although
+it explains most of the variation in the data, PC1 doesn’t have a very
+strong *meaning* or *attribute*. PC2 seems mostly correlated with crim,
+zn, rad, perhaps suggesting that it may be related to how wealthy the
+neighborhood is.
+
+On the other hand, if we wanted to visualize the data in a lower
+dimensional representation, we can use the first 3 principal components
+and apply the transformation to the original dataset. It will provide a
+3-D plot that looks like this:
+
+``` r
+library(plot3D)
+Z <- housing.sc  %*% housing.pca$rotation[,1:3]
+tiff('./images/plot8.tiff', units="in", width=7, height=5, res=300)
+scatter3D(x = Z[,1], y = Z[,2], z = Z[,3], main = "3D Representation", xlab = 'PC1', ylab = 'PC2', zlab = 'PC3', 
+          phi=20, bty ="b2")
+garb <- dev.off()
+```
+
+![](./images/plot8.png)
+
+Perhaps with this particular dataset, there aren’t meaningful insights
+we can draw from a lower dimensional visualization of the data.
