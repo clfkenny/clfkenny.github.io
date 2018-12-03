@@ -25,6 +25,10 @@ with fileinput.FileInput('index.md', inplace=True) as file:
 
 with fileinput.FileInput('index.md', inplace=True) as file:
     for line in file:
+        print(line.replace('useful\\!', 'useful!'), end='')
+
+with fileinput.FileInput('index.md', inplace=True) as file:
+    for line in file:
         print(line.replace('\\-', '-'), end='')
         
         
