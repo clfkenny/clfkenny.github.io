@@ -77,7 +77,8 @@ The columns of \(Z\) will be referred to as the principal components and
 have the nice property of orthogonality. Each principal component is a
 linear combination of the original features:
 \(z_{i}= \phi_{i1}x_{i1} + \phi_{i2}x_{2} + ... + \phi_{id}x_{d}\) where
-each \(\phi\) is a loading for the corresponding principal component.
+each \(\phi\) is a loading (component of \(i\)th eigenvector) for the
+corresponding principal component.
 
 </li>
 
@@ -370,7 +371,7 @@ P_k <- P[,1] # select the first eigenvector (2x1)
 y <- X_cent %*% P_k # the first principal component is now in shape (nx1)
 y_df <- data.frame(x=y, y = rep(0, length(y)))
 
-tiff('./images/plot5.tiff', units="in", width=3, height=3, res=300)
+tiff('./images/plot5.tiff', units="in", width=5, height=3, res=300)
 ggplot(y_df, aes(x=x, y=y)) + 
   geom_point(size = 2, color = 'steelblue', alpha=0.5) + 
   labs(title = 'Projection onto PC1', x = 'First Principal Component') + 
@@ -398,7 +399,7 @@ for the model in place of the original features. Ideally, we would use
 as few components as possible to adequately summarize the data. Although
 there isn’t a steadfast rule to follow, the eigenvalues, accompanied by
 a <it>scree plot</it> (shown later) can be helpful in making the
-decision. The variance explained by the \(m)\)th principal component is
+decision. The variance explained by the \(m\)th principal component is
 the eigenvalue that corresponds to that principal component, and thus
 the proportion of explained variance for the first \(m\) principal
 components is:
@@ -412,3 +413,1426 @@ components to use.
 </p>
 
 ## Example
+
+Instead of a contrived, boring generated dataset, let’s examine one
+that’s a bit more interesting. We’ll be using a dataset from R’s
+`mlbench` library called BostonHousing.
+
+<p>
+
+Here’s a list of the variables and what they mean:
+
+<ul>
+
+<li>
+
+crim: per capita crime rate by town
+
+</li>
+
+<li>
+
+zn: proportion of residential land zoned for lots over 25,000 sq.ft
+
+</li>
+
+<li>
+
+indus: proportion of non-retail business acres per town
+
+</li>
+
+<li>
+
+chas: Charles River dummy variable (= 1 if tract bounds river; 0
+otherwise)
+
+</li>
+
+<li>
+
+nox: nitric oxides concentration (parts per 10 million)
+
+</li>
+
+<li>
+
+rm: average number of rooms per dwelling
+
+</li>
+
+<li>
+
+age: proportion of owner-occupied units built prior to 1940
+
+</li>
+
+<li>
+
+dis: weighted distances to five Boston employment centres
+
+</li>
+
+<li>
+
+rad: index of accessibility to radial highways
+
+</li>
+
+<li>
+
+tax: full-value property-tax rate per USD 10,000
+
+</li>
+
+<li>
+
+ptratio: pupil-teacher ratio by town
+
+</li>
+
+<li>
+
+b: 1000(B - 0.63)^2 where B is the proportion of blacks by town
+
+</li>
+
+<li>
+
+lstat: percentage of lower status of the population
+
+</li>
+
+<li>
+
+medv: median value of owner-occupied homes in USD 1000’s
+
+</li>
+
+</ul>
+
+</p>
+
+``` r
+library(mlbench)
+data(BostonHousing) # load the data
+housing <- BostonHousing
+housing <- housing[, !names(housing) %in% c('chas', 'medv')] # remove chas because not numeric. also remove medv because highly correlated every variable
+kable(head(housing)) # take a look at first few observations
+```
+
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:right;">
+
+crim
+
+</th>
+
+<th style="text-align:right;">
+
+zn
+
+</th>
+
+<th style="text-align:right;">
+
+indus
+
+</th>
+
+<th style="text-align:right;">
+
+nox
+
+</th>
+
+<th style="text-align:right;">
+
+rm
+
+</th>
+
+<th style="text-align:right;">
+
+age
+
+</th>
+
+<th style="text-align:right;">
+
+dis
+
+</th>
+
+<th style="text-align:right;">
+
+rad
+
+</th>
+
+<th style="text-align:right;">
+
+tax
+
+</th>
+
+<th style="text-align:right;">
+
+ptratio
+
+</th>
+
+<th style="text-align:right;">
+
+b
+
+</th>
+
+<th style="text-align:right;">
+
+lstat
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:right;">
+
+0.00632
+
+</td>
+
+<td style="text-align:right;">
+
+18
+
+</td>
+
+<td style="text-align:right;">
+
+2.31
+
+</td>
+
+<td style="text-align:right;">
+
+0.538
+
+</td>
+
+<td style="text-align:right;">
+
+6.575
+
+</td>
+
+<td style="text-align:right;">
+
+65.2
+
+</td>
+
+<td style="text-align:right;">
+
+4.0900
+
+</td>
+
+<td style="text-align:right;">
+
+1
+
+</td>
+
+<td style="text-align:right;">
+
+296
+
+</td>
+
+<td style="text-align:right;">
+
+15.3
+
+</td>
+
+<td style="text-align:right;">
+
+396.90
+
+</td>
+
+<td style="text-align:right;">
+
+4.98
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+0.02731
+
+</td>
+
+<td style="text-align:right;">
+
+0
+
+</td>
+
+<td style="text-align:right;">
+
+7.07
+
+</td>
+
+<td style="text-align:right;">
+
+0.469
+
+</td>
+
+<td style="text-align:right;">
+
+6.421
+
+</td>
+
+<td style="text-align:right;">
+
+78.9
+
+</td>
+
+<td style="text-align:right;">
+
+4.9671
+
+</td>
+
+<td style="text-align:right;">
+
+2
+
+</td>
+
+<td style="text-align:right;">
+
+242
+
+</td>
+
+<td style="text-align:right;">
+
+17.8
+
+</td>
+
+<td style="text-align:right;">
+
+396.90
+
+</td>
+
+<td style="text-align:right;">
+
+9.14
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+0.02729
+
+</td>
+
+<td style="text-align:right;">
+
+0
+
+</td>
+
+<td style="text-align:right;">
+
+7.07
+
+</td>
+
+<td style="text-align:right;">
+
+0.469
+
+</td>
+
+<td style="text-align:right;">
+
+7.185
+
+</td>
+
+<td style="text-align:right;">
+
+61.1
+
+</td>
+
+<td style="text-align:right;">
+
+4.9671
+
+</td>
+
+<td style="text-align:right;">
+
+2
+
+</td>
+
+<td style="text-align:right;">
+
+242
+
+</td>
+
+<td style="text-align:right;">
+
+17.8
+
+</td>
+
+<td style="text-align:right;">
+
+392.83
+
+</td>
+
+<td style="text-align:right;">
+
+4.03
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+0.03237
+
+</td>
+
+<td style="text-align:right;">
+
+0
+
+</td>
+
+<td style="text-align:right;">
+
+2.18
+
+</td>
+
+<td style="text-align:right;">
+
+0.458
+
+</td>
+
+<td style="text-align:right;">
+
+6.998
+
+</td>
+
+<td style="text-align:right;">
+
+45.8
+
+</td>
+
+<td style="text-align:right;">
+
+6.0622
+
+</td>
+
+<td style="text-align:right;">
+
+3
+
+</td>
+
+<td style="text-align:right;">
+
+222
+
+</td>
+
+<td style="text-align:right;">
+
+18.7
+
+</td>
+
+<td style="text-align:right;">
+
+394.63
+
+</td>
+
+<td style="text-align:right;">
+
+2.94
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+0.06905
+
+</td>
+
+<td style="text-align:right;">
+
+0
+
+</td>
+
+<td style="text-align:right;">
+
+2.18
+
+</td>
+
+<td style="text-align:right;">
+
+0.458
+
+</td>
+
+<td style="text-align:right;">
+
+7.147
+
+</td>
+
+<td style="text-align:right;">
+
+54.2
+
+</td>
+
+<td style="text-align:right;">
+
+6.0622
+
+</td>
+
+<td style="text-align:right;">
+
+3
+
+</td>
+
+<td style="text-align:right;">
+
+222
+
+</td>
+
+<td style="text-align:right;">
+
+18.7
+
+</td>
+
+<td style="text-align:right;">
+
+396.90
+
+</td>
+
+<td style="text-align:right;">
+
+5.33
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:right;">
+
+0.02985
+
+</td>
+
+<td style="text-align:right;">
+
+0
+
+</td>
+
+<td style="text-align:right;">
+
+2.18
+
+</td>
+
+<td style="text-align:right;">
+
+0.458
+
+</td>
+
+<td style="text-align:right;">
+
+6.430
+
+</td>
+
+<td style="text-align:right;">
+
+58.7
+
+</td>
+
+<td style="text-align:right;">
+
+6.0622
+
+</td>
+
+<td style="text-align:right;">
+
+3
+
+</td>
+
+<td style="text-align:right;">
+
+222
+
+</td>
+
+<td style="text-align:right;">
+
+18.7
+
+</td>
+
+<td style="text-align:right;">
+
+394.12
+
+</td>
+
+<td style="text-align:right;">
+
+5.21
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+Let’s take a look at how each of the variables are correlated with each
+other.
+
+``` r
+library(ggcorrplot)
+M <- cor(housing)
+tiff('./images/plot6.tiff', units="in", width=5, height=3, res=300)
+ggcorrplot(M, method = 'circle', type = 'lower', show.diag = TRUE,
+           colors = c("#E46726", "white", "#6D9EC1"), title = 'Correlation Matrix Plot')
+garb <- dev.off()
+```
+
+![](./images/plot6.png)
+
+The diagonals are clearly 1 because a variable is always 100% correlated
+with itself. In general it appears that there is high correlation among
+the variables. Running a OLS regression with these variables will lead
+to violation of assumptions such as multicollinearity and will not allow
+for proper statistical inference (analysis of p-values and such). For
+example, there is also high correlation between the nitric oxide
+concentration and proportion of owner-occupied units built prior to
+1940. Additionally, tax appears to be highly correlated to how
+accessible highways are in the area. Great, now that we have a better
+understanding of our data, let’s see how principal component analysis
+can be useful\! We’ll be using R’s `prcomp` because it instantiates a
+class with useful methods.
+
+``` r
+# first let's scale the data
+housing.sc <- scale(housing, center = TRUE, scale = TRUE)
+housing.pca <- prcomp(housing.sc) # create a prcomp object
+summary(housing.pca)
+```
+
+    ## Importance of components:
+    ##                           PC1    PC2     PC3     PC4     PC5     PC6
+    ## Standard deviation     2.4752 1.1587 1.08618 0.91382 0.81527 0.73308
+    ## Proportion of Variance 0.5106 0.1119 0.09832 0.06959 0.05539 0.04478
+    ## Cumulative Proportion  0.5106 0.6224 0.72075 0.79034 0.84573 0.89051
+    ##                            PC7     PC8     PC9    PC10    PC11    PC12
+    ## Standard deviation     0.62962 0.52637 0.46932 0.43146 0.41148 0.25426
+    ## Proportion of Variance 0.03303 0.02309 0.01836 0.01551 0.01411 0.00539
+    ## Cumulative Proportion  0.92355 0.94663 0.96499 0.98050 0.99461 1.00000
+
+Notice that the cumulative proportion explained (third row) corresponds
+to the equation above. Here are the eigenvalues for
+    reference:
+
+    ##  [1] 6.12671880 1.34247929 1.17978483 0.83506595 0.66467141 0.53740698
+    ##  [7] 0.39641745 0.27706753 0.22026544 0.18616148 0.16931520 0.06464564
+
+We can use a scree plot to show how the number of principal components
+affects the cumulative proportion explained.
+
+``` r
+tiff('./images/plot7.tiff', units="in", width=5, height=3, res=300)
+
+ggplot(data.frame(y = summary(housing.pca)$importance[3,], x = as.factor(1:12)), aes(x = x, y = y)) +
+         geom_bar(stat = 'identity', fill = 'steelblue', color = 'black') +
+         scale_y_continuous(breaks = seq(0,1,0.1)) +
+         labs(title = 'Proportion of Variance Explained', x = 'Principal Components', y = 'Proportion') + th
+garb <- dev.off()
+```
+
+![](./images/plot7.png)
+
+We can see that as we keep adding more principal components, the
+proportion of explained variance increases. The first principal
+component explains ~50% of the variation in data. The first and second
+principal component explain ~60% of the variation in the data. A good
+number to pick would be the number of principal components that explains
+~90% of the data. In this case it would be 7.
+
+### Interpretation
+
+Awesome, but what does each principal component actually mean? We’ll
+need to take a look at each of the loadings. Although it varies by use
+case people often compare interpreting principal components to *reading
+to leaves*. Sometimes principal components don’t have strong correlation
+with the original variables, so it’s hard to make definitive
+interpretations.
+
+``` r
+kable(housing.pca$rotation[,1:7]) # select first 7 principal component loadings
+```
+
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+</th>
+
+<th style="text-align:right;">
+
+PC1
+
+</th>
+
+<th style="text-align:right;">
+
+PC2
+
+</th>
+
+<th style="text-align:right;">
+
+PC3
+
+</th>
+
+<th style="text-align:right;">
+
+PC4
+
+</th>
+
+<th style="text-align:right;">
+
+PC5
+
+</th>
+
+<th style="text-align:right;">
+
+PC6
+
+</th>
+
+<th style="text-align:right;">
+
+PC7
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+crim
+
+</td>
+
+<td style="text-align:right;">
+
+0.2510194
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.4012494
+
+</td>
+
+<td style="text-align:right;">
+
+0.0690589
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.0753712
+
+</td>
+
+<td style="text-align:right;">
+
+0.2081169
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.7788347
+
+</td>
+
+<td style="text-align:right;">
+
+0.1582304
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+zn
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.2562763
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.4391012
+
+</td>
+
+<td style="text-align:right;">
+
+0.0907976
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.3045328
+
+</td>
+
+<td style="text-align:right;">
+
+0.3517354
+
+</td>
+
+<td style="text-align:right;">
+
+0.2706330
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.4033599
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+indus
+
+</td>
+
+<td style="text-align:right;">
+
+0.3466252
+
+</td>
+
+<td style="text-align:right;">
+
+0.1082654
+
+</td>
+
+<td style="text-align:right;">
+
+0.0314750
+
+</td>
+
+<td style="text-align:right;">
+
+0.0103298
+
+</td>
+
+<td style="text-align:right;">
+
+0.0909465
+
+</td>
+
+<td style="text-align:right;">
+
+0.3404285
+
+</td>
+
+<td style="text-align:right;">
+
+0.1732134
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+nox
+
+</td>
+
+<td style="text-align:right;">
+
+0.3427732
+
+</td>
+
+<td style="text-align:right;">
+
+0.1653885
+
+</td>
+
+<td style="text-align:right;">
+
+0.2363494
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.1481618
+
+</td>
+
+<td style="text-align:right;">
+
+0.1436105
+
+</td>
+
+<td style="text-align:right;">
+
+0.1901088
+
+</td>
+
+<td style="text-align:right;">
+
+0.0767351
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+rm
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.1893443
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.0767626
+
+</td>
+
+<td style="text-align:right;">
+
+0.6786280
+
+</td>
+
+<td style="text-align:right;">
+
+0.3931775
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.1046867
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.0775791
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.3299394
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+age
+
+</td>
+
+<td style="text-align:right;">
+
+0.3135926
+
+</td>
+
+<td style="text-align:right;">
+
+0.3154976
+
+</td>
+
+<td style="text-align:right;">
+
+0.1644670
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.0341532
+
+</td>
+
+<td style="text-align:right;">
+
+0.0422617
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.1286496
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.6022184
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+dis
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.3214520
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.3273196
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.2542048
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.0764528
+
+</td>
+
+<td style="text-align:right;">
+
+0.0108328
+
+</td>
+
+<td style="text-align:right;">
+
+0.1149307
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.1189003
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+rad
+
+</td>
+
+<td style="text-align:right;">
+
+0.3198193
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.3843764
+
+</td>
+
+<td style="text-align:right;">
+
+0.1131343
+
+</td>
+
+<td style="text-align:right;">
+
+0.2173470
+
+</td>
+
+<td style="text-align:right;">
+
+0.1639420
+
+</td>
+
+<td style="text-align:right;">
+
+0.1400495
+
+</td>
+
+<td style="text-align:right;">
+
+0.0805718
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+tax
+
+</td>
+
+<td style="text-align:right;">
+
+0.3385180
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.3205710
+
+</td>
+
+<td style="text-align:right;">
+
+0.0780306
+
+</td>
+
+<td style="text-align:right;">
+
+0.1410950
+
+</td>
+
+<td style="text-align:right;">
+
+0.2100012
+
+</td>
+
+<td style="text-align:right;">
+
+0.3104240
+
+</td>
+
+<td style="text-align:right;">
+
+0.0793716
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+ptratio
+
+</td>
+
+<td style="text-align:right;">
+
+0.2050739
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.1727336
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.4851667
+
+</td>
+
+<td style="text-align:right;">
+
+0.6081498
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.2457383
+
+</td>
+
+<td style="text-align:right;">
+
+0.0141723
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.3133497
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+b
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.2030293
+
+</td>
+
+<td style="text-align:right;">
+
+0.3362515
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.1880326
+
+</td>
+
+<td style="text-align:right;">
+
+0.3633027
+
+</td>
+
+<td style="text-align:right;">
+
+0.8100186
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.0921106
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.0082317
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+lstat
+
+</td>
+
+<td style="text-align:right;">
+
+0.3098245
+
+</td>
+
+<td style="text-align:right;">
+
+0.0336452
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.2971503
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.3859245
+
+</td>
+
+<td style="text-align:right;">
+
+0.0609642
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.0877557
+
+</td>
+
+<td style="text-align:right;">
+
+\-0.4238643
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>

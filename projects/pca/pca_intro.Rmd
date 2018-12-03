@@ -48,7 +48,7 @@ Quick overview of the technique:
 <li> Decide the number of principal components to use (\(k\)), such that \(k \leq d\), and set \(P_k = \begin{bmatrix} \mathbf{v_1}  \mathbf{v_2}  ...  \mathbf{v_k} \end{bmatrix} \in {\rm I\!R}^{d \times k}\)
 </li>
 <li> Transform the original vectors \(X\) to \(Z\) by projecting onto the lower dimensional linear subspace spanned by the \(k\) eigenvectors by computing \(Z = XP_k \in {\rm I\!R}^{n \times k}\)</li>
-<li> The columns of \(Z\) will be referred to as the principal components  and have the nice property of orthogonality. Each principal component is a linear combination of the original features: \(z_{i}= \phi_{i1}x_{i1} + \phi_{i2}x_{2} + ... + \phi_{id}x_{d} \) where each \(\phi \) is a loading for the corresponding principal component.</li>
+<li> The columns of \(Z\) will be referred to as the principal components  and have the nice property of orthogonality. Each principal component is a linear combination of the original features: \(z_{i}= \phi_{i1}x_{i1} + \phi_{i2}x_{2} + ... + \phi_{id}x_{d} \) where each \(\phi \) is a loading (component of \(i\)th eigenvector) for the corresponding principal component.</li>
 </ol>
 
 ## Table of Contents
@@ -238,7 +238,7 @@ P_k <- P[,1] # select the first eigenvector (2x1)
 y <- X_cent %*% P_k # the first principal component is now in shape (nx1)
 y_df <- data.frame(x=y, y = rep(0, length(y)))
 
-tiff('./images/plot5.tiff', units="in", width=3, height=3, res=300)
+tiff('./images/plot5.tiff', units="in", width=5, height=3, res=300)
 ggplot(y_df, aes(x=x, y=y)) + 
   geom_point(size = 2, color = 'steelblue', alpha=0.5) + 
   labs(title = 'Projection onto PC1', x = 'First Principal Component') + 
@@ -253,7 +253,7 @@ garb <- dev.off()
 <p>
 You might be wondering, how would I select the number of principal components to use? That would depend on your use case. For example, exploratory data analysis. The most common application of PCA is for visualization, hence it seems reasonable to project higher dimensional data onto 2 or 3 dimensions, allowing for a geometric representation that hopefully captures most of the variation in the data.
 <br> <br>
-Additionally, it is possible to use this unsupervised learning technique in the context of supervised learning. If the goal is to build a predictive model, the principal components can be used as the features for the model in place of the original features. Ideally, we would use as few components as possible to adequately summarize the data. Although there isn't a steadfast rule to follow, the eigenvalues, accompanied by a <it>scree plot</it> (shown later) can be helpful in making the decision. The variance explained by the \(m)\)th principal component is the eigenvalue that corresponds to that principal component, and thus the proportion of explained variance for the first \(m\) principal components is:
+Additionally, it is possible to use this unsupervised learning technique in the context of supervised learning. If the goal is to build a predictive model, the principal components can be used as the features for the model in place of the original features. Ideally, we would use as few components as possible to adequately summarize the data. Although there isn't a steadfast rule to follow, the eigenvalues, accompanied by a <it>scree plot</it> (shown later) can be helpful in making the decision. The variance explained by the \(m\)th principal component is the eigenvalue that corresponds to that principal component, and thus the proportion of explained variance for the first \(m\) principal components is:
 
 $$ \frac{ \sum^m_{i=1}\lambda_i }{\sum^d_{i=1}\lambda_i} $$
 
@@ -261,3 +261,85 @@ Plotting the proportion of explained variance against the number of principal co
 
 </p>
 ## Example
+Instead of a contrived, boring generated dataset, let's examine one that's a bit more interesting. We'll be using a dataset from R's `mlbench` library called BostonHousing. 
+
+<p>
+Here's a list of the variables and what they mean:
+  <ul>
+    <li>crim:	per capita crime rate by town </li>
+    <li>zn:	proportion of residential land zoned for lots over 25,000 sq.ft </li>
+    <li>indus:	proportion of non-retail business acres per town </li>
+    <li>chas:	Charles River dummy variable (= 1 if tract bounds river; 0 otherwise) </li>
+    <li>nox:	nitric oxides concentration (parts per 10 million) </li>
+    <li>rm:	average number of rooms per dwelling </li>
+    <li>age:	proportion of owner-occupied units built prior to 1940 </li>
+    <li>dis:	weighted distances to five Boston employment centres </li>
+    <li>rad:	index of accessibility to radial highways </li>
+    <li>tax:	full-value property-tax rate per USD 10,000 </li>
+    <li>ptratio:	pupil-teacher ratio by town </li>
+    <li>b:	1000(B - 0.63)^2 where B is the proportion of blacks by town </li>
+    <li>lstat:	percentage of lower status of the population</li>
+    <li>medv:	median value of owner-occupied homes in USD 1000's </li>
+  </ul>
+</p>
+
+
+```{r}
+library(mlbench)
+data(BostonHousing) # load the data
+housing <- BostonHousing
+housing <- housing[, !names(housing) %in% c('chas', 'medv')] # remove chas because not numeric. also remove medv because highly correlated every variable
+kable(head(housing)) # take a look at first few observations
+```
+
+Let's take a look at how each of the variables are correlated with each other. 
+
+```{r}
+library(ggcorrplot)
+M <- cor(housing)
+tiff('./images/plot6.tiff', units="in", width=5, height=3, res=300)
+ggcorrplot(M, method = 'circle', type = 'lower', show.diag = TRUE,
+           colors = c("#E46726", "white", "#6D9EC1"), title = 'Correlation Matrix Plot')
+garb <- dev.off()
+```
+![](./images/plot6.png)
+
+The diagonals are clearly 1 because a variable is always 100% correlated with itself. In general it appears that there is high correlation among the variables. Running a OLS regression with these variables will lead to violation of assumptions such as multicollinearity and will not allow for proper statistical inference (analysis of p-values and such). For example, there is also high correlation between the nitric oxide concentration and proportion of owner-occupied units built prior to 1940. Additionally, tax appears to be highly correlated to how accessible highways are in the area. Great, now that we have a better understanding of our data, let's see how principal component analysis can be useful! We'll be using R's `prcomp` because it instantiates a class with useful methods.
+
+```{r}
+# first let's scale the data
+housing.sc <- scale(housing, center = TRUE, scale = TRUE)
+housing.pca <- prcomp(housing.sc) # create a prcomp object
+summary(housing.pca)
+
+```
+Notice that the cumulative proportion explained (third row) corresponds to the equation above. Here are the eigenvalues for reference:
+```{r, echo = F}
+eig <- eigen(cov(housing.sc))
+eig$values
+```
+
+We can use a scree plot to show how the number of principal components affects the cumulative proportion explained.
+
+```{r}
+tiff('./images/plot7.tiff', units="in", width=5, height=3, res=300)
+
+ggplot(data.frame(y = summary(housing.pca)$importance[3,], x = as.factor(1:12)), aes(x = x, y = y)) +
+         geom_bar(stat = 'identity', fill = 'steelblue', color = 'black') +
+         scale_y_continuous(breaks = seq(0,1,0.1)) +
+         labs(title = 'Proportion of Variance Explained', x = 'Principal Components', y = 'Proportion') + th
+garb <- dev.off()
+
+```
+![](./images/plot7.png)
+
+We can see that as we keep adding more principal components, the proportion of explained variance increases. The first principal component explains ~50% of the variation in data. The first and second principal component explain ~60% of the variation in the data. A good number to pick would be the number of principal components that explains ~90% of the data. In this case it would be 7.
+
+### Interpretation
+Awesome, but what does each principal component actually mean? We'll need to take a look at each of the loadings. Although it varies by use case people often compare interpreting principal components to _reading to leaves_. Sometimes principal components don't have strong correlation with the original variables, so it's hard to make definitive interpretations.
+
+```{r}
+kable(housing.pca$rotation[,1:7]) # select first 7 principal component loadings
+```
+
+
