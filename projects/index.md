@@ -51,6 +51,8 @@ padding-right:5px;
  </div> 
 </a>
 
+<br>
+
 <div>
 <a href = "/projects/kmeans_intro"> 
  <div class = "item-card" id = 'kmeans'> 

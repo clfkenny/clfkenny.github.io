@@ -55,8 +55,9 @@ Quick overview of the technique:
 
 1. [Applications](#applications)
 2. [The Algorithm](#the-algorithm)
-3. [Selecting Number of Eigenvectors](#selecting-number-of-eigenvectors)
+3. [Selecting Number of Principal Components](#selecting-number-of-principal-components)
 4. [Example](#example)
+5. [Conclusion](#Conclusion)
 
 ## Applications
 
@@ -251,7 +252,7 @@ garb <- dev.off()
 
 This can be seen as a lower dimensional representation of the data. We have projected the data onto the axis of maximal variance.
 
-## Selecting Number of Eigenvectors
+## Selecting Number of Principal Components
 <p>
 In the case of higher dimensions, you might be wondering, how would I select the number of principal components to use? That would depend on your use case. For example, exploratory data analysis. The most common application of PCA is for visualization, hence it seems reasonable to project higher dimensional data onto 2 or 3 dimensions, allowing for a geometric representation that hopefully captures most of the variation in the data.
 <br> <br>
@@ -359,3 +360,5 @@ garb <- dev.off()
 ![](./images/plot8.png)
 
 Perhaps with this particular dataset, there aren't meaningful groupings or clusters we can infer from a lower dimensional visualization of the data.
+
+## Conclusion
