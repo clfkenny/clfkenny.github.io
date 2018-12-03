@@ -74,11 +74,16 @@ computing \(Z = XP_k \in {\rm I\!R}^{n \times k}\)
 <li>
 
 The columns of \(Z\) will be referred to as the principal components and
-have the nice property of orthogonality
+have the nice property of orthogonality. Each principal component is a
+linear combination of the original features:
+\(z_{i}= \phi_{i1}x_{i1} + \phi_{i2}x_{2} + ... + \phi_{id}x_{d}\) where
+each \(\phi}\) is a loading for the corresponding principal component.
 
 </li>
 
 </ol>
+
+## Table of Contents
 
 1.  [Applications](#applications)
 2.  [The Algorithm](#the-algorithm)
@@ -224,7 +229,7 @@ y
 
 </div>
 
-<br><br><br><br><br><br><br>
+<br>
 
 <p>
 
@@ -288,7 +293,8 @@ you want to actually reduce the dimensions of your data, you will want
 to use a \(k < d\), so in this case let’s make \(k = 1\) such that
 \(P_k \in {\rm I\!R}^{d \times k}\). To visualize what will happen,
 let’s plot the subspace that is spanned by the first eigenvector
-(indicated by the red line).
+(indicated by the red line). Keep in mind that this is the direction of
+the highest variance in the data.
 
 </p>
 
@@ -355,10 +361,50 @@ garb <- dev.off()
 <p>
 
 As you can see, OLS minimizes errors from \(\hat{y} - y\) while PCA
-seeks to minimize the orthogonal variance.
+seeks to minimize the orthogonal variance. So what happens to the data
+once we project it onto the line? Well, it will look like this:
 
 </p>
 
+``` r
+P_k <- P[,1] # select the first eigenvector (2x1)
+y <- X_cent %*% P_k # the first principal component is now in shape (nx1)
+y_df <- data.frame(x=y, y = rep(0, length(y)))
+
+tiff('./images/plot5.tiff', units="in", width=3, height=3, res=300)
+ggplot(y_df, aes(x=x, y=y)) + 
+  geom_point(size = 2, color = 'steelblue', alpha=0.5) + 
+  labs(title = 'Projection onto PC1', x = 'First Principal Component') + 
+  theme_classic() +
+  theme(aspect.ratio = 0.8, axis.ticks.y = element_blank(), axis.text.y=element_blank(), axis.title.y=element_blank())
+garb <- dev.off()
+```
+
 ## Selecting Number of Eigenvectors
+
+<p>
+
+You might be wondering, how would I select the number of principal
+components to use? That would depend on your use case. For example,
+exploratory data analysis. The most common application of PCA is for
+visualization, hence it seems reasonable to project higher dimensional
+data onto 2 or 3 dimensions, allowing for a geometric representation
+that hopefully captures most of the variation in the data.
+
+Additionally, it is possible to use this unsupervised learning technique
+in the context of supervised learning. If the goal is to build a
+predictive model, the principal components can be used as the features
+for the model in place of the original features. Ideally, we would use
+as few components as possible to adequately summarize the data. Although
+there isn’t a steadfast rule to follow, the eigenvalues, accompanied by
+a <it>scree plot</it> (shown later) can be helpful in making the
+decision. The variance explained by the \(m)\)th principal component is
+the eigenvalue that corresponds to that principal component, and thus
+the proportion of explained variance for the first \(m\) principal
+components is:
+
+$$ \frac{ \sum^m_{i=1}\lambda_i }{\sum^d_{i=1}\lambda_i} $$
+
+</p>
 
 ## Example
