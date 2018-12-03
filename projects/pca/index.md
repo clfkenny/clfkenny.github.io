@@ -1,6 +1,6 @@
 ---
 layout: projects
-title:Intro to PCA
+title: Intro to PCA
 ---
 
  <link rel='stylesheet' type='text/css' href='/projects/pca/pca.css'>
