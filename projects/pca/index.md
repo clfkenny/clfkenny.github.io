@@ -518,7 +518,7 @@ library(mlbench)
 data(BostonHousing) # load the data
 housing <- BostonHousing
 housing <- housing[, !names(housing) %in% c('chas', 'medv')] # remove chas because not numeric. also remove medv because highly correlated every variable
-kable(head(housing)) # take a look at first few observations
+kable(head(housing), format = "html") # take a look at first few observations
 ```
 
 <table>
@@ -1071,9 +1071,9 @@ other.
 ``` r
 library(ggcorrplot)
 M <- cor(housing)
-tiff('./images/plot6.tiff', units="in", width=5, height=3, res=300)
-ggcorrplot(M, method = 'circle', type = 'lower', show.diag = TRUE,
-           colors = c("#E46726", "white", "#6D9EC1"), title = 'Correlation Matrix Plot')
+tiff('./images/plot6.tiff', units="in", width=5, height=3, res=600)
+ggcorrplot(M, method = 'square', type = 'lower', show.diag = TRUE,
+           colors = c("#E46726", "white", "#6D9EC1"), title = 'Correlation Matrix Plot', pch=1)
 garb <- dev.off()
 ```
 
@@ -1148,7 +1148,7 @@ with the original variables, so it’s hard to make definitive
 interpretations.
 
 ``` r
-kable(housing.pca$rotation[,1:7]) # select first 7 principal component loadings
+kable(housing.pca$rotation[,1:7], format = "html") # select first 7 principal component loadings
 ```
 
 <table>
