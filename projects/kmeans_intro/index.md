@@ -3,7 +3,7 @@ layout: projects
 
 ---
 
-
+ <link rel='stylesheet' type='text/css' href='/projects/kmeans_intro/kmeans.css'>
 
 # **Introduction to K-Means Clustering**
 
