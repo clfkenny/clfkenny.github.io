@@ -382,27 +382,30 @@ garb <- dev.off()
 
 ![](./images/plot5.png)
 
+This can be seen as a lower dimensional representation of the data. We
+have projected the data onto the axis of maximal variance.
+
 ## Selecting Number of Eigenvectors
 
 <p>
 
-You might be wondering, how would I select the number of principal
-components to use? That would depend on your use case. For example,
-exploratory data analysis. The most common application of PCA is for
-visualization, hence it seems reasonable to project higher dimensional
-data onto 2 or 3 dimensions, allowing for a geometric representation
-that hopefully captures most of the variation in the data. <br> <br>
-Additionally, it is possible to use this unsupervised learning technique
-in the context of supervised learning. If the goal is to build a
-predictive model, the principal components can be used as the features
-for the model in place of the original features. Ideally, we would use
-as few components as possible to adequately summarize the data. Although
-there isn’t a steadfast rule to follow, the eigenvalues, accompanied by
-a <it>scree plot</it> (shown later) can be helpful in making the
-decision. The variance explained by the \(m\)th principal component is
-the eigenvalue that corresponds to that principal component, and thus
-the proportion of explained variance for the first \(m\) principal
-components is:
+In the case of higher dimensions, you might be wondering, how would I
+select the number of principal components to use? That would depend on
+your use case. For example, exploratory data analysis. The most common
+application of PCA is for visualization, hence it seems reasonable to
+project higher dimensional data onto 2 or 3 dimensions, allowing for a
+geometric representation that hopefully captures most of the variation
+in the data. <br> <br> Additionally, it is possible to use this
+unsupervised learning technique in the context of supervised learning.
+If the goal is to build a predictive model, the principal components can
+be used as the features for the model in place of the original features.
+Ideally, we would use as few components as possible to adequately
+summarize the data. Although there isn’t a steadfast rule to follow, the
+eigenvalues, accompanied by a <it>scree plot</it> (shown later) can be
+helpful in making the decision. The variance explained by the \(m\)th
+principal component is the eigenvalue that corresponds to that principal
+component, and thus the proportion of explained variance for the first
+\(m\) principal components is:
 
 $$ \frac{ \sum^m_{i=1}\lambda_i }{\sum^d_{i=1}\lambda_i} $$
 
@@ -1079,6 +1082,8 @@ garb <- dev.off()
 
 ![](./images/plot6.png)
 
+<p>
+
 The diagonals are clearly 1 because a variable is always 100% correlated
 with itself. In general it appears that there is high correlation among
 the variables. Running a OLS regression with these variables will lead
@@ -1089,8 +1094,12 @@ concentration and proportion of owner-occupied units built prior to
 1940. Additionally, tax appears to be highly correlated to how
 accessible highways are in the area. Great, now that we have a better
 understanding of our data, let’s see how principal component analysis
-can be useful\! We’ll be using R’s `prcomp` because it instantiates a
-class with useful methods.
+can be useful\!
+
+</p>
+
+We’ll be using R’s `prcomp` because it instantiates a class with useful
+methods.
 
 ``` r
 # first let's scale the data
@@ -1863,5 +1872,6 @@ garb <- dev.off()
 
 ![](./images/plot8.png)
 
-Perhaps with this particular dataset, there aren’t meaningful insights
-we can draw from a lower dimensional visualization of the data.
+Perhaps with this particular dataset, there aren’t meaningful groupings
+or clusters we can infer from a lower dimensional visualization of the
+data.
