@@ -77,7 +77,7 @@ The columns of \(Z\) will be referred to as the principal components and
 have the nice property of orthogonality. Each principal component is a
 linear combination of the original features:
 \(z_{i}= \phi_{i1}x_{i1} + \phi_{i2}x_{2} + ... + \phi_{id}x_{d}\) where
-each \(\phi}\) is a loading for the corresponding principal component.
+each \(\phi\) is a loading for the corresponding principal component.
 
 </li>
 
@@ -234,11 +234,12 @@ y
 <p>
 
 Now, we will diagonalize the sample covariance matrix \(Q\) such that it
-has the form \(Q = PDP^T\) via spectral decomposition. In R this is done
-using the `eigen` function, which returns a list of eigenvalues and the
-corresponding eigenvectors of the provided matrix.
+has the form \(Q = PDP^T\) via spectral decomposition.
 
 </p>
+
+In R this is done using the `eigen` function, which returns a list of
+eigenvalues and the corresponding eigenvectors of the provided matrix.
 
 ``` r
 eig <- eigen(Q)
@@ -291,7 +292,7 @@ becomes a matrix that encodes a rotation operator. It changes the basis
 of \(X\) from the standard basis to an eigenbasis. Cool stuff, but if
 you want to actually reduce the dimensions of your data, you will want
 to use a \(k < d\), so in this case let’s make \(k = 1\) such that
-\(P_k \in {\rm I\!R}^{d \times k}\). To visualize what will happen,
+\(P_1 \in {\rm I\!R}^{d \times 1}\). To visualize what will happen,
 let’s plot the subspace that is spanned by the first eigenvector
 (indicated by the red line). Keep in mind that this is the direction of
 the highest variance in the data.
@@ -300,11 +301,9 @@ the highest variance in the data.
 
 ``` r
 tiff('./images/plot3.tiff', units="in", width=5, height=5, res=100)
-
 plot(X_cent_df, pty = 's', pch = 19, col = '#4682b4')
 title("Centered X")
 abline(a = 0, b =  P[2,1] / P[1,1], col = 'red', lwd = 3)
-
 garb <- dev.off()
 ```
 
@@ -380,6 +379,8 @@ ggplot(y_df, aes(x=x, y=y)) +
 garb <- dev.off()
 ```
 
+![](./images/plot5.png)
+
 ## Selecting Number of Eigenvectors
 
 <p>
@@ -389,8 +390,7 @@ components to use? That would depend on your use case. For example,
 exploratory data analysis. The most common application of PCA is for
 visualization, hence it seems reasonable to project higher dimensional
 data onto 2 or 3 dimensions, allowing for a geometric representation
-that hopefully captures most of the variation in the data.
-
+that hopefully captures most of the variation in the data. <br> <br>
 Additionally, it is possible to use this unsupervised learning technique
 in the context of supervised learning. If the goal is to build a
 predictive model, the principal components can be used as the features
@@ -404,6 +404,10 @@ the proportion of explained variance for the first \(m\) principal
 components is:
 
 $$ \frac{ \sum^m_{i=1}\lambda_i }{\sum^d_{i=1}\lambda_i} $$
+
+Plotting the proportion of explained variance against the number of
+principal components provides some insight into how many principal
+components to use.
 
 </p>
 
