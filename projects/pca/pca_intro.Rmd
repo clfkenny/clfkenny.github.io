@@ -130,7 +130,7 @@ Z <- as.matrix(X_cent) %*% P
 
 This is the graph we get once we project the data onto the linear subspace spanned by the first two eigenvectors.
 
-```{r}
+```{r,  message = F, warning = F}
 library(gridExtra)
 Z_df <- data.frame(x = Z[,1], y = Z[,2])
 g1 <- ggplot(Z_df , aes(x= x, y = y)) +
