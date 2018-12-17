@@ -1,3 +1,9 @@
+---
+layout: projects
+title: Shallow Neural Network
+author: Kenny Lov
+---
+
 
 # Shallow Neural Network (Regression)
 
