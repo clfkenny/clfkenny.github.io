@@ -1,3 +1,8 @@
+---
+layout: projects
+title: Shallow Net
+author: Kenny Lov
+---
 
 ## Introduction
 
