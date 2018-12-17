@@ -4,12 +4,13 @@ title: Shallow Neural Network
 author: Kenny Lov
 ---
 
-
 # Shallow Neural Network (Regression)
 
 *Kenny Lov*
 
 A simple numpy implementation of a shallow (one layer) neural network for regression problems. Uses sigmoid activation function in the hidden layer. Backpropagation uses batch gradient descent to update parameters. 
+
+![alt tag](../img/neural-network.png)
 
 
 ```python
@@ -81,7 +82,7 @@ class ShallowNet:
         
 ```
 
-Testing my class on sample dataset (Scikit-learn's built in Boston housing data)
+Testing my class on sample dataset (Scikit-learn's built in Boston housing data). The MSE decreases with every epoch.
 
 
 ```python

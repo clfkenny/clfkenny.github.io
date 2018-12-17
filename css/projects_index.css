@@ -82,5 +82,11 @@ div.item-card#pca{
 }
 
 
-
-
+div.item-card#pokemon{
+  background-image:url("/projects/img/neural-network.png"),
+    url('/images/python_logo.png'),
+    linear-gradient(var(--gradient-direction), var(--color-gradient));
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size:100px, 100px, 100%;
+  background-position:10% 10px, 95% 8px, 0% 0%;
+}
