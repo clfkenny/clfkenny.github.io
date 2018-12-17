@@ -1,10 +1,7 @@
----
-layout: projects
-title: Shallow Neural Network (Regression)
-author: Kenny Lov
----
 
 # Shallow Neural Network (Regression)
+
+*Kenny Lov*
 
 A simple numpy implementation of a shallow (one layer) neural network for regression problems. Uses sigmoid activation function in the hidden layer. Backpropagation uses batch gradient descent to update parameters. 
 

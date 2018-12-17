@@ -26,10 +26,10 @@ padding-right:5px;
 ### Here are some geeky stuff I like to think about:
 
 <div>
-<a href = "/projects/pokemon_classifier"> 
- <div class = "item-card" id = "pokemon"> 
-  <b>Pokemon Type Classifier</b>
-  <p><i>Scraping Pokemon stats and color from the web, exploring the data, and then attempting to predict the Pokemon's type using various machine learning algorithms!</i>
+<a href = "/projects/shallow_net"> 
+ <div class = "item-card" id = "shallow_net"> 
+  <b>Shallow Neural Network (Regression)</b>
+  <p><i>A simple numpy implementation of a shallow (one layer) neural network for regression problems. Uses sigmoid activation function in the hidden layer. Backpropagation uses batch gradient descent to update parameters.</i>
   </p>
  </div> 
  </a>
@@ -41,6 +41,18 @@ padding-right:5px;
 
 # *Tutorials*
 ### Some basic tutorials to help better my understanding of the topics:
+
+<div>
+<a href = "/projects/pca"> 
+ <div class = "item-card" id = 'pca'> 
+  <b>Introduction to Principal Components Analysis</b>
+  <p><i>A popular dimensionality reduction technique.</i>
+  </p>
+ </div> 
+</a>
+
+<br>
+
 
 <div>
 <a href = "/projects/pca"> 
