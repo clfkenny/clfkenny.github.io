@@ -1,11 +1,6 @@
 ---
 layout: projects
-title:Intro to PCA
----
-
- <link rel='stylesheet' type='text/css' href='/projects/pca/pca.css'>---
-layout: projects
-
+title: Intro to PCA
 ---
 
  <link rel='stylesheet' type='text/css' href='/projects/pca/pca.css'>
@@ -91,14 +86,11 @@ corresponding principal component.
 
 ## Table of Contents
 
-1.  [Applications](#applications)
-2.  [The Algorithm](#the-algorithm)
-3.  [Selecting Number of Principal
+1.  [The Algorithm](#the-algorithm)
+2.  [Selecting Number of Principal
     Components](#selecting-number-of-principal-components)
-4.  [Example](#example)
-5.  [Conclusion](#Conclusion)
-
-## Applications
+3.  [Example](#example)
+4.  [Conclusion](#Conclusion)
 
 ## The Algorithm
 

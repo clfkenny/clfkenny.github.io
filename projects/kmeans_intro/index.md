@@ -1,6 +1,6 @@
 ---
 layout: projects
-
+title: Intro to K-Means
 ---
 
  <link rel='stylesheet' type='text/css' href='/projects/kmeans_intro/kmeans.css'>
@@ -106,6 +106,7 @@ The location in the feature space for each of the cluster centroids
 2.  [The Algorithm](#the-algorithm)
 3.  [Selecting K](#selecting-k)
 4.  [Example](#example)
+5.  [Conclusion](#Conclusion)
 
 ## Applications
 
@@ -875,6 +876,8 @@ garb <- dev.off()
 
 Well, it looks like the cluster centers have shifted a bit but these
 groups, based on these features, may not be distinguishable by the
-algorithm.
+algorithm. This goes to show that *kmeans* doesn’t perform very well in
+cases where the true groups aren’t spherical and if there are unevenly
+sized clusters.
 
-<br><br>
+## Conclusion

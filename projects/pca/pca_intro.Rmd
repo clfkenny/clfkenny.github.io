@@ -53,13 +53,11 @@ Quick overview of the technique:
 
 ## Table of Contents
 
-1. [Applications](#applications)
-2. [The Algorithm](#the-algorithm)
-3. [Selecting Number of Principal Components](#selecting-number-of-principal-components)
-4. [Example](#example)
-5. [Conclusion](#Conclusion)
+1. [The Algorithm](#the-algorithm)
+2. [Selecting Number of Principal Components](#selecting-number-of-principal-components)
+3. [Example](#example)
+4. [Conclusion](#Conclusion)
 
-## Applications
 
 ## The Algorithm
 

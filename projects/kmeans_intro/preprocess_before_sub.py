@@ -3,7 +3,7 @@ print('\nWriting header into index.md ...')
 with open('index.md', "r+") as f:
 	old = f.read()
 	f.seek(0)
-	f.write("---\nlayout: projects\n\n---\n\n <link rel='stylesheet' type='text/css' href='/projects/kmeans_intro/kmeans.css'>" + old)
+	f.write("---\nlayout: projects\ntitle: Intro to K-Means\n---\n\n <link rel='stylesheet' type='text/css' href='/projects/kmeans_intro/kmeans.css'>" + old)
 print('Finished writing header\n')
 
 

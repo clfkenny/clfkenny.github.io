@@ -60,6 +60,7 @@ Completion of the algorithm yields:
 2. [The Algorithm](#the-algorithm)
 3. [Selecting K ](#selecting-k)
 4. [Example](#example)
+5. [Conclusion](#Conclusion)
 
 
 
@@ -609,6 +610,6 @@ garb <- dev.off()
 
 ![](./images/example4.png)
 
-Well, it looks like the cluster centers have shifted a bit but these groups, based on these features, may not be distinguishable by the algorithm.
+Well, it looks like the cluster centers have shifted a bit but these groups, based on these features, may not be distinguishable by the algorithm. This goes to show that _kmeans_ doesn't perform very well in cases where the true groups aren't spherical and if there are unevenly sized clusters.  
 
-<br><br>
+## Conclusion
