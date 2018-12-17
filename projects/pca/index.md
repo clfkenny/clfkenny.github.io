@@ -254,6 +254,16 @@ subspace spanned by the first two eigenvectors.
 
 ``` r
 library(gridExtra)
+```
+
+    ## 
+    ## Attaching package: 'gridExtra'
+
+    ## The following object is masked from 'package:dplyr':
+    ## 
+    ##     combine
+
+``` r
 Z_df <- data.frame(x = Z[,1], y = Z[,2])
 g1 <- ggplot(Z_df , aes(x= x, y = y)) +
   geom_point(size = 1.5, color = 'steelblue') +

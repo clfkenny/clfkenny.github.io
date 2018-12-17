@@ -25,6 +25,7 @@ knitr::opts_chunk$set(
 library(knitr)
 library(kableExtra)
 library(gganimate)
+library(dplyr)
 ```
 
 
@@ -169,6 +170,7 @@ g <- ggplot(rot, aes(x = x, y = y)) +
 animate(g, nframes=  200, fps = 50,
         width = 600, height=550, res = 200)
 ```
+
 <p>
 
 Anyways, that's what essentially happens if you use the same number of eigenvectors (\(k = d\)) as there are features in the original data. It becomes a matrix that encodes a rotation operator. It changes the basis of \(X\) from the standard basis to an eigenbasis. Cool stuff, but if you want to actually reduce the dimensions of your data, you will want to use a \(k < d\), so in this case let's make \(k = 1\) such that \( P_1 \in {\rm I\!R}^{d \times 1} \). To visualize what will happen, let's plot the subspace that is spanned by the first eigenvector (indicated by the red line). Keep in mind that this is the direction of the highest variance in the data.
@@ -356,6 +358,7 @@ scatter3D(x = Z[,1], y = Z[,2], z = Z[,3], main = "3D Representation", xlab = 'P
 garb <- dev.off()
 ```
 ![](./images/plot8.png)
+
 
 Perhaps with this particular dataset, there aren't meaningful groupings or clusters we can infer from a lower dimensional visualization of the data.
 

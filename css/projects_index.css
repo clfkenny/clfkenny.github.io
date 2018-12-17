@@ -73,20 +73,20 @@ div.item-card#kmeans{
 }
 
 div.item-card#pca{
-  background-image:
+  background-image:url('/projects/img/pca.gif'),
     url('/images/rstudio_logo.png'),
     linear-gradient(var(--gradient-direction),var(--color-gradient));
   background-repeat: no-repeat, no-repeat;
-  background-size:100px, 100%;
-  background-position:95% -5px, 0% 0%;
+  background-size:60px, 100px, 100%;
+  background-position:10% 3px, 95% -5px, 0% 0%;
 }
 
 
-div.item-card#pokemon{
+div.item-card#shallow_net{
   background-image:url("/projects/img/neural-network.png"),
     url('/images/python_logo.png'),
     linear-gradient(var(--gradient-direction), var(--color-gradient));
   background-repeat: no-repeat, no-repeat, no-repeat;
-  background-size:100px, 100px, 100%;
+  background-size:70px, 100px, 100%;
   background-position:10% 10px, 95% 8px, 0% 0%;
 }
